@@ -1,8 +1,10 @@
-package camila.davi.isabelly.yasmin.domos;
+package camila.davi.isabelly.yasmin.domos.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import camila.davi.isabelly.yasmin.domos.R;
 
 public class MainActivity extends AppCompatActivity {
 

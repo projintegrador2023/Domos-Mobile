@@ -12,5 +12,5 @@
         android:layout_height="334dp"
         app:srcCompat="@mipmap/domos_logo_azul"
         tools:layout_editor_absoluteX="57dp"
-        tools:layout_editor_absoluteY="-43dp" />
+        tools:layout_editor_absoluteY="-53dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

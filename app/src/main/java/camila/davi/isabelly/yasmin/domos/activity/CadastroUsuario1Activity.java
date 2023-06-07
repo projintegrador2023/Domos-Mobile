@@ -1,10 +1,12 @@
-package camila.davi.isabelly.yasmin.domos;
+package camila.davi.isabelly.yasmin.domos.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class CadastroActivity extends AppCompatActivity {
+import camila.davi.isabelly.yasmin.domos.R;
+
+public class CadastroUsuario1Activity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -7,10 +7,10 @@
     tools:context=".LoginActivity">
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@mipmap/domos_logo_branca"
-        tools:layout_editor_absoluteX="146dp"
-        tools:layout_editor_absoluteY="246dp" />
+        android:id="@+id/imageView2"
+        android:layout_width="297dp"
+        android:layout_height="334dp"
+        app:srcCompat="@mipmap/domos_logo_azul"
+        tools:layout_editor_absoluteX="57dp"
+        tools:layout_editor_absoluteY="-43dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

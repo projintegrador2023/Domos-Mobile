@@ -4,14 +4,39 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/cinza_claro"
     tools:context=".activity.MainActivity">
 
     <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="294dp"
-        android:layout_height="310dp"
+        android:id="@+id/imvLogoCirculo"
+        android:layout_width="251dp"
+        android:layout_height="245dp"
+        android:layout_marginTop="100dp"
         android:src="@mipmap/logo_circulo"
-        tools:layout_editor_absoluteX="58dp"
-        tools:layout_editor_absoluteY="33dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imvLogoDomosA"
+        android:layout_width="335dp"
+        android:layout_height="88dp"
+        android:src="@mipmap/domos_logo_azul"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imvLogoCirculo" />
+
+    <TextView
+        android:id="@+id/tvBemVindo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Seja bem vindo!"
+        android:textColor="@color/verde_agua_escuro"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imvLogoDomosA" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

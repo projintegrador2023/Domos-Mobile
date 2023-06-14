@@ -11,6 +11,6 @@ public class CadastroUsuario2Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cadastro_usuario1);
+        setContentView(R.layout.activity_cadastro_usuario2);
     }
 }

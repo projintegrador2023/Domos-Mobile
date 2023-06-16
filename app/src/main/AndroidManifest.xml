@@ -12,17 +12,22 @@
         android:theme="@style/Theme.Domos"
         tools:targetApi="31">
         <activity
+            android:name=".AvisosActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.CadastroUsuario1Activity"
             android:exported="false" />
         <activity
             android:name=".activity.RecuperarSenhaActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.LoginActivity" android:theme="@style/Theme.AppCompat.NoActionBar"
-            android:exported="false" />
+            android:name=".activity.LoginActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
-            android:name=".activity.MainActivity" android:theme="@style/Theme.AppCompat.NoActionBar"
-            android:exported="true">
+            android:name=".activity.MainActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

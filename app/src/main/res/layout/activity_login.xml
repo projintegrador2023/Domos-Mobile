@@ -8,7 +8,7 @@
     tools:context=".activity.LoginActivity">
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/img_DomosLogin"
         android:layout_width="316dp"
         android:layout_height="159dp"
         android:layout_marginTop="60dp"
@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button_login"
+        android:id="@+id/btn_Login"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
@@ -29,10 +29,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/id_esqueceusenha_login" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_EsqueceuSenha" />
 
     <TextView
-        android:id="@+id/id_esqueceusenha_login"
+        android:id="@+id/tv_EsqueceuSenha"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="230dp"
@@ -42,23 +42,23 @@
         android:textColor="#0099AD"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/id_senha_login" />
+        app:layout_constraintTop_toBottomOf="@+id/et_SenhaLogin" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/tv_PossuiCadastro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="90dp"
         android:layout_marginTop="64dp"
         android:text="Não possui uma conta?"
         android:textColor="#005661"
-        app:layout_constraintEnd_toStartOf="@+id/id_cadastrese_login"
+        app:layout_constraintEnd_toStartOf="@+id/tv_CadastraUsuario"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_login" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_Login" />
 
     <TextView
-        android:id="@+id/id_cadastrese_login"
+        android:id="@+id/tv_CadastraUsuario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -67,11 +67,11 @@
         android:text="Cadastre-se"
         android:textColor="#0099AD"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView3"
-        app:layout_constraintTop_toBottomOf="@+id/button_login" />
+        app:layout_constraintStart_toEndOf="@+id/tv_PossuiCadastro"
+        app:layout_constraintTop_toBottomOf="@+id/btn_Login" />
 
     <EditText
-        android:id="@+id/id_cpf_login"
+        android:id="@+id/et_CpfSenha"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -85,10 +85,10 @@
         android:textColorHint="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+        app:layout_constraintTop_toBottomOf="@+id/img_DomosLogin" />
 
     <EditText
-        android:id="@+id/id_senha_login"
+        android:id="@+id/et_SenhaLogin"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -103,6 +103,6 @@
         android:textColorHint="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/id_cpf_login" />
+        app:layout_constraintTop_toBottomOf="@+id/et_CpfSenha" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

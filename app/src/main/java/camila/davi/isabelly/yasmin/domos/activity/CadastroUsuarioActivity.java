@@ -6,11 +6,11 @@ import android.os.Bundle;
 
 import camila.davi.isabelly.yasmin.domos.R;
 
-public class CadastroUsuario2Activity extends AppCompatActivity {
+public class CadastroUsuarioActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cadastro_usuario2);
+        setContentView(R.layout.activity_cadastro_usuario);
     }
 }

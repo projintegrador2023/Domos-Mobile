@@ -15,10 +15,10 @@
             android:name=".AvisosActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.CadastroUsuario1Activity"
+            android:name=".activity.CadastroUsuarioActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.RecuperarSenhaActivity"
+            android:name=".activity.RecuperaSenhaActivity"
             android:exported="false" />
         <activity
             android:name=".activity.LoginActivity"

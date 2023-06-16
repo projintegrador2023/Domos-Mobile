@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/img_DomosSenha"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="64dp"
@@ -18,31 +18,55 @@
         app:srcCompat="@mipmap/domos_logo_branca" />
 
     <ImageView
-        android:id="@+id/imageView7"
+        android:id="@+id/img_FundoSenha"
         android:layout_width="0dp"
-        android:layout_height="210dp"
+        android:layout_height="120dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="32dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3"
-        app:layout_constraintVertical_bias="0.101"
+        app:layout_constraintTop_toBottomOf="@+id/tv_RecuperarSenha"
         app:srcCompat="@drawable/edit_box_bg" />
 
-    <ImageView
-        android:id="@+id/id_recup_senha"
+    <EditText
+        android:id="@+id/tv_EmailSenha"
         android:layout_width="0dp"
-        android:layout_height="35dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="64dp"
-        android:layout_marginTop="128dp"
+        android:layout_marginTop="60dp"
         android:layout_marginEnd="64dp"
+        android:background="@drawable/edit_text_bg"
+        android:ems="10"
+        android:hint="  E-mail"
+        android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3"
-        app:srcCompat="@drawable/edit_text_bg" />
+        app:layout_constraintTop_toTopOf="@+id/img_FundoSenha" />
+
+    <TextView
+        android:id="@+id/tv_MsgEmail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="64dp"
+        android:text="Insira o seu email e enviaremos um link para você voltar a acessar a sua conta."
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/img_FundoSenha" />
+
+    <TextView
+        android:id="@+id/tv_RecuperarSenha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="128dp"
+        android:layout_marginTop="75dp"
+        android:layout_marginEnd="128dp"
+        android:text="Recuperar senha"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_DomosSenha" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

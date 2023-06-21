@@ -8,21 +8,21 @@
     tools:context=".fragment.AvisosFragment" >
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/etPesquisarAvisos"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:ems="10"
+        android:hint="Pesquisa"
         android:inputType="textPersonName"
-        android:text="Name"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton"
+        app:layout_constraintEnd_toStartOf="@+id/imbPesquisarAvisos"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/imbPesquisarAvisos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -39,30 +39,37 @@
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tbUrgente" />
 
     <ToggleButton
-        android:id="@+id/toggleButton2"
+        android:id="@+id/tbCritico"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ToggleButton"
-        tools:layout_editor_absoluteX="10dp"
-        tools:layout_editor_absoluteY="61dp" />
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Crítico"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etPesquisarAvisos" />
 
     <ToggleButton
-        android:id="@+id/toggleButton3"
+        android:id="@+id/tbUrgente"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:text="ToggleButton"
-        tools:layout_editor_absoluteX="118dp"
-        tools:layout_editor_absoluteY="62dp" />
+        app:layout_constraintEnd_toStartOf="@+id/tbImportante"
+        app:layout_constraintStart_toEndOf="@+id/tbCritico"
+        app:layout_constraintTop_toBottomOf="@+id/etPesquisarAvisos" />
 
     <ToggleButton
-        android:id="@+id/toggleButton4"
+        android:id="@+id/tbImportante"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
         android:text="ToggleButton"
-        tools:layout_editor_absoluteX="224dp"
-        tools:layout_editor_absoluteY="62dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etPesquisarAvisos" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/img_DomosSenha"
+        android:id="@+id/imgDomosSenha"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="64dp"
@@ -18,7 +18,7 @@
         app:srcCompat="@mipmap/domos_logo_branca" />
 
     <ImageView
-        android:id="@+id/img_FundoSenha"
+        android:id="@+id/imgFundoSenha"
         android:layout_width="0dp"
         android:layout_height="120dp"
         android:layout_marginStart="32dp"
@@ -27,11 +27,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_RecuperarSenha"
+        app:layout_constraintTop_toBottomOf="@+id/tvRecuperarSenha"
         app:srcCompat="@drawable/edit_box_bg" />
 
     <EditText
-        android:id="@+id/tv_EmailSenha"
+        android:id="@+id/tvEmailSenha"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="64dp"
@@ -43,10 +43,10 @@
         android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/img_FundoSenha" />
+        app:layout_constraintTop_toTopOf="@+id/imgFundoSenha" />
 
     <TextView
-        android:id="@+id/tv_MsgEmail"
+        android:id="@+id/tvMsgEmail"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="64dp"
@@ -55,10 +55,10 @@
         android:text="Insira o seu email e enviaremos um link para você voltar a acessar a sua conta."
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/img_FundoSenha" />
+        app:layout_constraintTop_toTopOf="@+id/imgFundoSenha" />
 
     <TextView
-        android:id="@+id/tv_RecuperarSenha"
+        android:id="@+id/tvRecuperarSenha"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="128dp"
@@ -67,6 +67,6 @@
         android:text="Recuperar senha"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/img_DomosSenha" />
+        app:layout_constraintTop_toBottomOf="@+id/imgDomosSenha" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

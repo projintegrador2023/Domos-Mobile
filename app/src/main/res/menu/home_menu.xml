@@ -2,8 +2,9 @@
 <menu xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:icon="@drawable/baseline_notifications_active_24" />
-    <item android:title="Item" />
-    <item android:title="Item" />
-    <item android:title="Item" />
+    <item android:icon="@drawable/icone_aviso" />
+    <item android:icon="@drawable/icone_anuncios" />
+    <item android:icon="@drawable/icone_reservas" />
+    <item android:icon="@drawable/baseline_assignment_24" />
+    <item android:icon="@drawable/baseline_person_24" />
 </menu>

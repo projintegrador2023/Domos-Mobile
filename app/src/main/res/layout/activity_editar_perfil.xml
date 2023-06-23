@@ -8,7 +8,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/clFragCadastro"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
@@ -17,21 +17,6 @@
         app:layout_constraintStart_toStartOf="parent"
         tools:context=".fragment.CadastroUsuario1Fragment"
         tools:layout_editor_absoluteY="262dp">
-
-        <Button
-            android:id="@+id/btnEditarPerfil"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="5dp"
-            android:backgroundTint="#0099AD"
-            android:text="Editar perfil"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvDivisao" />
 
         <TextView
             android:id="@+id/tvTagMorador"
@@ -113,6 +98,16 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/tvNumApto"
             app:layout_constraintTop_toBottomOf="@+id/tvCpf" />
+
+        <Button
+            android:id="@+id/btnAlterarPerfil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Alterar Perfil"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvDivisao" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageView

@@ -11,13 +11,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/edit_box_bg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnAlterarImagem"
-        tools:context=".fragment.CadastroUsuario1Fragment">
+        tools:context=".fragment.CadastroUsuario1Fragment"
+        tools:layout_editor_absoluteY="262dp">
 
         <Button
             android:id="@+id/btnEditarPerfil"
@@ -116,33 +115,13 @@
             app:layout_constraintTop_toBottomOf="@+id/tvCpf" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <ImageButton
-        android:id="@+id/imbAlterarFoto"
+    <ImageView
+        android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/baseline_add_photo_alternate_24"
-        tools:layout_editor_absoluteY="114dp" />
-
-    <Button
-        android:id="@+id/btnAlterarImagem"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        android:text="Alterar imagem"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imbAlterarFoto" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="can you blow my whistle baby"
-        tools:layout_editor_absoluteX="99dp"
-        tools:layout_editor_absoluteY="620dp" />
+        app:srcCompat="@drawable/baseline_person_pin_24"
+        tools:layout_editor_absoluteY="30dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

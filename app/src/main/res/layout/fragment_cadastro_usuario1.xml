@@ -82,7 +82,7 @@
         app:layout_constraintTop_toBottomOf="@+id/etSenhaCadastro" />
 
     <Button
-        android:id="@+id/btnContinuarCadastro"
+        android:id="@+id/btnEditarPerfil"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"

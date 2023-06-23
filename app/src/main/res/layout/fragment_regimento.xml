@@ -31,7 +31,7 @@
         app:layout_constraintTop_toTopOf="@+id/etPesquisaRegimento" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/tvRegimento"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"

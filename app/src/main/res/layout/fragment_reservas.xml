@@ -20,7 +20,7 @@
         android:unfocusedMonthDateColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
+        app:layout_constraintTop_toBottomOf="@+id/rcItensAreas" />
 
     <EditText
         android:id="@+id/etDataReservas"
@@ -49,7 +49,7 @@
         android:inputType="time"
         app:layout_constraintEnd_toStartOf="@+id/etHoraSaidaReservas"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintTop_toBottomOf="@+id/tvEntradaReservas" />
 
     <EditText
         android:id="@+id/etHoraSaidaReservas"
@@ -63,7 +63,7 @@
         android:inputType="time"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/etHoraEntradaReservas"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintTop_toBottomOf="@+id/tvSaidaReserva" />
 
     <Button
         android:id="@+id/btnConfirmarReservas"
@@ -79,19 +79,19 @@
         app:layout_constraintTop_toBottomOf="@+id/etHoraEntradaReservas" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/tvEntradaReservas"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:text="Hora de entrada:"
-        app:layout_constraintEnd_toStartOf="@+id/textView4"
+        app:layout_constraintEnd_toStartOf="@+id/tvSaidaReserva"
         app:layout_constraintHorizontal_bias="0.164"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etDataReservas" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/tvSaidaReserva"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginTop="8dp"
@@ -101,7 +101,7 @@
         app:layout_constraintTop_toBottomOf="@+id/etDataReservas" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+        android:id="@+id/rcItensAreas"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="16dp"

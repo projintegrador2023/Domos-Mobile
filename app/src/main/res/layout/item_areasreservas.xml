@@ -6,7 +6,7 @@
     android:layout_height="wrap_content">
 
     <ToggleButton
-        android:id="@+id/tgb_ItemArea"
+        android:id="@+id/tbItemArea"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="ToggleButton"

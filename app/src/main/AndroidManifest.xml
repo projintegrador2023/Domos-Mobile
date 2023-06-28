@@ -12,22 +12,14 @@
         android:theme="@style/Theme.Domos"
         tools:targetApi="31">
         <activity
-            android:name=".activity_criaranuncio"
-            android:exported="false" />
-        <activity
-            android:name=".EditarPerfil2Activity"
-            android:exported="false" />
-        <activity
-            android:name=".EditarPerfilActivity"
-            android:exported="false" />
-        <activity
-            android:name=".AvisosActivity"
+            android:name=".activity.EditarPerfilActivity"
             android:exported="false" />
         <activity
             android:name=".activity.CadastroUsuarioActivity"
             android:exported="false" />
         <activity
             android:name=".activity.RecuperaSenhaActivity"
+            android:theme="@style/Theme.DomosNoActionBar"
             android:exported="false" />
         <activity
             android:name=".activity.LoginActivity"

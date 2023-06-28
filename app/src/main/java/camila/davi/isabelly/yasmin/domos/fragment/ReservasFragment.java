@@ -1,4 +1,4 @@
-package camila.davi.isabelly.yasmin.domos;
+package camila.davi.isabelly.yasmin.domos.fragment;
 
 import android.os.Bundle;
 
@@ -7,6 +7,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import camila.davi.isabelly.yasmin.domos.R;
 
 /**
  * A simple {@link Fragment} subclass.

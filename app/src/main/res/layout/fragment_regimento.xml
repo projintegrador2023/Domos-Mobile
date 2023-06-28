@@ -5,7 +5,8 @@
     android:id="@+id/frameLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.RegimentoFragment" >
+    android:background="#F1F0EF"
+    tools:context=".fragment.RegimentoFragment">
 
     <EditText
         android:id="@+id/etPesquisaRegimento"
@@ -14,8 +15,9 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:background="@drawable/edit_text_bg"
         android:ems="10"
-        android:hint="Pesquisa"
+        android:hint="Pesquisar"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toStartOf="@+id/imbPesquisa"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,9 +28,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
+        android:backgroundTint="@color/cinza_claro"
         android:src="?android:attr/actionModeWebSearchDrawable"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/etPesquisaRegimento" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tvRegimento"
@@ -38,6 +41,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
+        android:background="@drawable/edit_text_bg"
         android:text="TEXTO REGIMENTO INTERNO AQUI"
         app:layout_constraintBottom_toTopOf="@+id/btnBaixarPdfRegimento"
         app:layout_constraintEnd_toEndOf="parent"

@@ -8,4 +8,7 @@
     <string-array name="divisao">
         <string name="divisao_default">Divisão</string>
     </string-array>
+    <string-array name="reservas">
+        <string name="reserva_default">Espaço a reservar</string>
+    </string-array>
 </resources>

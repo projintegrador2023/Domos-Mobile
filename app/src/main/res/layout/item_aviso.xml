@@ -5,30 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ToggleButton
-        android:id="@+id/tbFavoritaAviso"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:backgroundTint="#F0D838"
-        android:text="ToggleButton"
-        android:textColor="#FFFFFF"
-        android:textOff="Favoritar"
-        android:textOn="Favoritar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <TextView
         android:id="@+id/tvTituloAviso"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
         android:text="Título"
         android:textSize="24sp"
-        app:layout_constraintEnd_toStartOf="@+id/tbFavoritaAviso"
+        app:layout_constraintEnd_toStartOf="@+id/imbFavorita"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -39,7 +24,7 @@
         android:layout_marginStart="8dp"
         android:text="data e hora da postagem"
         android:textColor="@color/verde_agua_escuro"
-        app:layout_constraintEnd_toStartOf="@+id/tbFavoritaAviso"
+        app:layout_constraintEnd_toStartOf="@+id/imbFavorita"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvTituloAviso" />
 
@@ -73,5 +58,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvDescAviso" />
+
+    <ImageButton
+        android:id="@+id/imbFavorita"
+        android:layout_width="49dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/baseline_star_outline_24" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

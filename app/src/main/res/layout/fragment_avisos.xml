@@ -8,6 +8,17 @@
     android:background="#F1F0EF"
     tools:context=".fragment.AvisosFragment">
 
+    <ImageButton
+        android:id="@+id/imbPesquisar2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/edit_box_bg"
+        android:src="?android:attr/actionModeWebSearchDrawable"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <EditText
         android:id="@+id/etPesquisarAvisos"
         android:layout_width="0dp"
@@ -17,20 +28,11 @@
         android:layout_marginEnd="8dp"
         android:background="@drawable/edit_text_bg"
         android:ems="10"
-        android:hint="Pesquisa"
+        android:hint=" Pesquisar"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toStartOf="@+id/imbPesquisarAvisos"
+        android:textColorHint="#CCC7C1"
+        app:layout_constraintEnd_toStartOf="@+id/imbPesquisar2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageButton
-        android:id="@+id/imbPesquisarAvisos"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:backgroundTint="@color/cinza_claro"
-        android:src="@android:drawable/ic_menu_search"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
@@ -69,6 +71,7 @@
         android:textColor="#FFFFFF"
         android:textOff="Urgente"
         android:textOn="Urgente"
+        app:circularflow_radiusInDP="20dp"
         app:layout_constraintEnd_toStartOf="@+id/tbImportante"
         app:layout_constraintStart_toEndOf="@+id/tbCritico"
         app:layout_constraintTop_toBottomOf="@+id/etPesquisarAvisos" />

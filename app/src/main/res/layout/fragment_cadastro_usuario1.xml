@@ -18,6 +18,7 @@
         android:ems="10"
         android:hint="  Nº Apto"
         android:inputType="number"
+        android:textColorHint="#CCC7C1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etEmailCadastro" />
 
@@ -32,9 +33,10 @@
         android:ems="10"
         android:hint="  Nome"
         android:inputType="textPersonName"
+        android:textColorHint="#CCC7C1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <EditText
         android:id="@+id/etDivisaoCadastro"
@@ -47,6 +49,7 @@
         android:ems="10"
         android:hint="  Divisão"
         android:inputType="textPersonName"
+        android:textColorHint="#CCC7C1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/etAptoCadastro"
         app:layout_constraintTop_toBottomOf="@+id/etEmailCadastro" />
@@ -62,6 +65,7 @@
         android:ems="10"
         android:hint="  Digite sua senha"
         android:inputType="textPassword"
+        android:textColorHint="#CCC7C1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etAptoCadastro" />
@@ -77,6 +81,7 @@
         android:ems="10"
         android:hint="  Confirme sua senha"
         android:inputType="textPassword"
+        android:textColorHint="#CCC7C1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etSenhaCadastro" />
@@ -107,6 +112,7 @@
         android:ems="10"
         android:hint="  Cpf"
         android:inputType="number"
+        android:textColorHint="#CCC7C1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etNomeCadastro" />
@@ -122,9 +128,23 @@
         android:ems="10"
         android:hint="  E-mail"
         android:inputType="textEmailAddress"
+        android:textColorHint="#CCC7C1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etCpfCadastro" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="Informações pessoais"
+        android:textColor="@color/verde_agua_escuro"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

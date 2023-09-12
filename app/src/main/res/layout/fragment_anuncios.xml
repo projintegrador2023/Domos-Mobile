@@ -32,6 +32,7 @@
         android:ems="10"
         android:hint="Pesquisar"
         android:inputType="textPersonName"
+        android:textColorHint="#CCC7C1"
         app:layout_constraintEnd_toStartOf="@+id/imbPesquisar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

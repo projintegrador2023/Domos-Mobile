@@ -3,12 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/verde_agua_escuro">
 
     <ImageView
         android:id="@+id/imgDomosSenha"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
         android:layout_marginStart="64dp"
         android:layout_marginTop="128dp"
         android:layout_marginEnd="64dp"
@@ -19,8 +20,8 @@
 
     <ImageView
         android:id="@+id/imgFundoSenha"
-        android:layout_width="0dp"
-        android:layout_height="120dp"
+        android:layout_width="352dp"
+        android:layout_height="157dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="32dp"
@@ -41,6 +42,8 @@
         android:ems="10"
         android:hint="  E-mail"
         android:inputType="textEmailAddress"
+        android:textColor="#CCC7C1"
+        android:textColorHint="#CCC7C1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imgFundoSenha" />
@@ -64,9 +67,23 @@
         android:layout_marginStart="128dp"
         android:layout_marginTop="75dp"
         android:layout_marginEnd="128dp"
+        android:background="@color/verde_agua_escuro"
         android:text="Recuperar senha"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imgDomosSenha" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="227dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="ENVIAR"
+        app:layout_constraintEnd_toEndOf="@+id/imgFundoSenha"
+        app:layout_constraintStart_toStartOf="@+id/imgFundoSenha"
+        app:layout_constraintTop_toBottomOf="@+id/tvEmailSenha" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

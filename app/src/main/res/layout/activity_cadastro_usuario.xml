@@ -8,7 +8,7 @@
     tools:context=".activity.CadastroUsuarioActivity">
 
     <ImageView
-        android:id="@+id/img_DomosCadastro1"
+        android:id="@+id/imgDomosCadastro1"
         android:layout_width="252dp"
         android:layout_height="56dp"
         android:layout_marginStart="64dp"
@@ -30,7 +30,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/img_DomosCadastro1">
+        app:layout_constraintTop_toBottomOf="@+id/imgDomosCadastro1">
 
     </FrameLayout>
 

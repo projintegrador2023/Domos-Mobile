@@ -11,7 +11,7 @@ public class RecuperaSenhaActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_recupera_senha);
+        setContentView(R.layout.activity_recuperar_senha);
     }
 
 }

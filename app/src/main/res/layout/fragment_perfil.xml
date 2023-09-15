@@ -13,7 +13,7 @@
         android:background="@color/white">
 
         <Button
-            android:id="@+id/button4"
+            android:id="@+id/btMoradorPerfil"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -23,23 +23,37 @@
             android:text="morador"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+            app:layout_constraintTop_toBottomOf="@+id/imgPerfil" />
+
+
+        <ImageView
+            android:id="@+id/imgPerfil"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/icone_imgperfil"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="380dp"
+            android:layout_height="315dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="16dp"
             android:background="@drawable/edit_box_bg"
             android:backgroundTint="@color/ic_perfil_background"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button4">
+            app:layout_constraintTop_toBottomOf="@+id/btMoradorPerfil">
 
             <EditText
-                android:id="@+id/editTextTextPersonName3"
+                android:id="@+id/etEmailPerfil"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -52,10 +66,10 @@
                 android:textColorHint="#CCC7C1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName5" />
+                app:layout_constraintTop_toBottomOf="@+id/etCpfPerfil" />
 
             <EditText
-                android:id="@+id/editTextTextPersonName5"
+                android:id="@+id/etCpfPerfil"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -68,10 +82,10 @@
                 android:textColorHint="#CCC7C1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName4" />
+                app:layout_constraintTop_toBottomOf="@+id/etNomePerfil" />
 
             <EditText
-                android:id="@+id/etDivisaoCadastro2"
+                android:id="@+id/etDivisaoPerfil"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -83,11 +97,11 @@
                 android:inputType="textPersonName"
                 android:textColorHint="#CCC7C1"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/etAptoCadastro2"
-                app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3" />
+                app:layout_constraintStart_toEndOf="@+id/etAptoPerfil"
+                app:layout_constraintTop_toBottomOf="@+id/etEmailPerfil" />
 
             <EditText
-                android:id="@+id/etAptoCadastro2"
+                android:id="@+id/etAptoPerfil"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -98,12 +112,12 @@
                 android:hint="  Nº Apto"
                 android:inputType="number"
                 android:textColorHint="#CCC7C1"
-                app:layout_constraintEnd_toStartOf="@+id/etDivisaoCadastro2"
+                app:layout_constraintEnd_toStartOf="@+id/etDivisaoPerfil"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3" />
+                app:layout_constraintTop_toBottomOf="@+id/etEmailPerfil" />
 
             <EditText
-                android:id="@+id/editTextTextPersonName4"
+                android:id="@+id/etNomePerfil"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -123,10 +137,11 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="8dp"
                 android:backgroundTint="#D35656"
+                android:drawableLeft="@drawable/icone_encerrar"
                 android:shadowColor="#000000"
                 android:text="encerrar sessão"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -139,36 +154,18 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="17dp"
                 android:layout_marginEnd="16dp"
-                android:text="editar perfil"
+                android:layout_marginBottom="48dp"
+                android:backgroundTint="#0099ad"
+                android:drawableLeft="@drawable/icone_editar"
+                android:text="Editar Perfil"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/etDivisaoCadastro2" />
+                app:layout_constraintTop_toBottomOf="@+id/etDivisaoPerfil" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="266dp"
-            android:layout_height="303dp"
-            android:layout_marginEnd="21dp"
-            android:src="@drawable/ic_perfil_redondo_foreground"
-            app:layout_constraintEnd_toStartOf="@+id/constraintLayout"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="-75dp" />
-
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="0dp"
-            android:layout_height="100dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="16dp"
-            android:src="@drawable/perfil_24"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

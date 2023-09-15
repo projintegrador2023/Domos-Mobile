@@ -7,7 +7,9 @@
         android:angle="90"/>
     <corners
         android:bottomLeftRadius="30dp"
-        android:bottomRightRadius="30dp"/>
+        android:bottomRightRadius="30dp"
+        android:topLeftRadius="30dp"
+        android:topRightRadius="30dp"/>
     <stroke
         android:width="wrap_content"
         android:heigth="wrap_content"/>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/verde_agua_escuro">
+
+    <ImageView
+        android:id="@+id/imgDomosSenha"
+        android:layout_width="266dp"
+        android:layout_height="77dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="128dp"
+        android:layout_marginEnd="64dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/domos_logo_branca" />
+
+    <ImageView
+        android:id="@+id/imgFundoSenha"
+        android:layout_width="352dp"
+        android:layout_height="157dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvRecuperarSenha"
+        app:srcCompat="@drawable/edit_box_bg" />
+
+    <EditText
+        android:id="@+id/tvEmailSenha"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="64dp"
+        android:background="@drawable/edit_text_bg"
+        android:ems="10"
+        android:hint="  E-mail"
+        android:inputType="textEmailAddress"
+        android:textColor="#CCC7C1"
+        android:textColorHint="#CCC7C1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imgFundoSenha" />
+
+    <TextView
+        android:id="@+id/tvMsgEmail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="64dp"
+        android:text="Insira o seu email e enviaremos um link para você voltar a acessar a sua conta."
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imgFundoSenha" />
+
+    <TextView
+        android:id="@+id/tvRecuperarSenha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="128dp"
+        android:layout_marginTop="55dp"
+        android:layout_marginEnd="128dp"
+        android:background="@color/verde_agua_escuro"
+        android:text="Recuperar senha"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgDomosSenha" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="276dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="ENVIAR"
+        app:layout_constraintEnd_toEndOf="@+id/imgFundoSenha"
+        app:layout_constraintHorizontal_bias="0.477"
+        app:layout_constraintStart_toStartOf="@+id/imgFundoSenha"
+        app:layout_constraintTop_toBottomOf="@+id/tvEmailSenha" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

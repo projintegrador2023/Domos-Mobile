@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">Domos</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="napto">
+        <string name="napt_default">Número do apartamento</string>
+    </string-array>
+    <string-array name="divisao">
+        <string name="divisao_default">Divisão</string>
+    </string-array>
+    <string-array name="reservas">
+        <string name="reserva_default">Espaço a reservar</string>
+    </string-array>
 </resources>

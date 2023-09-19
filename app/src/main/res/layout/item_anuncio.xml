@@ -15,7 +15,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/dividerItemAnuncio2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dividerItemAnuncio"
         app:srcCompat="@drawable/icone_imgperfil" />
@@ -45,7 +45,7 @@
         android:text="Bloco - Apto"
         android:textColor="@color/verde_agua_escuro_escuro"
         android:textSize="10sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/dividerItemAnuncio2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/imgPerfilItemAnuncio"
@@ -56,7 +56,7 @@
         android:layout_width="0dp"
         android:layout_height="4dp"
         android:layout_marginTop="8dp"
-        android:background="@color/verde_agua_escuro_escuro"
+        android:background="@color/verde_agua_escuro"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvTagItemAnuncio" />
@@ -137,5 +137,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/icone_favoritos" />
+
+    <View
+        android:id="@+id/dividerItemAnuncio2"
+        android:layout_width="0dp"
+        android:layout_height="4dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/verde_agua_escuro"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgPerfilItemAnuncio" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

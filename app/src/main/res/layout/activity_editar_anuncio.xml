@@ -8,7 +8,7 @@
     tools:context=".activity.EditarAnuncioActivity">
 
     <EditText
-        android:id="@+id/etTituloAnuncio"
+        android:id="@+id/etTituloEditarAnuncio"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -24,7 +24,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/etDescricaoAnuncio"
+        android:id="@+id/etDescricaoEditarAnuncio"
         android:layout_width="0dp"
         android:layout_height="300dp"
         android:layout_marginStart="16dp"
@@ -38,10 +38,10 @@
         android:textColorHint="#CCC7C1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etTituloAnuncio" />
+        app:layout_constraintTop_toBottomOf="@+id/etTituloEditarAnuncio" />
 
     <Button
-        android:id="@+id/btnUploadImagemAnuncio"
+        android:id="@+id/btnUploadImgEditarAnuncio"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -51,7 +51,7 @@
         android:backgroundTint="#0099ad"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etDescricaoAnuncio" />
+        app:layout_constraintTop_toBottomOf="@+id/etDescricaoEditarAnuncio" />
 
     <TextView
         android:id="@+id/tvTagsAnuncios"
@@ -60,11 +60,11 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnUploadImagemAnuncio"
+        app:layout_constraintTop_toBottomOf="@+id/btnUploadImgEditarAnuncio"
         tools:text="Tags: " />
 
     <Spinner
-        android:id="@+id/spTagsAnuncios"
+        android:id="@+id/spTagsEditarAnuncios"
         android:layout_width="0dp"
         android:layout_height="30dp"
         android:layout_marginStart="8dp"
@@ -73,10 +73,10 @@
         android:background="@drawable/edit_text_bg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/tvTagsAnuncios"
-        app:layout_constraintTop_toBottomOf="@+id/btnUploadImagemAnuncio" />
+        app:layout_constraintTop_toBottomOf="@+id/btnUploadImgEditarAnuncio" />
 
     <Button
-        android:id="@+id/btnPublicarAnuncio"
+        android:id="@+id/btnPublicarEditarAnuncio"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"

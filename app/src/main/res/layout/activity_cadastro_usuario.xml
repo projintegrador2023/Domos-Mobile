@@ -4,20 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/verde_agua_escuro"
+    android:background="@color/cinza_claro"
     tools:context=".activity.CadastroUsuarioActivity">
-
-    <ImageView
-        android:id="@+id/imgDomosCadastro1"
-        android:layout_width="252dp"
-        android:layout_height="56dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="88dp"
-        android:layout_marginEnd="64dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/domos_logo_branca" />
 
     <FrameLayout
         android:layout_width="0dp"
@@ -30,8 +18,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgDomosCadastro1">
+        app:layout_constraintTop_toBottomOf="@+id/imageView2">
 
     </FrameLayout>
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="165dp"
+        android:layout_height="138dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/logo_circulo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

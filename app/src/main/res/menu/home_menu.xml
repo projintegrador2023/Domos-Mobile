@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:icon="@drawable/icone_avisos" />
-    <item android:icon="@drawable/icone_anuncios" />
+    <item android:icon="@drawable/icone_anunciar" />
     <item android:icon="@drawable/icone_reservas" />
     <item android:icon="@drawable/icone_regimento" />
     <item android:icon="@drawable/icone_perfil" />

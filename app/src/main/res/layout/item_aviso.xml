@@ -17,7 +17,7 @@
         android:text="Título"
         android:textColor="@color/verde_agua_escuro_escuro"
         android:textSize="24sp"
-        app:layout_constraintEnd_toStartOf="@+id/imbFavorita"
+        app:layout_constraintEnd_toStartOf="@+id/imgFavoritaAviso"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -28,7 +28,7 @@
         android:layout_marginStart="8dp"
         android:text="Data e hora da postagem"
         android:textColor="@color/verde_agua_escuro"
-        app:layout_constraintEnd_toStartOf="@+id/imbFavorita"
+        app:layout_constraintEnd_toStartOf="@+id/imgFavoritaAviso"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvTituloAviso" />
 
@@ -66,7 +66,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tvDescAviso" />
 
     <ImageButton
-        android:id="@+id/imbFavorita"
+        android:id="@+id/imgFavoritaAviso"
         android:layout_width="54dp"
         android:layout_height="52dp"
         android:layout_marginTop="8dp"
@@ -74,6 +74,6 @@
         android:background="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/baseline_star_outline_24" />
+        app:srcCompat="@drawable/icone_favoritos" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

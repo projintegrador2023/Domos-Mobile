@@ -4,32 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/verde_agua_escuro">
-
-    <ImageView
-        android:id="@+id/imgDomosSenha"
-        android:layout_width="266dp"
-        android:layout_height="77dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="128dp"
-        android:layout_marginEnd="64dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/domos_logo_branca" />
+    android:background="@drawable/edit_box_bg">
 
     <ImageView
         android:id="@+id/imgFundoSenha"
-        android:layout_width="352dp"
-        android:layout_height="157dp"
+        android:layout_width="346dp"
+        android:layout_height="208dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="220dp"
         android:layout_marginEnd="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvRecuperarSenha"
-        app:srcCompat="@drawable/edit_box_bg" />
+        app:srcCompat="@drawable/edit_gradient_bg" />
 
     <EditText
         android:id="@+id/tvEmailSenha"
@@ -55,7 +43,9 @@
         android:layout_marginStart="64dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="64dp"
+        android:backgroundTint="@color/white"
         android:text="Insira o seu email e enviaremos um link para você voltar a acessar a sua conta."
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imgFundoSenha" />
@@ -64,27 +54,27 @@
         android:id="@+id/tvRecuperarSenha"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="128dp"
-        android:layout_marginTop="55dp"
-        android:layout_marginEnd="128dp"
-        android:background="@color/verde_agua_escuro"
+        android:background="@drawable/edit_box_bg"
         android:text="Recuperar senha"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgDomosSenha" />
+        android:textColor="@color/verde_agua_escuro"
+        tools:layout_editor_absoluteX="163dp"
+        tools:layout_editor_absoluteY="269dp" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="276dp"
         android:layout_height="40dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
+        android:backgroundTint="@color/verde_agua_escuro"
         android:text="ENVIAR"
-        app:layout_constraintEnd_toEndOf="@+id/imgFundoSenha"
-        app:layout_constraintHorizontal_bias="0.477"
-        app:layout_constraintStart_toStartOf="@+id/imgFundoSenha"
-        app:layout_constraintTop_toBottomOf="@+id/tvEmailSenha" />
+        tools:layout_editor_absoluteX="80dp"
+        tools:layout_editor_absoluteY="170dp" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="269dp"
+        android:layout_height="133dp"
+        app:srcCompat="@mipmap/domos_logo_azul"
+        tools:layout_editor_absoluteX="54dp"
+        tools:layout_editor_absoluteY="322dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

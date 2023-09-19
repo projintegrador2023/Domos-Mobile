@@ -15,7 +15,7 @@
     </style>
     <style name="Theme.DomosNoActionBar" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">#0099AD</item>
+        <item name="colorPrimary">#f1f0ef</item>
         <item name="colorPrimaryVariant">#1d5961</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->

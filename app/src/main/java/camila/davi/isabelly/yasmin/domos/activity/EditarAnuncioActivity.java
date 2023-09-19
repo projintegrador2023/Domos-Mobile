@@ -2,16 +2,16 @@ package camila.davi.isabelly.yasmin.domos.activity;
 
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import camila.davi.isabelly.yasmin.domos.R;
 
-public class RecuperaSenhaActivity extends AppCompatActivity {
+public class EditarAnuncioActivity extends AppCompatActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_recuperar_senha);
+        setContentView(R.layout.activity_editar_anuncio);
     }
-
 }

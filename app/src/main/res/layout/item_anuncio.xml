@@ -105,7 +105,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="8dp"
-        android:background="#FF6DA7"
+        android:background="@drawable/edit_text_bg"
         android:backgroundTint="#FF6DA7"
         android:text="Tag"
         android:textColor="#FFFFFF"

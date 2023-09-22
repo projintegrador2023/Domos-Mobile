@@ -22,30 +22,20 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <EditText
-        android:id="@+id/etPesquisarAnuncios"
-        android:layout_width="368dp"
-        android:layout_height="33dp"
+        android:id="@+id/etPesquisarAvisos"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="16dp"
         android:background="@drawable/edit_text_bg"
+        android:drawableRight="@drawable/icone_search"
         android:ems="10"
         android:hint=" Pesquisar"
         android:inputType="textPersonName"
         android:textColorHint="#CCC7C1"
-        app:layout_constraintEnd_toStartOf="@+id/imbPesquisar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageButton
-        android:id="@+id/imbPesquisar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:background="@drawable/edit_box_bg"
-        android:src="?android:attr/actionModeWebSearchDrawable"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
@@ -53,11 +43,12 @@
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etPesquisarAnuncios" />
+        app:layout_constraintTop_toBottomOf="@+id/etPesquisarAvisos" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvAnuncios"

@@ -68,7 +68,9 @@
         android:textColor="#0099AD"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/tvPossuiCadastro"
-        app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
+        app:layout_constraintTop_toBottomOf="@+id/btnLogin"
+        android:enabled="true"
+        android:clickable="true"/>
 
     <EditText
         android:id="@+id/etCpfSenha"

@@ -9,20 +9,6 @@
     tools:context=".fragment.CadastroUsuario1Fragment">
 
     <EditText
-        android:id="@+id/etAptoCadastro"
-        android:layout_width="142dp"
-        android:layout_height="34dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/edit_text_bg"
-        android:ems="10"
-        android:hint="  Nº Apto"
-        android:inputType="number"
-        android:textColorHint="#CCC7C1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etEmailCadastro" />
-
-    <EditText
         android:id="@+id/etNomeCadastro"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -39,22 +25,6 @@
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <EditText
-        android:id="@+id/etDivisaoCadastro"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="156dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/edit_text_bg"
-        android:ems="10"
-        android:hint="  Divisão"
-        android:inputType="textPersonName"
-        android:textColorHint="#CCC7C1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/etAptoCadastro"
-        app:layout_constraintTop_toBottomOf="@+id/etEmailCadastro" />
-
-    <EditText
         android:id="@+id/etSenhaCadastro"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -68,7 +38,7 @@
         android:textColorHint="#CCC7C1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etAptoCadastro" />
+        app:layout_constraintTop_toBottomOf="@+id/etEmailCadastro" />
 
     <EditText
         android:id="@+id/etConfirmarSenhaCadastro"
@@ -94,7 +64,7 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        android:backgroundTint="@color/verde_agua_escuro_escuro"
+        android:backgroundTint="@color/verde_agua_escuro"
         android:text="Continuar"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"

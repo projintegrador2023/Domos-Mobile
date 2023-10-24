@@ -2,13 +2,19 @@ package camila.davi.isabelly.yasmin.domos.fragment;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import camila.davi.isabelly.yasmin.domos.R;
+import camila.davi.isabelly.yasmin.domos.activity.CadastroUsuarioActivity;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -55,5 +61,34 @@ public class CadastroUsuario1Fragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_cadastro_usuario1, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        // itens de interface
+        Button btnContinuarCadastro = view.findViewById(R.id.btnContinuarCadastro);
+        EditText etNomeCadastro = view.findViewById(R.id.etNomeCadastro);
+        EditText etCpfCadastro = view.findViewById(R.id.etCpfCadastro);
+        EditText etEmailCadastro = view.findViewById(R.id.etEmailCadastro);
+        EditText etSenhaCadastro = view.findViewById(R.id.etSenhaCadastro);
+        EditText etConfirmarSenhaCadastro = view.findViewById(R.id.etConfirmarSenhaCadastro);
+
+        // configura o que fazer quando clicar no botao de continuar
+        btnContinuarCadastro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // pega o texto inserido nos edit texts
+                String nome = etNomeCadastro.toString();
+                String cpf = etCpfCadastro.toString();
+                String email = etEmailCadastro.toString();
+                String senha = etSenhaCadastro.toString();
+                String confirmarSenha = etConfirmarSenhaCadastro.toString();
+                Toast.makeText(getActivity(), nome, Toast.LENGTH_LONG).show();
+
+                CadastroUsuarioActivity cadastroUsuarioActivity = (CadastroUsuarioActivity) getActivity();
+                cadastroUsuarioActivity.setCadastroUsuario2Fragment();
+            }
+        });
     }
 }

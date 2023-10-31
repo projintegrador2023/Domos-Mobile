@@ -9,9 +9,10 @@
     tools:context=".activity.HomeActivity">
 
     <FrameLayout
+        android:id="@+id/fragContainerHome"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+        app:layout_constraintBottom_toTopOf="@+id/btnMenu"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -19,7 +20,7 @@
     </FrameLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNavigationView"
+        android:id="@+id/btnMenu"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@color/verde_agua_escuro"

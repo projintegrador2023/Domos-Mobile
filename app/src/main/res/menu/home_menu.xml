@@ -2,9 +2,16 @@
 <menu xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:icon="@drawable/icone_avisos" />
-    <item android:icon="@drawable/icone_anunciar" />
-    <item android:icon="@drawable/icone_reservas" />
-    <item android:icon="@drawable/icone_regimento" />
-    <item android:icon="@drawable/icone_perfil" />
+    <item
+        android:id="@+id/btnAvisos"
+        android:icon="@drawable/icone_avisos" />
+    <item
+        android:id="@+id/btnAnuncios"
+        android:icon="@drawable/icone_anunciar" />
+    <item
+        android:id="@+id/btnRegimento"
+        android:icon="@drawable/icone_regimento" />
+    <item
+        android:id="@+id/btnPerfil"
+        android:icon="@drawable/icone_perfil" />
 </menu>

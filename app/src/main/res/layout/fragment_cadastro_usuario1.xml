@@ -56,6 +56,39 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etSenhaCadastro" />
 
+    <EditText
+        android:id="@+id/etConfirmarSenhaCadastro2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/edit_text_bg"
+        android:ems="10"
+        android:hint="  Confirme sua senha"
+        android:inputType="textPassword"
+        android:textColorHint="#CCC7C1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etSenhaCadastro" />
+
+    <EditText
+        android:id="@+id/etCodCond1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/edit_text_bg"
+        android:ems="10"
+        android:hint=" Código de condomínio"
+        android:inputType="textPassword"
+        android:textColorHint="#CCC7C1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etConfirmarSenhaCadastro" />
+
     <Button
         android:id="@+id/btnContinuarCadastro"
         android:layout_width="0dp"
@@ -70,7 +103,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etConfirmarSenhaCadastro" />
+        app:layout_constraintTop_toBottomOf="@+id/etCodCond1" />
 
     <EditText
         android:id="@+id/etCpfCadastro"

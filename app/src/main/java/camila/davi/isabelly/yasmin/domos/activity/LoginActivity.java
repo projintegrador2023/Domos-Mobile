@@ -15,7 +15,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
+        TextView etCpfSenha
         TextView tvCadastraUsuario = findViewById(R.id.tvCadastraUsuario);
         tvCadastraUsuario.setOnClickListener(new View.OnClickListener() {
             @Override

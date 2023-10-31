@@ -6,24 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/edit_gradient_bg"
+    android:foregroundTint="#FFFFFF"
     tools:context=".fragment.CadastroUsuario2Fragment">
-
-    <EditText
-        android:id="@+id/etCodigoCadastro2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/edit_text_bg"
-        android:ems="10"
-        android:hint="  Código"
-        android:inputType="number"
-        android:textColorHint="#CCC7C1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <Spinner
         android:id="@+id/spAptoCadastro2"
@@ -35,10 +19,11 @@
         android:background="@drawable/edit_text_bg"
         android:backgroundTint="@color/verde_agua_escuro"
         android:entries="@array/napto"
+        android:foregroundTint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etCodigoCadastro2" />
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <Spinner
         android:id="@+id/spDivisaoCadastro2"

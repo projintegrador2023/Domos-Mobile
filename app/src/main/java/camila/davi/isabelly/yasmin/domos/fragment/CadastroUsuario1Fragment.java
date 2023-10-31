@@ -73,21 +73,30 @@ public class CadastroUsuario1Fragment extends Fragment {
         EditText etEmailCadastro = view.findViewById(R.id.etEmailCadastro);
         EditText etSenhaCadastro = view.findViewById(R.id.etSenhaCadastro);
         EditText etConfirmarSenhaCadastro = view.findViewById(R.id.etConfirmarSenhaCadastro);
+        EditText etCodCond1 = view.findViewById(R.id.etCodCond1);
 
         // configura o que fazer quando clicar no botao de continuar
         btnContinuarCadastro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // pega o texto inserido nos edit texts
-                String nome = etNomeCadastro.toString();
-                String cpf = etCpfCadastro.toString();
-                String email = etEmailCadastro.toString();
-                String senha = etSenhaCadastro.toString();
-                String confirmarSenha = etConfirmarSenhaCadastro.toString();
-                Toast.makeText(getActivity(), nome, Toast.LENGTH_LONG).show();
+                String nome = etNomeCadastro.getText().toString();
+                String cpf = etCpfCadastro.getText().toString();
+                String email = etEmailCadastro.getText().toString();
+                String senha = etSenhaCadastro.getText().toString();
+                String confirmarSenha = etConfirmarSenhaCadastro.getText().toString();
+                String codigoCondominio = etCodCond1.getText().toString();
 
-                CadastroUsuarioActivity cadastroUsuarioActivity = (CadastroUsuarioActivity) getActivity();
-                cadastroUsuarioActivity.setCadastroUsuario2Fragment();
+                if (nome.length() > 0 && cpf.length() > 0 && email.length() > 0 && senha.length() > 0 && confirmarSenha.length() > 0 && codigoCondominio.length() > 0){
+                    if (senha.equals(confirmarSenha)){
+                        CadastroUsuarioActivity cadastroUsuarioActivity = (CadastroUsuarioActivity) getActivity();
+                        cadastroUsuarioActivity.setCadastroUsuario2Fragment();
+                    } else {
+                        Toast.makeText(getActivity(), "As senhas devem ser iguais.", Toast.LENGTH_LONG).show();
+                    }
+                } else {
+                    Toast.makeText(getActivity(), "Insira todos os dados corretamente", Toast.LENGTH_LONG).show();
+                }
             }
         });
     }

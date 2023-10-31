@@ -82,7 +82,7 @@
         android:background="@drawable/edit_text_bg"
         android:ems="10"
         android:hint=" Código de condomínio"
-        android:inputType="textPassword"
+        android:inputType="number"
         android:textColorHint="#CCC7C1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

@@ -1,5 +1,6 @@
 package camila.davi.isabelly.yasmin.domos.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -11,8 +12,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import camila.davi.isabelly.yasmin.domos.R;
+import camila.davi.isabelly.yasmin.domos.activity.CadastroUsuarioActivity;
+import camila.davi.isabelly.yasmin.domos.activity.HomeActivity;
 import camila.davi.isabelly.yasmin.domos.model.CadastroUsuarioViewModel;
 
 /**
@@ -78,7 +82,16 @@ public class CadastroUsuario2Fragment extends Fragment {
             public void onClick(View view) {
                 String apartamento = spAptoCadastro.getSelectedItem().toString();
                 String divisao = spDivisaoCadastro.getSelectedItem().toString();
-                System.out.println(apartamento + divisao);
+                if (!apartamento.equals("Número do apartamento") && !divisao.equals("Divisão")){
+                    cadastroUsuarioViewModel.setnApto(apartamento);
+                    cadastroUsuarioViewModel.setDivisao(divisao);
+                    Intent i = new Intent((CadastroUsuarioActivity) getActivity(), HomeActivity.class);
+                    startActivity(i);
+                }
+                else {
+                    Toast.makeText(getActivity(), "Selecione opções válidas", Toast.LENGTH_LONG).show();
+                }
+
             }
         });
     }

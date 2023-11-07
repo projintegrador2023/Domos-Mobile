@@ -4,9 +4,11 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string-array name="napto">
         <item name="napt_default">Número do apartamento</item>
+        <item name="1">101</item>
     </string-array>
     <string-array name="divisao">
         <item name="divisao_default">Divisão</item>
+        <item name="1">1</item>
     </string-array>
     <string-array name="reservas">
         <item name="reserva_default">Espaço a reservar</item>

@@ -89,7 +89,6 @@ public class CadastroUsuario1Fragment extends Fragment {
                 String senha = etSenhaCadastro.getText().toString();
                 String confirmarSenha = etConfirmarSenhaCadastro.getText().toString();
                 String codigoCondominio = etCodCond1.getText().toString();
-                System.out.println(senha + ' ' + confirmarSenha);
 
                 if (nome.length() > 0 && cpf.length() > 0 && email.length() > 0 && senha.length() > 0 && confirmarSenha.length() > 0 && codigoCondominio.length() > 0){
                     if (validaCPF(cpf)){

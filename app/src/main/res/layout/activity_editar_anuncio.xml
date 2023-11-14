@@ -66,7 +66,7 @@
         tools:text="Tags: " />
 
     <Spinner
-        android:id="@+id/spTagsEditarAnuncios"
+        android:id="@+id/spTagsEditarAnuncio"
         android:layout_width="0dp"
         android:layout_height="30dp"
         android:layout_marginStart="8dp"
@@ -78,7 +78,7 @@
         app:layout_constraintTop_toBottomOf="@+id/btnUpImgEditarAnuncio" />
 
     <Button
-        android:id="@+id/btnPublicarEditarAnuncio"
+        android:id="@+id/btnPubliEditarAnuncio"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"

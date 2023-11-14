@@ -26,7 +26,7 @@ public class CriarAvisoActivity extends AppCompatActivity {
             }
         });
 
-        Button btnPublicarEditarAnuncio = findViewById(R.id.btnPublicarEditarAnuncio);
+        Button btnPublicarEditarAnuncio = findViewById(R.id.btnPubliEditarAnuncio);
 
         btnPublicarEditarAnuncio.setOnClickListener(new View.OnClickListener() {
             @Override

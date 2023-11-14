@@ -18,7 +18,6 @@ import java.util.InputMismatchException;
 import camila.davi.isabelly.yasmin.domos.R;
 import camila.davi.isabelly.yasmin.domos.activity.CadastroUsuarioActivity;
 import camila.davi.isabelly.yasmin.domos.bd.Usuario;
-import camila.davi.isabelly.yasmin.domos.model.CadastroUsuarioViewModel;
 
 /**
  * A simple {@link Fragment} subclass.

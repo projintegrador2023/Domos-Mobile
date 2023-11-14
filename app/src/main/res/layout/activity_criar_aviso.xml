@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ic_perfil_background"
+    tools:context=".CriarAvisoActivity">
+
+    <Button
+        android:id="@+id/btnPubliAviso"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="#0099ad"
+        android:text="Publicar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spTagCriarAvido" />
+
+    <Spinner
+        android:id="@+id/spTagCriarAvido"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/edit_text_bg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvTagAviso"
+        app:layout_constraintTop_toBottomOf="@+id/etDescCriarAviso" />
+
+    <TextView
+        android:id="@+id/tvTagAviso"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etDescCriarAviso"
+        tools:text="Tags: " />
+
+    <EditText
+        android:id="@+id/etDescCriarAviso"
+        android:layout_width="0dp"
+        android:layout_height="300dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/edit_text_bg"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="  Descrição"
+        android:inputType="textMultiLine"
+        android:textColorHint="#CCC7C1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etTitCriarAviso" />
+
+    <EditText
+        android:id="@+id/etTitCriarAviso"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/edit_text_bg"
+        android:backgroundTint="@color/ic_perfil_redondo_background"
+        android:ems="10"
+        android:hint=" Título"
+        android:inputType="textPersonName"
+        android:textColor="@color/cinza_claro"
+        android:textColorHint="#CCC7C1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="50dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>

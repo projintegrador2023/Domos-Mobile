@@ -1,14 +1,20 @@
 package camila.davi.isabelly.yasmin.domos.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import camila.davi.isabelly.yasmin.domos.R;
+import camila.davi.isabelly.yasmin.domos.activity.HomeActivity;
+import camila.davi.isabelly.yasmin.domos.activity.LoginActivity;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -55,5 +61,16 @@ public class RegimentoFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_regimento, container, false);
+
+
+    }
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        Button btnBaixarPdfRegimento = view.findViewById(R.id.btnEncerrarSessao);
+        btnBaixarPdfRegimento.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
 }

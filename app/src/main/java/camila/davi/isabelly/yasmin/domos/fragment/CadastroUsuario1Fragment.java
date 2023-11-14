@@ -17,6 +17,7 @@ import java.util.InputMismatchException;
 
 import camila.davi.isabelly.yasmin.domos.R;
 import camila.davi.isabelly.yasmin.domos.activity.CadastroUsuarioActivity;
+import camila.davi.isabelly.yasmin.domos.bd.Usuario;
 import camila.davi.isabelly.yasmin.domos.model.CadastroUsuarioViewModel;
 
 /**
@@ -94,8 +95,8 @@ public class CadastroUsuario1Fragment extends Fragment {
                     if (validaCPF(cpf)){
                         if (senha.equals(confirmarSenha)){
                             CadastroUsuarioActivity cadastroUsuarioActivity = (CadastroUsuarioActivity) getActivity();
-                            CadastroUsuarioViewModel cadastroUsuarioViewModel = new CadastroUsuarioViewModel(nome, cpf, email, senha, codigoCondominio);
-                            cadastroUsuarioActivity.setCadastroUsuario2Fragment(cadastroUsuarioViewModel);
+                            Usuario usuario = new Usuario(cpf, nome, email, senha, codigoCondominio);
+                            cadastroUsuarioActivity.setCadastroUsuario2Fragment(usuario);
                         } else {
                             Toast.makeText(getActivity(), "As senhas devem ser iguais.", Toast.LENGTH_LONG).show();
                         }

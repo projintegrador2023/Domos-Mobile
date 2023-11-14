@@ -7,12 +7,12 @@ import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
 
 import camila.davi.isabelly.yasmin.domos.R;
+import camila.davi.isabelly.yasmin.domos.bd.Usuario;
 import camila.davi.isabelly.yasmin.domos.fragment.CadastroUsuario1Fragment;
 import camila.davi.isabelly.yasmin.domos.fragment.CadastroUsuario2Fragment;
 import camila.davi.isabelly.yasmin.domos.model.CadastroUsuarioViewModel;
 
 public class CadastroUsuarioActivity extends AppCompatActivity {
-    CadastroUsuarioViewModel cadastroUsuarioViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,9 +30,8 @@ public class CadastroUsuarioActivity extends AppCompatActivity {
         fragmentTransaction.commit();
     }
 
-    public void setCadastroUsuario2Fragment(CadastroUsuarioViewModel cadastroUsuarioViewModel){
-        this.cadastroUsuarioViewModel = cadastroUsuarioViewModel;
-        CadastroUsuario2Fragment cadastroUsuario2Fragment = CadastroUsuario2Fragment.newInstance(cadastroUsuarioViewModel);
+    public void setCadastroUsuario2Fragment(Usuario usuario){
+        CadastroUsuario2Fragment cadastroUsuario2Fragment = CadastroUsuario2Fragment.newInstance(usuario);
         setFragment(cadastroUsuario2Fragment);
     }
 }

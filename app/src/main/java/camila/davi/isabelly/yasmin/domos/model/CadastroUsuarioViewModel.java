@@ -1,70 +1,55 @@
 package camila.davi.isabelly.yasmin.domos.model;
 
-public class CadastroUsuarioViewModel {
-    private String nome, cpf, email, senha, codigo, nApto, divisao;
+import android.app.Application;
 
-    public CadastroUsuarioViewModel(String nome, String cpf, String email, String senha, String codigo) {
-        this.nome = nome;
-        this.cpf = cpf;
-        this.email = email;
-        this.senha = senha;
-        this.codigo = codigo;
+import androidx.annotation.NonNull;
+import androidx.lifecycle.AndroidViewModel;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
+
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+public class CadastroUsuarioViewModel extends AndroidViewModel {
+
+    public CadastroUsuarioViewModel(@NonNull Application application) {
+        super(application);
     }
+    public LiveData<Boolean> register(String newLogin, String newPassword) {
 
+        // Cria um container do tipo MutableLiveData (um LiveData que pode ter seu conteúdo alterado).
+        MutableLiveData<Boolean> result = new MutableLiveData<>();
 
-    public String getNome() {
-        return nome;
-    }
+        // Cria uma nova linha de execução (thread). O android obriga que chamadas de rede sejam feitas
+        // em uma linha de execução separada da principal.
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+        // Executa a nova linha de execução. Dentro dessa linha, iremos realizar as requisições ao
+        // servidor web.
+        executorService.execute(new Runnable() {
 
-    public String getCpf() {
-        return cpf;
-    }
+            /**
+             * Tudo o que colocármos dentro da função run abaixo será executada dentro da nova linha
+             * de execução.
+             */
+            @Override
+            public void run() {
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
+                // Criamos uma instância de ProductsRepository. É dentro dessa classe que estão os
+                // métodos que se comunicam com o servidor web.
+                DomosRepository domosRepository = new DomosRepository(getApplication());
 
-    public String getEmail() {
-        return email;
-    }
+                // O método login envia os dados de novo usuário ao servidor. Ele retorna
+                // um booleano indicando true caso o cadastro de novo usuário tenha sido feito com sucesso e false
+                // em caso contrário
+                boolean b = domosRepository.register(newLogin, newPassword);
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+                // Aqui postamos o resultado da operação dentro do LiveData. Quando fazemos isso,
+                // quem estiver observando o LiveData será avisado de que o resultado está disponível.
+                result.postValue(b);
+            }
+        });
 
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
-
-    public String getCodigo() {
-        return codigo;
-    }
-
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
-    }
-
-    public String getnApto() {
-        return nApto;
-    }
-
-    public void setnApto(String nApto) {
-        this.nApto = nApto;
-    }
-
-    public String getDivisao() {
-        return divisao;
-    }
-
-    public void setDivisao(String divisao) {
-        this.divisao = divisao;
+        return result;
     }
 }

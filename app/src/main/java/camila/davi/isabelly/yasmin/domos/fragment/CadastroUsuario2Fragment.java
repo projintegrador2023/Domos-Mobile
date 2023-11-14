@@ -6,6 +6,8 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.Observer;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +19,7 @@ import android.widget.Toast;
 import camila.davi.isabelly.yasmin.domos.R;
 import camila.davi.isabelly.yasmin.domos.activity.CadastroUsuarioActivity;
 import camila.davi.isabelly.yasmin.domos.activity.HomeActivity;
+import camila.davi.isabelly.yasmin.domos.bd.Usuario;
 import camila.davi.isabelly.yasmin.domos.model.CadastroUsuarioViewModel;
 
 /**
@@ -35,13 +38,13 @@ public class CadastroUsuario2Fragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    CadastroUsuarioViewModel cadastroUsuarioViewModel;
+    Usuario usuario;
 
     public CadastroUsuario2Fragment() {
         // Required empty public constructor
     }
-    public CadastroUsuario2Fragment(CadastroUsuarioViewModel cadastroUsuarioViewModel) {
-       this.cadastroUsuarioViewModel = cadastroUsuarioViewModel;
+    public CadastroUsuario2Fragment(Usuario usuario) {
+       this.usuario = usuario;
     }
 
     /**
@@ -51,8 +54,8 @@ public class CadastroUsuario2Fragment extends Fragment {
      * @return A new instance of fragment CadastrUsuario2Fragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static CadastroUsuario2Fragment newInstance(CadastroUsuarioViewModel cadastroUsuarioViewModel) {
-        return new CadastroUsuario2Fragment(cadastroUsuarioViewModel);
+    public static CadastroUsuario2Fragment newInstance(Usuario usuario) {
+        return new CadastroUsuario2Fragment(usuario);
     }
 
     @Override
@@ -83,8 +86,35 @@ public class CadastroUsuario2Fragment extends Fragment {
                 String apartamento = spAptoCadastro.getSelectedItem().toString();
                 String divisao = spDivisaoCadastro.getSelectedItem().toString();
                 if (!apartamento.equals("Número do apartamento") && !divisao.equals("Divisão")){
-                    cadastroUsuarioViewModel.setnApto(apartamento);
-                    cadastroUsuarioViewModel.setDivisao(divisao);
+                    // O ViewModel possui o método register, que envia as informações para o servidor web.
+                    // O servidor web recebe as infos e cadastra um novo usuário. Se o usuário foi cadastrado
+                    // com sucesso, a app recebe o valor true. Se não o servidor retorna o valor false.
+                    //
+                    // O método de register retorna um LiveData, que na prática é um container que avisa
+                    // quando o resultado do servidor chegou.
+                    LiveData<Boolean> resultLD = CadastroUsuarioViewModel.register(, );
+
+                    // Aqui nós observamos o LiveData. Quando o servidor responder, o resultado indicando
+                    // se o cadastro deu certo ou não será guardado dentro do LiveData. Neste momento o
+                    // LiveData avisa que o resultado chegou chamando o método onChanged abaixo.
+                    resultLD.observe((CadastroUsuarioActivity) getActivity(), new Observer<Boolean>() {
+                        @Override
+                        public void onChanged(Boolean aBoolean) {
+                            // aBoolean contém o resultado do cadastro. Se aBoolean for true, significa
+                            // que o cadastro do usuário foi feito corretamente. Indicamos isso ao usuário
+                            // através de uma mensagem do tipo toast e finalizamos a Activity. Quando
+                            // finalizamos a Activity, voltamos para a tela de login.
+                            if(aBoolean) {
+                                Toast.makeText(RegisterActivity.this, "Novo usuario registrado com sucesso", Toast.LENGTH_LONG).show();
+                                finish();
+                            }
+                            else {
+                                // Se o cadastro não deu certo, apenas continuamos na tela de cadastro e
+                                // indicamos com uma mensagem ao usuário que o cadastro não deu certo.
+                                Toast.makeText(RegisterActivity.this, "Erro ao registrar novo usuário", Toast.LENGTH_LONG).show();
+                            }
+                        }
+                    });
                     Intent i = new Intent((CadastroUsuarioActivity) getActivity(), HomeActivity.class);
                     startActivity(i);
                 }

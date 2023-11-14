@@ -253,4 +253,12 @@ public class Util {
         byte[] imageAsBytes = Base64.decode(myImageData.getBytes(),Base64.DEFAULT);
         return BitmapFactory.decodeByteArray(imageAsBytes, 0, imageAsBytes.length);
     }
+
+    public static Bitmap inputStream2Bitmap(InputStream is) throws IOException {
+        try {
+            return BitmapFactory.decodeStream(is);
+        } finally {
+            is.close();
+        }
+    }
 }

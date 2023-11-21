@@ -41,20 +41,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etTitEditarAnuncio" />
 
-    <Button
-        android:id="@+id/btnUpImgEditarAnuncio"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:text="UPLOAD IMAGEM"
-        android:backgroundTint="#0099ad"
-        android:drawableLeft="@drawable/icone_upload"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etDescEditarAnuncio" />
-
     <TextView
         android:id="@+id/tvTagsAnuncios"
         android:layout_width="wrap_content"
@@ -90,4 +76,17 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvTagsAnuncios" />
+
+    <ImageButton
+        android:id="@+id/btnUpImgEditarAnuncio"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@color/verde_agua_escuro"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etDescEditarAnuncio"
+        app:srcCompat="@drawable/icone_upimg" />
 </androidx.constraintlayout.widget.ConstraintLayout>

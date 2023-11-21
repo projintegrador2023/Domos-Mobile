@@ -26,40 +26,30 @@
     <EditText
         android:id="@+id/etDescCriarAnuncio"
         android:layout_width="0dp"
-        android:layout_height="300dp"
+        android:layout_height="0dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
         android:background="@drawable/edit_text_bg"
         android:ems="10"
         android:gravity="start|top"
         android:hint="  Descrição"
         android:inputType="textMultiLine"
         android:textColorHint="#CCC7C1"
+        app:layout_constraintBottom_toTopOf="@+id/btnUpImgCriarAnuncio"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etTitCriarAnuncio" />
-
-    <Button
-        android:id="@+id/btnUpImgCriarAnuncio"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:text="UPLOAD IMAGEM"
-        android:backgroundTint="#0099ad"
-        android:drawableLeft="@drawable/icone_upload"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etDescCriarAnuncio" />
 
     <TextView
         android:id="@+id/tvTagsAnuncios"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnPublicarCriarAnuncio"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnUpImgCriarAnuncio"
         tools:text="Tags: " />
@@ -69,25 +59,38 @@
         android:layout_width="0dp"
         android:layout_height="30dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
         android:background="@drawable/edit_text_bg"
+        app:layout_constraintBottom_toTopOf="@+id/btnPublicarCriarAnuncio"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/tvTagsAnuncios"
-        app:layout_constraintTop_toBottomOf="@+id/btnUpImgCriarAnuncio" />
+        app:layout_constraintStart_toEndOf="@+id/tvTagsAnuncios" />
 
     <Button
         android:id="@+id/btnPublicarCriarAnuncio"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
-        android:text="Publicar"
+        android:layout_marginBottom="8dp"
         android:backgroundTint="#0099ad"
+        android:text="Publicar"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageButton
+        android:id="@+id/btnUpImgCriarAnuncio"
+        android:layout_width="0dp"
+        android:layout_height="300dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@color/verde_agua_escuro"
+        app:layout_constraintBottom_toTopOf="@+id/spTagCriarAnuncio"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvTagsAnuncios" />
+        app:srcCompat="@drawable/icone_upimg" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

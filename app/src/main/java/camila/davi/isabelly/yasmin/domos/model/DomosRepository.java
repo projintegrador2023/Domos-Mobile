@@ -153,7 +153,7 @@ public class DomosRepository {
      * @param imgLocation endereço do arquivo que contém a imagem do produto
      * @return true se o produto foi cadastrado junto ao servidor, false caso contrário
      */
-    public boolean addProduct(String name, String price, String description, String imgLocation) {
+    public boolean criarAnuncio(String name, String tag, String description, String imgLocation) {
 
         // Para cadastrar um produto, é preciso estar logado. Então primeiro otemos o login e senha
         // salvos na app.
@@ -161,9 +161,9 @@ public class DomosRepository {
         String password = Config.getPassword(context);
 
         // Cria uma requisição HTTP a adiona o parâmetros que devem ser enviados ao servidor
-        HttpRequest httpRequest = new HttpRequest(Config.DOMOS_APP_URL + "criar_produto.php", "POST", "UTF-8");
+        HttpRequest httpRequest = new HttpRequest(Config.DOMOS_APP_URL + "criar_anuncio.php", "POST", "UTF-8");
         httpRequest.addParam("nome", name);
-        httpRequest.addParam("preco", price);
+        httpRequest.addParam("tag", tag);
         httpRequest.addParam("descricao", description);
         httpRequest.addFile("img", new File(imgLocation));
 

@@ -33,12 +33,18 @@ public class DomosRepository {
      * @param newPassword a senha do novo usuário
      * @return true se o usuário foi cadastrado e false caso contrário
      */
-    public boolean register(String newLogin, String newPassword) {
+    public boolean register(String cpf, String nome, String email, String senha, String codigoCondominio, String nApto, String divisao) {
 
         // Cria uma requisição HTTP a adiona o parâmetros que devem ser enviados ao servidor
-        HttpRequest httpRequest = new HttpRequest(Config.PRODUCTS_APP_URL + "registrar.php", "POST", "UTF-8");
-        httpRequest.addParam("novo_login", newLogin);
-        httpRequest.addParam("nova_senha", newPassword);
+        HttpRequest httpRequest = new HttpRequest(Config.DOMOS_APP_URL + "registrar.php", "POST", "UTF-8");
+        httpRequest.addParam("cpf", cpf);
+        httpRequest.addParam("nome", nome);
+        httpRequest.addParam("email", email);
+        httpRequest.addParam("senha", senha);
+        httpRequest.addParam("codigo_condominio", codigoCondominio);
+        httpRequest.addParam("numero_apartamento", nApto);
+        httpRequest.addParam("divisao", divisao);
+
 
         String result = "";
         try {
@@ -93,7 +99,7 @@ public class DomosRepository {
     public boolean login(String login, String password) {
 
         // Cria uma requisição HTTP a adiona o parâmetros que devem ser enviados ao servidor
-        HttpRequest httpRequest = new HttpRequest(Config.PRODUCTS_APP_URL + "login.php", "POST", "UTF-8");
+        HttpRequest httpRequest = new HttpRequest(Config.DOMOS_APP_URL + "login.php", "POST", "UTF-8");
         httpRequest.setBasicAuth(login, password);
 
         String result = "";
@@ -155,7 +161,7 @@ public class DomosRepository {
         String password = Config.getPassword(context);
 
         // Cria uma requisição HTTP a adiona o parâmetros que devem ser enviados ao servidor
-        HttpRequest httpRequest = new HttpRequest(Config.PRODUCTS_APP_URL + "criar_produto.php", "POST", "UTF-8");
+        HttpRequest httpRequest = new HttpRequest(Config.DOMOS_APP_URL + "criar_produto.php", "POST", "UTF-8");
         httpRequest.addParam("nome", name);
         httpRequest.addParam("preco", price);
         httpRequest.addParam("descricao", description);
@@ -229,7 +235,7 @@ public class DomosRepository {
         String password = Config.getPassword(context);
 
         // Cria uma requisição HTTP a adiona o parâmetros que devem ser enviados ao servidor
-        HttpRequest httpRequest = new HttpRequest(Config.PRODUCTS_APP_URL +"pegar_produtos.php", "GET", "UTF-8");
+        HttpRequest httpRequest = new HttpRequest(Config.DOMOS_APP_URL +"pegar_produtos.php", "GET", "UTF-8");
         httpRequest.addParam("limit", limit.toString());
         httpRequest.addParam("offset", offSet.toString());
 
@@ -328,7 +334,7 @@ public class DomosRepository {
         String password = Config.getPassword(context);
 
         // Cria uma requisição HTTP a adiona o parâmetros que devem ser enviados ao servidor
-        HttpRequest httpRequest = new HttpRequest(Config.PRODUCTS_APP_URL + "pegar_detalhes_produto.php", "GET", "UTF-8");
+        HttpRequest httpRequest = new HttpRequest(Config.DOMOS_APP_URL + "pegar_detalhes_produto.php", "GET", "UTF-8");
         httpRequest.addParam("id", id);
 
         // Para esta ação, é preciso estar logado. Então na requisição HTTP setamos o login e senha do

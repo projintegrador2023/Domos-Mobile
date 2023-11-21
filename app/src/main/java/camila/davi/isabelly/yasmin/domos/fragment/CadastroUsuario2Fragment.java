@@ -21,6 +21,7 @@ import camila.davi.isabelly.yasmin.domos.activity.CadastroUsuarioActivity;
 import camila.davi.isabelly.yasmin.domos.activity.HomeActivity;
 import camila.davi.isabelly.yasmin.domos.bd.Usuario;
 import camila.davi.isabelly.yasmin.domos.model.CadastroUsuarioViewModel;
+import camila.davi.isabelly.yasmin.domos.model.DomosRepository;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -86,13 +87,14 @@ public class CadastroUsuario2Fragment extends Fragment {
                 String apartamento = spAptoCadastro.getSelectedItem().toString();
                 String divisao = spDivisaoCadastro.getSelectedItem().toString();
                 if (!apartamento.equals("Número do apartamento") && !divisao.equals("Divisão")){
+                    DomosRepository domosRepository = new DomosRepository(getContext());
                     // O ViewModel possui o método register, que envia as informações para o servidor web.
                     // O servidor web recebe as infos e cadastra um novo usuário. Se o usuário foi cadastrado
                     // com sucesso, a app recebe o valor true. Se não o servidor retorna o valor false.
                     //
                     // O método de register retorna um LiveData, que na prática é um container que avisa
                     // quando o resultado do servidor chegou.
-                    LiveData<Boolean> resultLD = CadastroUsuarioViewModel.register(, );
+                    LiveData<Boolean> resultLD = domosRepository.register(usuario.cpf, usuario.nome, usuario.email, usuario.senha, usuario.codigoCondominio, apartamento, divisao);
 
                     // Aqui nós observamos o LiveData. Quando o servidor responder, o resultado indicando
                     // se o cadastro deu certo ou não será guardado dentro do LiveData. Neste momento o
@@ -105,13 +107,12 @@ public class CadastroUsuario2Fragment extends Fragment {
                             // através de uma mensagem do tipo toast e finalizamos a Activity. Quando
                             // finalizamos a Activity, voltamos para a tela de login.
                             if(aBoolean) {
-                                Toast.makeText(RegisterActivity.this, "Novo usuario registrado com sucesso", Toast.LENGTH_LONG).show();
-                                finish();
+                                DomosRepository.login();
                             }
                             else {
                                 // Se o cadastro não deu certo, apenas continuamos na tela de cadastro e
                                 // indicamos com uma mensagem ao usuário que o cadastro não deu certo.
-                                Toast.makeText(RegisterActivity.this, "Erro ao registrar novo usuário", Toast.LENGTH_LONG).show();
+                                Toast.makeText((CadastroUsuarioActivity) getActivity(), "Erro ao registrar novo usuário", Toast.LENGTH_LONG).show();
                             }
                         }
                     });

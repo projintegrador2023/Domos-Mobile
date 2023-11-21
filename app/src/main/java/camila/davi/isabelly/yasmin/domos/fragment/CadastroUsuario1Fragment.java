@@ -99,6 +99,8 @@ public class CadastroUsuario1Fragment extends Fragment {
                         } else {
                             Toast.makeText(getActivity(), "As senhas devem ser iguais.", Toast.LENGTH_LONG).show();
                         }
+                    } else {
+                        Toast.makeText(getActivity(), "CPF inválido.", Toast.LENGTH_LONG).show();
                     }
                 } else {
                     Toast.makeText(getActivity(), "Insira todos os dados corretamente", Toast.LENGTH_LONG).show();

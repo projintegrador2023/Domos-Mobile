@@ -1,10 +1,10 @@
 package camila.davi.isabelly.yasmin.domos.bd;
 
 public class Usuario {
-    String cpf, nome, email, senha, codigoCondominio;
-    int codigoNivelPermissao;
-    Moradia moradia;
-    Imagem imagem;
+    public String cpf, nome, email, senha, codigoCondominio;
+    public int codigoNivelPermissao;
+    public Moradia moradia;
+    public Imagem imagem;
 
     public Usuario(String cpf, String nome, String email, String senha, String codigoCondominio) {
         this.cpf = cpf;

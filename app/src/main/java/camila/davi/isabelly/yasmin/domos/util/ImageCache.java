@@ -109,7 +109,7 @@ public class ImageCache {
             executorService.execute(new Runnable() {
                 @Override
                 public void run() {
-                    HttpRequest httpRequest = new HttpRequest(Config.PRODUCTS_APP_URL + "pegar_imagem_produto.php", "GET", "UTF-8");
+                    HttpRequest httpRequest = new HttpRequest(Config.DOMOS_APP_URL + "pegar_imagem_produto.php", "GET", "UTF-8");
                     httpRequest.addParam("id", id);
 
                     try {

@@ -13,4 +13,19 @@
     <string-array name="reservas">
         <item name="reserva_default">Espaço a reservar</item>
     </string-array>
+    <string-array name="filtro_anuncios">
+        <item> Alimentação </item>
+        <item> Vestuário </item>
+        <item> Eletrônicos </item>
+        <item> Beleza </item>
+        <item> Decoração </item>
+        <item> Petshop </item>
+        <item> Serviços </item>
+    </string-array>
+    <string-array name="filtro_avisos">
+        <item> Crítico </item>
+        <item> Urgente </item>
+        <item> Importante </item>
+    </string-array>
+
 </resources>

@@ -1,10 +1,19 @@
 package camila.davi.isabelly.yasmin.domos.bd;
 
-public class Anuncio extends Postagem{
-    int codigoTag;
+public class Anuncio{
+    int tag, codigoPostagem;
+    String dataHoraPostagem, descricao, titulo;
+    Usuario usuario;
+    Imagem img;
 
-    public Anuncio(int codigoPostagem, String dataHoraPostagem, String descricao, String titulo, Usuario usuario, Imagem imagem, int codigoTag) {
-        super(codigoPostagem, dataHoraPostagem, descricao, titulo, usuario, imagem);
-        this.codigoTag = codigoTag;
+
+    public Anuncio(int codigoPostagem, String dataHoraPostagem, String descricao, String titulo, Usuario usuario, Imagem img, int tag) {
+        this.codigoPostagem = codigoPostagem;
+        this.dataHoraPostagem = dataHoraPostagem;
+        this.descricao = descricao;
+        this.titulo = titulo;
+        this.usuario = usuario;
+        this.tag = tag;
+        this.img = img;
     }
 }

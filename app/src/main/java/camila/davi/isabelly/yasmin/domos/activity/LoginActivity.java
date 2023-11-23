@@ -3,6 +3,9 @@ package camila.davi.isabelly.yasmin.domos.activity;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.Manifest;
 import android.app.AlertDialog;
@@ -12,12 +15,17 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import camila.davi.isabelly.yasmin.domos.R;
+import camila.davi.isabelly.yasmin.domos.model.LoginViewModel;
+import camila.davi.isabelly.yasmin.domos.util.Config;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -28,19 +36,56 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        // A tela de login na prática é a primeira que vai aparecer na app. Então é aqui que a gente
-        // pede as permissões necessárias. A app precisa de duas permissões:
-        // - Camera -> para tirar foto do produto
-        // - Acesso à galeria publica - para escolher um foto da galeria do celular como foto do
-        // produto.
+        // permissões
         List<String> permissions = new ArrayList<>();
         permissions.add(Manifest.permission.CAMERA);
         permissions.add(Manifest.permission.READ_EXTERNAL_STORAGE);
         checkForPermissions(permissions);
 
+
         TextView etCpfSenha = findViewById(R.id.etCpfSenha);
+        TextView etSenhaLogin = findViewById(R.id.etSenhaLogin);
         TextView tvCadastraUsuario = findViewById(R.id.tvCadastraUsuario);
         TextView tvEsqueceuSenha = findViewById(R.id.tvEsqueceuSenha);
+
+        LoginViewModel loginViewModel = new ViewModelProvider(this).get(LoginViewModel.class);
+
+        Button btnLogin = findViewById(R.id.btnLogin);
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                final String login = etCpfSenha.getText().toString();
+                final String password = etSenhaLogin.getText().toString();
+
+                LiveData<Boolean> resultLD = loginViewModel.login(login, password);
+
+                resultLD.observe(LoginActivity.this, new Observer<Boolean>() {
+                    @Override
+                    public void onChanged(Boolean aBoolean) {
+
+                        if(aBoolean) {
+
+                            // guarda os dados de login e senha dentro da app
+                            Config.setLogin(LoginActivity.this, login);
+                            Config.setPassword(LoginActivity.this, password);
+
+                            // exibe uma mensagem indicando que o login deu certo
+                            Toast.makeText(LoginActivity.this, "Login realizado com sucesso", Toast.LENGTH_LONG).show();
+
+                            // Navega para tela principal
+                            Intent i = new Intent(LoginActivity.this, HomeActivity.class);
+                            startActivity(i);
+                        }
+                        else {
+
+                            Toast.makeText(LoginActivity.this, "Não foi possível realizar o login da aplicação", Toast.LENGTH_LONG).show();
+                        }
+                    }
+                });
+            }
+        });
+
         tvCadastraUsuario.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

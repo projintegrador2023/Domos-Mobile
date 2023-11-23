@@ -1,6 +1,9 @@
 package camila.davi.isabelly.yasmin.domos.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +14,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import camila.davi.isabelly.yasmin.domos.R;
+import camila.davi.isabelly.yasmin.domos.model.CriarAnuncioViewModel;
+import camila.davi.isabelly.yasmin.domos.model.CriarAvisoViewModel;
 
 public class CriarAvisoActivity extends AppCompatActivity {
 
@@ -19,15 +24,19 @@ public class CriarAvisoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_criar_aviso);
 
+        CriarAvisoViewModel criarAvisoViewModel = new ViewModelProvider(this).get(CriarAvisoViewModel.class);
+
         TextView etTitCriarAviso = findViewById(R.id.etTitCriarAviso);
         TextView etDescCriarAviso = findViewById(R.id.etDescCriarAviso);
         Spinner spTagCriarAviso = findViewById(R.id.spTagCriarAviso);
 
-        Button btnPublicarEditarAnuncio = findViewById(R.id.btnPubliAviso);
+        Button btnPublicarEditarAviso = findViewById(R.id.btnPubliAviso);
 
-        btnPublicarEditarAnuncio.setOnClickListener(new View.OnClickListener() {
+        btnPublicarEditarAviso.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                v.setEnabled(false);
+
                 String titulo = etTitCriarAviso.getText().toString();
                 if (titulo.isEmpty()) {
                     Toast.makeText(CriarAvisoActivity.this, "É necessário inserir um título",
@@ -40,15 +49,38 @@ public class CriarAvisoActivity extends AppCompatActivity {
                             Toast.LENGTH_LONG).show();
                     return;
                 }
-                String tag = spTagCriarAviso.getSelectedItem().toString();
-                if (tag.isEmpty()) {
-                    Toast.makeText(CriarAvisoActivity.this, "É necessário escolher uma tag",
+                String importancia = spTagCriarAviso.getSelectedItem().toString();
+                if (importancia.isEmpty()) {
+                    Toast.makeText(CriarAvisoActivity.this, "É necessário escolher uma importância",
                             Toast.LENGTH_LONG).show();
                     return;
                 }
                 Intent i = new Intent(CriarAvisoActivity.this, HomeActivity.class);
                 startActivity(i);
+
+                LiveData<Boolean> resultLD = criarAvisoViewModel.criarAviso(titulo, importancia, descricao);
+
+
+                resultLD.observe(CriarAvisoActivity.this, new Observer<Boolean>() {
+                    @Override
+                    public void onChanged(Boolean aBoolean) {
+
+                        if(aBoolean == true) {
+                            Toast.makeText(CriarAvisoActivity.this, "Aviso criado com sucesso", Toast.LENGTH_LONG).show();
+                            setResult(RESULT_OK);
+                            finish();
+                        }
+                        else {
+                            v.setEnabled(true);
+                            Toast.makeText(CriarAvisoActivity.this, "Ocorreu um erro ao criar o aviso", Toast.LENGTH_LONG).show();
+
+                        }
+                    }
+                });
             }
+
+
+
         });
     }
 }

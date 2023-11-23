@@ -10,25 +10,20 @@ import androidx.lifecycle.MutableLiveData;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class CriarAnuncioViewModel extends AndroidViewModel {
+public class LoginViewModel extends AndroidViewModel {
 
-
-
-    String currentPhotoPath = "";
-
-    public CriarAnuncioViewModel(@NonNull Application application) {
+    public LoginViewModel(@NonNull Application application) {
         super(application);
     }
 
-    public String getCurrentPhotoPath() {
-        return currentPhotoPath;
-    }
-
-    public void setCurrentPhotoPath(String currentPhotoPath) {
-        this.currentPhotoPath = currentPhotoPath;
-    }
-
-    public LiveData<Boolean> criarAnuncio(String titulo, String tag, String descricao, String imgLocation) {
+    /**
+     * Método que cria e executa uma requisição ao servidor web para autenticar um usuário
+     * na base de dados do servidor
+     * @param login login do usuário
+     * @param password senha do usuário
+     * @return um LiveData que vai conter a resposta do servidor quando esta estiver disponível
+     */
+    public LiveData<Boolean> login(String login, String password) {
 
         // Cria um container do tipo MutableLiveData (um LiveData que pode ter seu conteúdo alterado).
         MutableLiveData<Boolean> result = new MutableLiveData<>();
@@ -40,6 +35,7 @@ public class CriarAnuncioViewModel extends AndroidViewModel {
         // Executa a nova linha de execução. Dentro dessa linha, iremos realizar as requisições ao
         // servidor web.
         executorService.execute(new Runnable() {
+
             /**
              * Tudo o que colocármos dentro da função run abaixo será executada dentro da nova linha
              * de execução.
@@ -51,10 +47,10 @@ public class CriarAnuncioViewModel extends AndroidViewModel {
                 // métodos que se comunicam com o servidor web.
                 DomosRepository domosRepository = new DomosRepository(getApplication());
 
-                // O método addProduct envia os dados de um novo produto ao servidor. Ele retorna
-                // um booleano indicando true caso o produto tenha sido cadastrado e false
+                // O método login envia os dados de autenticação ao servidor. Ele retorna
+                // um booleano indicando true caso o login tenha sido feito com sucesso e false
                 // em caso contrário
-                boolean b = domosRepository.criarAnuncio(titulo, tag, descricao, imgLocation);
+                boolean b = domosRepository.login(login, password);
 
                 // Aqui postamos o resultado da operação dentro do LiveData. Quando fazemos isso,
                 // quem estiver observando o LiveData será avisado de que o resultado está disponível.
@@ -64,6 +60,5 @@ public class CriarAnuncioViewModel extends AndroidViewModel {
 
         return result;
     }
-
-
 }
+

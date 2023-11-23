@@ -10,25 +10,13 @@ import androidx.lifecycle.MutableLiveData;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class CriarAnuncioViewModel extends AndroidViewModel {
+public class CriarAvisoViewModel extends AndroidViewModel {
 
-
-
-    String currentPhotoPath = "";
-
-    public CriarAnuncioViewModel(@NonNull Application application) {
+    public CriarAvisoViewModel(@NonNull Application application) {
         super(application);
     }
 
-    public String getCurrentPhotoPath() {
-        return currentPhotoPath;
-    }
-
-    public void setCurrentPhotoPath(String currentPhotoPath) {
-        this.currentPhotoPath = currentPhotoPath;
-    }
-
-    public LiveData<Boolean> criarAnuncio(String titulo, String tag, String descricao, String imgLocation) {
+    public LiveData<Boolean> criarAviso(String name, String importancia, String description) {
 
         // Cria um container do tipo MutableLiveData (um LiveData que pode ter seu conteúdo alterado).
         MutableLiveData<Boolean> result = new MutableLiveData<>();
@@ -54,7 +42,7 @@ public class CriarAnuncioViewModel extends AndroidViewModel {
                 // O método addProduct envia os dados de um novo produto ao servidor. Ele retorna
                 // um booleano indicando true caso o produto tenha sido cadastrado e false
                 // em caso contrário
-                boolean b = domosRepository.criarAnuncio(titulo, tag, descricao, imgLocation);
+                boolean b = domosRepository.criarAviso(name, importancia, description);
 
                 // Aqui postamos o resultado da operação dentro do LiveData. Quando fazemos isso,
                 // quem estiver observando o LiveData será avisado de que o resultado está disponível.
@@ -64,6 +52,4 @@ public class CriarAnuncioViewModel extends AndroidViewModel {
 
         return result;
     }
-
-
 }

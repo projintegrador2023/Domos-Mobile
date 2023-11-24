@@ -38,7 +38,7 @@ public class DomosRepository {
     public boolean register(String cpf, String nome, String email, String senha, String codigoCondominio, String nApto, String divisao) {
 
         // Cria uma requisição HTTP a adiona o parâmetros que devem ser enviados ao servidor
-        HttpRequest httpRequest = new HttpRequest(Config.DOMOS_APP_URL + "registrar.php", "POST", "UTF-8");
+        HttpRequest httpRequest = new HttpRequest(Config.DOMOS_APP_URL + "mobile/registrar.php", "POST", "UTF-8");
         httpRequest.addParam("cpf", cpf);
         httpRequest.addParam("nome", nome);
         httpRequest.addParam("email", email);

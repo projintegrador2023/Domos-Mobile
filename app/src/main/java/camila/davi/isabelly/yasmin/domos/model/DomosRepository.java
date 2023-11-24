@@ -3,8 +3,8 @@ package camila.davi.isabelly.yasmin.domos.model;
 import android.content.Context;
 import android.util.Log;
 
-import camila.davi.isabelly.yasmin.domos.bd.Anuncio;
 import camila.davi.isabelly.yasmin.domos.bd.Aviso;
+import camila.davi.isabelly.yasmin.domos.bd.Regimento;
 import camila.davi.isabelly.yasmin.domos.util.Config;
 import camila.davi.isabelly.yasmin.domos.util.HttpRequest;
 import camila.davi.isabelly.yasmin.domos.util.Util;
@@ -383,7 +383,10 @@ public class DomosRepository {
         return listaAvisos;
     }
 
-    public List<Anuncio> loadRegimento(Integer limit, Integer offSet) {
+    public Regimento loadRegimento(Integer limit, Integer offSet) {
+
+        // cria a lista de produtos incicialmente vazia, que será retornada como resultado
+
 
         // Para obter a lista de produtos é preciso estar logado. Então primeiro otemos o login e senha
         // salvos na app.
@@ -391,7 +394,7 @@ public class DomosRepository {
         String password = Config.getPassword(context);
 
         // Cria uma requisição HTTP a adiona o parâmetros que devem ser enviados ao servidor
-        HttpRequest httpRequest = new HttpRequest(Config.DOMOS_APP_URL +"pegar_anuncios.php", "GET", "UTF-8");
+        HttpRequest httpRequest = new HttpRequest(Config.DOMOS_APP_URL + "pegar_regimento.php", "GET", "UTF-8");
         httpRequest.addParam("limit", limit.toString());
         httpRequest.addParam("offset", offSet.toString());
 
@@ -402,6 +405,7 @@ public class DomosRepository {
         httpRequest.setBasicAuth(login, password);
 
         String result = "";
+        Regimento regimento = null;
         try {
             // Executa a requisição HTTP. É neste momento que o servidor web é contactado. Ao executar
             // a requisição é aberto um fluxo de dados entre o servidor e a app (InputStream is).
@@ -438,33 +442,21 @@ public class DomosRepository {
 
             // Se sucesso igual a 1, os produtos são obtidos da String JSON e adicionados à lista de
             // produtos a ser retornada como resultado.
-            if(success == 1) {
+            if (success == 1) {
 
                 // A chave produtos é um array de objetos do tipo json (JSONArray), onde cada um desses representa
                 // um produto
-                JSONArray jsonArray = jsonObject.getJSONArray("avisos");
+                JSONArray jsonArray = jsonObject.getJSONArray("regimento");
 
                 // Cada elemento do JSONArray é um JSONObject que guarda os dados de um produto
-                for(int i = 0; i < jsonArray.length(); i++) {
 
-                    // Obtemos o JSONObject referente a um produto
-                    JSONObject jAnuncio = jsonArray.getJSONObject(i);
 
-                    // Obtemos os dados de um produtos via JSONObject
-                    int codigoPostagem = jAnuncio.getInt("codigoPostagem");
-                    String dataHoraPostagem = jAnuncio.getString("dataHoraPostagem");
-                    String descricao = jAnuncio.getString("descricao");
-                    String titulo = jAnuncio.getString("titulo");
-                    int usuario = jAnuncio.getInt("usuario");
-                    String img = jAnuncio.getString("img");
-                    int tag = jAnuncio.getInt("tag");
+                // Obtemos o JSONObject referente a um produto
+                JSONObject jAviso = jsonArray.getJSONObject(0);
+                int codigo = jAviso.getInt("codigo");
+                String link = jAviso.getString("link");
 
-                    // Criamo um objeto do tipo Product para guardar esses dados
-                    Anuncio anuncio = new Anuncio(codigoPostagem, dataHoraPostagem, descricao, titulo, usuario, img, tag);
-
-                    // Adicionamos o objeto product na lista de produtos
-                    listaAnuncios.add(anuncio);
-                }
+                regimento = new Regimento(codigo, link);
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -473,6 +465,7 @@ public class DomosRepository {
             Log.e("HTTP RESULT", result);
         }
 
-        return listaAnuncios;
+        return regimento;
     }
+
 }

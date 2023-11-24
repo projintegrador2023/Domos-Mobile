@@ -151,6 +151,9 @@ public class CriarAnuncioActivity extends AppCompatActivity {
                             // indica que a Activity terminou com resultado positivo e a finaliza
                             setResult(RESULT_OK);
                             finish();
+
+                            Intent i = new Intent(CriarAnuncioActivity.this, HomeActivity.class);
+                            startActivity(i);
                         }
                         else {
                             // Se o cadastro não deu certo, apenas continuamos na tela de cadastro e

@@ -5,7 +5,7 @@ import android.content.SharedPreferences;
 
 public class Config {
     // endereço base do servidor web
-    public static String DOMOS_APP_URL = "https://productifes-dispmoveisbsi.b4a.run/";
+    public static String DOMOS_APP_URL = "https://domos1-c4ajptt0.b4a.run/html/mobile/";
 
     /**
      * Salva o login no espaço reservado da app

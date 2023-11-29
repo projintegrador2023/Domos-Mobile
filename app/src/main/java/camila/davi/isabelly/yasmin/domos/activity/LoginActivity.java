@@ -79,7 +79,7 @@ public class LoginActivity extends AppCompatActivity {
                         }
                         else {
 
-                            Toast.makeText(LoginActivity.this, "Não foi possível realizar o login da aplicação", Toast.LENGTH_LONG).show();
+                            Toast.makeText(LoginActivity.this, "Não foi possível realizar o login na aplicação", Toast.LENGTH_LONG).show();
                         }
                     }
                 });

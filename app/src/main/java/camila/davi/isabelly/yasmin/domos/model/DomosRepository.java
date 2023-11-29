@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.Log;
 
 import camila.davi.isabelly.yasmin.domos.bd.Aviso;
+import camila.davi.isabelly.yasmin.domos.bd.NumDivCondominio;
 import camila.davi.isabelly.yasmin.domos.bd.Regimento;
 import camila.davi.isabelly.yasmin.domos.util.Config;
 import camila.davi.isabelly.yasmin.domos.util.HttpRequest;
@@ -38,7 +39,7 @@ public class DomosRepository {
     public boolean register(String cpf, String nome, String email, String senha, String codigoCondominio, String nApto, String divisao) {
 
         // Cria uma requisição HTTP a adiona o parâmetros que devem ser enviados ao servidor
-        HttpRequest httpRequest = new HttpRequest(Config.DOMOS_APP_URL + "mobile/registrar.php", "POST", "UTF-8");
+        HttpRequest httpRequest = new HttpRequest(Config.DOMOS_APP_URL + "registrar.php", "POST", "UTF-8");
         httpRequest.addParam("cpf", cpf);
         httpRequest.addParam("nome", nome);
         httpRequest.addParam("email", email);
@@ -288,6 +289,85 @@ public class DomosRepository {
      * @param offSet a posição a partir da qual a página de produtos deve começar
      * @return lista de produtos
      */
+    public NumDivCondominio loadNumDiv(String codigo_condominio) {
+
+        // Cria uma requisição HTTP a adiona o parâmetros que devem ser enviados ao servidor
+        HttpRequest httpRequest = new HttpRequest(Config.DOMOS_APP_URL +"pegar_num_div.php", "GET", "UTF-8");
+        httpRequest.addParam("codigo_condominio", codigo_condominio);
+
+        String result = "";
+        try {
+            // Executa a requisição HTTP. É neste momento que o servidor web é contactado. Ao executar
+            // a requisição é aberto um fluxo de dados entre o servidor e a app (InputStream is).
+            InputStream is = httpRequest.execute();
+
+            result = Util.inputStream2String(is, "UTF-8");
+
+            // Fecha a conexão com o servidor web.
+            httpRequest.finish();
+
+            Log.i("HTTP PRODUCTS RESULT", result);
+
+            // A classe JSONObject recebe como parâmetro do construtor uma String no formato JSON e
+            // monta internamente uma estrutura de dados similar ao dicionário em python.
+            JSONObject jsonObject = new JSONObject(result);
+
+            // obtem o valor da chave sucesso para verificar se a ação ocorreu da forma esperada ou não.
+            int success = jsonObject.getInt("sucesso");
+
+            // Se sucesso igual a 1, os produtos são obtidos da String JSON e adicionados à lista de
+            // produtos a ser retornada como resultado.
+            if(success == 1) {
+
+                List<String> numeros = new ArrayList<>();
+
+                // A chave produtos é um array de objetos do tipo json (JSONArray), onde cada um desses representa
+                // um produto
+                JSONArray jsonArrayNums = jsonObject.getJSONArray("numeros");
+
+                // Cada elemento do JSONArray é um JSONObject que guarda os dados de um produto
+                for(int i = 0; i < jsonArrayNums.length(); i++) {
+
+                    // Obtemos o JSONObject referente a um produto
+                    JSONObject jNumero = jsonArrayNums.getJSONObject(i);
+
+                    // Obtemos os dados de um produtos via JSONObject
+                    String numero = jNumero.getString("num");
+
+                    numeros.add(numero);
+                }
+
+                List<String> divs = new ArrayList<>();
+
+                // A chave produtos é um array de objetos do tipo json (JSONArray), onde cada um desses representa
+                // um produto
+                JSONArray jsonArrayDivs = jsonObject.getJSONArray("divs");
+
+                // Cada elemento do JSONArray é um JSONObject que guarda os dados de um produto
+                for(int i = 0; i < jsonArrayDivs.length(); i++) {
+
+                    // Obtemos o JSONObject referente a um produto
+                    JSONObject jDiv = jsonArrayDivs.getJSONObject(i);
+
+                    // Obtemos os dados de um produtos via JSONObject
+                    String div = jDiv.getString("div");
+
+                    divs.add(div);
+                }
+
+                return new NumDivCondominio(numeros, divs);
+
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+            Log.e("HTTP RESULT", result);
+        }
+
+        return null;
+    }
+
     public List<Aviso> loadAvisos(Integer limit, Integer offSet) {
 
         // cria a lista de produtos incicialmente vazia, que será retornada como resultado

@@ -8,10 +8,12 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -19,9 +21,13 @@ import android.widget.Toast;
 import camila.davi.isabelly.yasmin.domos.R;
 import camila.davi.isabelly.yasmin.domos.activity.CadastroUsuarioActivity;
 import camila.davi.isabelly.yasmin.domos.activity.HomeActivity;
+import camila.davi.isabelly.yasmin.domos.bd.Divisao;
+import camila.davi.isabelly.yasmin.domos.bd.Moradia;
+import camila.davi.isabelly.yasmin.domos.bd.NumDivCondominio;
 import camila.davi.isabelly.yasmin.domos.bd.Usuario;
 import camila.davi.isabelly.yasmin.domos.model.CadastroUsuarioViewModel;
 import camila.davi.isabelly.yasmin.domos.model.DomosRepository;
+import camila.davi.isabelly.yasmin.domos.util.Config;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -80,47 +86,40 @@ public class CadastroUsuario2Fragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         Spinner spAptoCadastro = view.findViewById(R.id.spAptoCadastro2);
         Spinner spDivisaoCadastro = view.findViewById(R.id.spDivisaoCadastro2);
+
         Button btnCriarCadastro = view.findViewById(R.id.btnCriarCadastro);
+        btnCriarCadastro.setEnabled(false);
+
+        CadastroUsuarioViewModel cadastroUsuarioViewModel = new ViewModelProvider(getActivity()).get(CadastroUsuarioViewModel.class);
+
+        LiveData<NumDivCondominio> resultLD = cadastroUsuarioViewModel.pegarNumDiv(usuario.codigoCondominio);
+
+        resultLD.observe(getViewLifecycleOwner(), new Observer<NumDivCondominio>() {
+            @Override
+            public void onChanged(NumDivCondominio numDivCondominio) {
+
+                if(numDivCondominio != null) {
+                    ArrayAdapter adapterNums = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_spinner_item, numDivCondominio.getNumeros());
+                    spAptoCadastro.setAdapter(adapterNums);
+
+                    ArrayAdapter adapterDiv = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_spinner_item, numDivCondominio.getDivisoes());
+                    spDivisaoCadastro.setAdapter(adapterDiv);
+                    btnCriarCadastro.setEnabled(true);
+
+
+                }
+            }
+        });
+
+
         btnCriarCadastro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String apartamento = spAptoCadastro.getSelectedItem().toString();
                 String divisao = spDivisaoCadastro.getSelectedItem().toString();
-                if (!apartamento.equals("Número do apartamento") && !divisao.equals("Divisão")){
-                    DomosRepository domosRepository = new DomosRepository(getContext());
-                    // O ViewModel possui o método register, que envia as informações para o servidor web.
-                    // O servidor web recebe as infos e cadastra um novo usuário. Se o usuário foi cadastrado
-                    // com sucesso, a app recebe o valor true. Se não o servidor retorna o valor false.
-                    //
-                    // O método de register retorna um LiveData, que na prática é um container que avisa
-                    // quando o resultado do servidor chegou.
-                    LiveData<Boolean> resultLD = domosRepository.register(usuario.cpf, usuario.nome, usuario.email, usuario.senha, usuario.codigoCondominio, apartamento, divisao);
-
-                    // Aqui nós observamos o LiveData. Quando o servidor responder, o resultado indicando
-                    // se o cadastro deu certo ou não será guardado dentro do LiveData. Neste momento o
-                    // LiveData avisa que o resultado chegou chamando o método onChanged abaixo.
-                    resultLD.observe((CadastroUsuarioActivity) getActivity(), new Observer<Boolean>() {
-                        @Override
-                        public void onChanged(Boolean aBoolean) {
-                            // aBoolean contém o resultado do cadastro. Se aBoolean for true, significa
-                            // que o cadastro do usuário foi feito corretamente. Indicamos isso ao usuário
-                            // através de uma mensagem do tipo toast e finalizamos a Activity. Quando
-                            // finalizamos a Activity, voltamos para a tela de login.
-                            if(aBoolean) {
-                                DomosRepository.login();
-                            }
-                            else {
-                                // Se o cadastro não deu certo, apenas continuamos na tela de cadastro e
-                                // indicamos com uma mensagem ao usuário que o cadastro não deu certo.
-                                Toast.makeText((CadastroUsuarioActivity) getActivity(), "Erro ao registrar novo usuário", Toast.LENGTH_LONG).show();
-                            }
-                        }
-                    });
-                    Intent i = new Intent((CadastroUsuarioActivity) getActivity(), HomeActivity.class);
-                    startActivity(i);
-                }
-                else {
-                    Toast.makeText(getActivity(), "Selecione opções válidas", Toast.LENGTH_LONG).show();
+                if (!apartamento.equals("Número do apartamento") && !divisao.equals("Divisão")) {
+                    CadastroUsuarioActivity cadastroUsuarioActivity = (CadastroUsuarioActivity) getActivity();
+                    cadastroUsuarioActivity.cadastrar(usuario.cpf, usuario.nome, usuario.email, usuario.senha, usuario.codigoCondominio, apartamento, divisao);
                 }
 
             }

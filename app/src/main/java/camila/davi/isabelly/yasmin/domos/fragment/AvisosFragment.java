@@ -6,6 +6,8 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.DividerItemDecoration;
@@ -15,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -22,6 +25,11 @@ import java.io.FileNotFoundException;
 import java.util.List;
 
 import camila.davi.isabelly.yasmin.domos.R;
+import camila.davi.isabelly.yasmin.domos.activity.CriarAvisoActivity;
+import camila.davi.isabelly.yasmin.domos.activity.EditarPerfilActivity;
+import camila.davi.isabelly.yasmin.domos.activity.HomeActivity;
+import camila.davi.isabelly.yasmin.domos.activity.LoginActivity;
+import camila.davi.isabelly.yasmin.domos.util.Config;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -58,6 +66,7 @@ public class AvisosFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -69,5 +78,15 @@ public class AvisosFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_avisos, container, false);
+    }
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        Button fabPostarAviso = view.findViewById(R.id.fabPostarAviso);
+        fabPostarAviso.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent((HomeActivity) getActivity(), CriarAvisoActivity.class);
+                startActivity(i);
+            }
+        });
     }
 }

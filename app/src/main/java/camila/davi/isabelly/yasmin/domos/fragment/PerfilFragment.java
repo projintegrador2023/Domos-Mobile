@@ -17,6 +17,7 @@ import camila.davi.isabelly.yasmin.domos.R;
 import camila.davi.isabelly.yasmin.domos.activity.EditarPerfilActivity;
 import camila.davi.isabelly.yasmin.domos.activity.HomeActivity;
 import camila.davi.isabelly.yasmin.domos.activity.LoginActivity;
+import camila.davi.isabelly.yasmin.domos.util.Config;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -80,6 +81,8 @@ public class PerfilFragment extends Fragment {
         btnEncerrarSessao.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Config.setLogin(getActivity(), "");
+                Config.setPassword(getActivity(), "");
                 Intent i = new Intent((HomeActivity) getActivity(), LoginActivity.class);
                 startActivity(i);
             }

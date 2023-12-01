@@ -26,6 +26,9 @@
             android:name=".activity.CriarAvisoActivity"
             android:exported="false" />
         <activity
+            android:name=".activity.CriarAnuncioActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.EditarPerfilActivity"
             android:exported="false" />
         <activity

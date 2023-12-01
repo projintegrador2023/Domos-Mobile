@@ -430,6 +430,66 @@ public class DomosRepository {
         return null;
     }
 
+    public List<String> loadTags() {
+
+        // Cria uma requisição HTTP a adiona o parâmetros que devem ser enviados ao servidor
+        HttpRequest httpRequest = new HttpRequest(Config.DOMOS_APP_URL +"pegar_tag.php", "GET", "UTF-8");
+
+        String result = "";
+        try {
+            // Executa a requisição HTTP. É neste momento que o servidor web é contactado. Ao executar
+            // a requisição é aberto um fluxo de dados entre o servidor e a app (InputStream is).
+            InputStream is = httpRequest.execute();
+
+            result = Util.inputStream2String(is, "UTF-8");
+
+            // Fecha a conexão com o servidor web.
+            httpRequest.finish();
+
+            Log.i("HTTP PRODUCTS RESULT", result);
+
+            // A classe JSONObject recebe como parâmetro do construtor uma String no formato JSON e
+            // monta internamente uma estrutura de dados similar ao dicionário em python.
+            JSONObject jsonObject = new JSONObject(result);
+
+            // obtem o valor da chave sucesso para verificar se a ação ocorreu da forma esperada ou não.
+            int success = jsonObject.getInt("sucesso");
+
+            // Se sucesso igual a 1, os produtos são obtidos da String JSON e adicionados à lista de
+            // produtos a ser retornada como resultado.
+            if(success == 1) {
+
+                List<String> tags = new ArrayList<>();
+
+                // A chave produtos é um array de objetos do tipo json (JSONArray), onde cada um desses representa
+                // um produto
+                JSONArray jsonTags = jsonObject.getJSONArray("tags");
+
+                // Cada elemento do JSONArray é um JSONObject que guarda os dados de um produto
+                for(int i = 0; i < jsonTags.length(); i++) {
+
+                    // Obtemos o JSONObject referente a um produto
+                    JSONObject jTag = jsonTags.getJSONObject(i);
+
+                    // Obtemos os dados de um produtos via JSONObject
+                    String tag = jTag.getString("tag");
+
+                    tags.add(tag);
+                }
+
+                return tags;
+
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+            Log.e("HTTP RESULT", result);
+        }
+
+        return null;
+    }
+
     public List<Aviso> loadAvisos(Integer limit, Integer offSet) {
 
         // cria a lista de produtos incicialmente vazia, que será retornada como resultado

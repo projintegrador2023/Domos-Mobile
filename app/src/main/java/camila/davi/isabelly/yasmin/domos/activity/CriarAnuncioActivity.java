@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -19,6 +20,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -27,9 +29,13 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import camila.davi.isabelly.yasmin.domos.R;
 import camila.davi.isabelly.yasmin.domos.model.CriarAnuncioViewModel;
+import camila.davi.isabelly.yasmin.domos.model.DomosRepository;
 import camila.davi.isabelly.yasmin.domos.util.Util;
 
 public class CriarAnuncioActivity extends AppCompatActivity {
@@ -61,6 +67,26 @@ public class CriarAnuncioActivity extends AppCompatActivity {
         TextView etTituloCriarAnuncio = findViewById(R.id.etTitCriarAnuncio);
         TextView etDescCriarAnuncio = findViewById(R.id.etDescCriarAnuncio);
         Spinner spTagCriarAnuncio = findViewById(R.id.spTagCriarAnuncio);
+        Button btnPublicarCriarAnuncio = findViewById(R.id.btnPublicarCriarAnuncio);
+
+        btnPublicarCriarAnuncio.setEnabled(false);
+
+        LiveData<List<String>> resultLD = criarAnuncioViewModel.pegarTags();
+
+        resultLD.observe(CriarAnuncioActivity.this, new Observer<List<String>>() {
+            @Override
+            public void onChanged(List<String> listaTag) {
+
+                if(listaTag != null) {
+                    ArrayAdapter adapterTag = new ArrayAdapter<String>(CriarAnuncioActivity.this,android.R.layout.simple_spinner_item, listaTag);
+                    spTagCriarAnuncio.setAdapter(adapterTag);
+
+                    btnPublicarCriarAnuncio.setEnabled(true);
+
+
+                }
+            }
+        });
 
 
         ImageButton btnUpImgCriarAnuncio = findViewById(R.id.btnUpImgCriarAnuncio);
@@ -71,8 +97,6 @@ public class CriarAnuncioActivity extends AppCompatActivity {
                 dispatchGalleryOrCameraIntent();
             }
         });
-
-        Button btnPublicarCriarAnuncio = findViewById(R.id.btnPublicarCriarAnuncio);
 
         btnPublicarCriarAnuncio.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -141,11 +165,6 @@ public class CriarAnuncioActivity extends AppCompatActivity {
                 resultLD.observe(CriarAnuncioActivity.this, new Observer<Boolean>() {
                     @Override
                     public void onChanged(Boolean aBoolean) {
-                        // aBoolean contém o resultado do cadastro do produto. Se aBoolean for true, significa
-                        // que o cadastro do produto foi feito corretamente. Indicamos isso ao usuário
-                        // através de uma mensagem do tipo toast e finalizamos a Activity. Quando
-                        // finalizamos a Activity, voltamos para a tela home, que mostra a lista de
-                        // produtos.
                         if(aBoolean == true) {
                             Toast.makeText(CriarAnuncioActivity.this, "Anuncio criado com sucesso", Toast.LENGTH_LONG).show();
                             // indica que a Activity terminou com resultado positivo e a finaliza
@@ -156,10 +175,6 @@ public class CriarAnuncioActivity extends AppCompatActivity {
                             startActivity(i);
                         }
                         else {
-                            // Se o cadastro não deu certo, apenas continuamos na tela de cadastro e
-                            // indicamos com uma mensagem ao usuário que o cadastro não deu certo.
-                            // Reabilitamos também o botão de adicionar, para permitir que o usuário
-                            // tente realizar uma nova adição de produto.
                             v.setEnabled(true);
                             Toast.makeText(CriarAnuncioActivity.this, "Ocorreu um erro ao criar o anuncio", Toast.LENGTH_LONG).show();
 

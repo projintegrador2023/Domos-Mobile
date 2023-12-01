@@ -8,14 +8,20 @@ import androidx.lifecycle.ViewModelProvider;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.List;
+
 import camila.davi.isabelly.yasmin.domos.R;
+import camila.davi.isabelly.yasmin.domos.bd.NumDivCondominio;
+import camila.davi.isabelly.yasmin.domos.model.CadastroUsuarioViewModel;
 import camila.davi.isabelly.yasmin.domos.model.CriarAnuncioViewModel;
 import camila.davi.isabelly.yasmin.domos.model.CriarAvisoViewModel;
+import camila.davi.isabelly.yasmin.domos.model.LoginViewModel;
 
 public class CriarAvisoActivity extends AppCompatActivity {
 
@@ -29,8 +35,25 @@ public class CriarAvisoActivity extends AppCompatActivity {
         TextView etTitCriarAviso = findViewById(R.id.etTitCriarAviso);
         TextView etDescCriarAviso = findViewById(R.id.etDescCriarAviso);
         Spinner spTagCriarAviso = findViewById(R.id.spTagCriarAviso);
-
         Button btnPublicarEditarAviso = findViewById(R.id.btnPubliAviso);
+        btnPublicarEditarAviso.setEnabled(false);
+
+        LiveData<List<String>> resultLD = criarAvisoViewModel.pegarImportancia();
+
+        resultLD.observe(CriarAvisoActivity.this, new Observer<List<String>>() {
+            @Override
+            public void onChanged(List<String> listaImportancia) {
+
+                if(listaImportancia != null) {
+                    ArrayAdapter adapterImportancia = new ArrayAdapter<String>(CriarAvisoActivity.this,android.R.layout.simple_spinner_item, listaImportancia);
+                    spTagCriarAviso.setAdapter(adapterImportancia);
+
+                    btnPublicarEditarAviso.setEnabled(true);
+
+
+                }
+            }
+        });
 
         btnPublicarEditarAviso.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,6 +78,7 @@ public class CriarAvisoActivity extends AppCompatActivity {
                             Toast.LENGTH_LONG).show();
                     return;
                 }
+
                 Intent i = new Intent(CriarAvisoActivity.this, HomeActivity.class);
                 startActivity(i);
 

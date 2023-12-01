@@ -80,7 +80,7 @@ public class AvisosFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_avisos, container, false);
     }
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        Button fabPostarAviso = view.findViewById(R.id.fabPostarAviso);
+        FloatingActionButton fabPostarAviso = view.findViewById(R.id.fabPostarAviso);
         fabPostarAviso.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

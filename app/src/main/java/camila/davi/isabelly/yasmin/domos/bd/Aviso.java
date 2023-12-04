@@ -1,11 +1,9 @@
 package camila.davi.isabelly.yasmin.domos.bd;
 
 public class Aviso {
+    String codigoPostagem, importancia, usuario, dataHoraPostagem, descricao, titulo;
 
-    int codigoPostagem, importancia, usuario;
-    String dataHoraPostagem, descricao, titulo;
-
-    public Aviso(int codigoPostagem, int importancia, String dataHoraPostagem, String descricao, String titulo, int usuario) {
+    public Aviso(String codigoPostagem, String importancia, String dataHoraPostagem, String descricao, String titulo, String usuario) {
         this.codigoPostagem = codigoPostagem;
         this.dataHoraPostagem = dataHoraPostagem;
         this.descricao = descricao;

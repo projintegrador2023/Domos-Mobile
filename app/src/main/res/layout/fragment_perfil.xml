@@ -3,182 +3,182 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:background="@color/black"
     tools:context=".fragment.PerfilFragment">
 
-    <ScrollView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/white">
-
-                <Button
-                    android:id="@+id/btMoradorPerfil"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="16dp"
-                    android:backgroundTint="@color/verde_agua_escuro_escuro"
-                    android:text="morador"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/imgPerfil" />
+        android:layout_height="match_parent"
+        android:background="@color/white">
 
 
-                <ImageView
-                    android:id="@+id/imgPerfil"
-                    android:layout_width="0dp"
-                    android:layout_height="100dp"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="32dp"
-                    android:layout_marginEnd="16dp"
-                    android:src="@drawable/icone_imgperfil"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+        <ImageView
+            android:id="@+id/imgPerfil"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/icone_imgperfil"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/constraintLayout"
-                    android:layout_width="380dp"
-                    android:layout_height="315dp"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginEnd="16dp"
-                    android:background="@drawable/edit_box_bg"
-                    android:backgroundTint="@color/ic_perfil_background"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/btMoradorPerfil">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="32dp"
+            android:background="@drawable/edit_box_bg"
+            android:backgroundTint="@color/ic_perfil_background"
+            app:layout_constraintBottom_toTopOf="@+id/btnEncerrarSessao"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgPerfil">
 
-                    <EditText
-                        android:id="@+id/etEmailPerfil"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginEnd="16dp"
-                        android:background="@drawable/edit_text_bg"
-                        android:ems="10"
-                        android:hint=" E-mail"
-                        android:inputType="textPersonName"
-                        android:textColorHint="#CCC7C1"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/etCpfPerfil" />
+            <EditText
+                android:id="@+id/etEmailPerfil"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/edit_text_bg"
+                android:ems="10"
+                android:hint=" E-mail"
+                android:inputType="textPersonName"
+                android:textColorHint="#CCC7C1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etCpfPerfil" />
 
-                    <EditText
-                        android:id="@+id/etCpfPerfil"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginEnd="16dp"
-                        android:background="@drawable/edit_text_bg"
-                        android:ems="10"
-                        android:hint=" Cpf"
-                        android:inputType="textPersonName"
-                        android:textColorHint="#CCC7C1"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/etNomePerfil" />
+            <EditText
+                android:id="@+id/etCpfPerfil"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/edit_text_bg"
+                android:ems="10"
+                android:hint=" Cpf"
+                android:inputType="textPersonName"
+                android:textColorHint="#CCC7C1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etNomePerfil" />
 
-                    <EditText
-                        android:id="@+id/etDivisaoPerfil"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginEnd="16dp"
-                        android:background="@drawable/edit_text_bg"
-                        android:ems="10"
-                        android:hint="  Divisão"
-                        android:inputType="textPersonName"
-                        android:textColorHint="#CCC7C1"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/etAptoPerfil"
-                        app:layout_constraintTop_toBottomOf="@+id/etEmailPerfil" />
+            <EditText
+                android:id="@+id/etDivisaoPerfil"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/edit_text_bg"
+                android:ems="10"
+                android:hint="  Divisão"
+                android:inputType="textPersonName"
+                android:textColorHint="#CCC7C1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/etAptoPerfil"
+                app:layout_constraintTop_toBottomOf="@+id/etEmailPerfil" />
 
-                    <EditText
-                        android:id="@+id/etAptoPerfil"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginEnd="8dp"
-                        android:background="@drawable/edit_text_bg"
-                        android:ems="10"
-                        android:hint="  Nº Apto"
-                        android:inputType="number"
-                        android:textColorHint="#CCC7C1"
-                        app:layout_constraintEnd_toStartOf="@+id/etDivisaoPerfil"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/etEmailPerfil" />
+            <EditText
+                android:id="@+id/etAptoPerfil"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/edit_text_bg"
+                android:ems="10"
+                android:hint="  Nº Apto"
+                android:inputType="number"
+                android:textColorHint="#CCC7C1"
+                app:layout_constraintEnd_toStartOf="@+id/etDivisaoPerfil"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etEmailPerfil" />
 
-                    <EditText
-                        android:id="@+id/etNomePerfil"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="16dp"
-                        android:background="@drawable/edit_text_bg"
-                        android:ems="10"
-                        android:hint=" Nome"
-                        android:inputType="textPersonName"
-                        android:textColorHint="#CCC7C1"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+            <EditText
+                android:id="@+id/etNomePerfil"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/edit_text_bg"
+                android:ems="10"
+                android:hint=" Nome"
+                android:inputType="textPersonName"
+                android:textColorHint="#CCC7C1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-                    <Button
-                        android:id="@+id/btnEncerrarSessao"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginEnd="16dp"
-                        android:layout_marginBottom="8dp"
-                        android:backgroundTint="#D35656"
-                        android:drawableLeft="@drawable/icone_encerrar"
-                        android:shadowColor="#000000"
-                        android:text="encerrar sessão"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/btnEditarPerfil" />
+            <Button
+                android:id="@+id/btnEditarPerfil"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:backgroundTint="#0099ad"
+                android:drawableLeft="@drawable/icone_editar"
+                android:text="Editar Perfil"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etDivisaoPerfil" />
 
-                    <Button
-                        android:id="@+id/btnEditarPerfil"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="17dp"
-                        android:layout_marginEnd="16dp"
-                        android:layout_marginBottom="48dp"
-                        android:backgroundTint="#0099ad"
-                        android:drawableLeft="@drawable/icone_editar"
-                        android:text="Editar Perfil"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/etDivisaoPerfil" />
+            <Button
+                android:id="@+id/bnt_MeusAnuncios"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:backgroundTint="#0099ad"
+                android:drawableLeft="@drawable/icone_anunciar"
+                android:text="meus anúncios"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnEditarPerfil" />
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
+            <Button
+                android:id="@+id/btn_BaixarPdf"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:backgroundTint="#0099ad"
+                android:drawableLeft="@drawable/icone_baixar"
+                android:text="baixar pdf de regimento"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/bnt_MeusAnuncios" />
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-        </LinearLayout>
-    </ScrollView>
+        <Button
+            android:id="@+id/btnEncerrarSessao"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="#D35656"
+            android:drawableLeft="@drawable/icone_encerrar"
+            android:shadowColor="#000000"
+            android:text="encerrar sessão"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

@@ -9,6 +9,8 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -17,7 +19,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -29,6 +33,8 @@ import camila.davi.isabelly.yasmin.domos.activity.CriarAvisoActivity;
 import camila.davi.isabelly.yasmin.domos.activity.EditarPerfilActivity;
 import camila.davi.isabelly.yasmin.domos.activity.HomeActivity;
 import camila.davi.isabelly.yasmin.domos.activity.LoginActivity;
+import camila.davi.isabelly.yasmin.domos.model.CriarAnuncioViewModel;
+import camila.davi.isabelly.yasmin.domos.model.CriarAvisoViewModel;
 import camila.davi.isabelly.yasmin.domos.util.Config;
 
 /**
@@ -81,6 +87,24 @@ public class AvisosFragment extends Fragment {
     }
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         FloatingActionButton fabPostarAviso = view.findViewById(R.id.fabPostarAviso);
+        Spinner spFiltroAvisos = view.findViewById(R.id.spFiltroAvisos);
+
+        CriarAvisoViewModel criarAvisoViewModel = new ViewModelProvider(this).get(CriarAvisoViewModel.class);
+
+        LiveData<List<String>> resultLD = criarAvisoViewModel.pegarImportancia();
+
+        resultLD.observe((HomeActivity) getActivity(), new Observer<List<String>>() {
+            @Override
+            public void onChanged(List<String> listaImportancia) {
+
+                if(listaImportancia != null) {
+                    ArrayAdapter adapterTag = new ArrayAdapter<String>((HomeActivity) getActivity(), android.R.layout.simple_spinner_item, listaImportancia);
+                    spFiltroAvisos.setAdapter(adapterTag);
+
+                }
+            }
+        });
+
         fabPostarAviso.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import camila.davi.isabelly.yasmin.domos.R;
 import camila.davi.isabelly.yasmin.domos.activity.EditarPerfilActivity;
@@ -68,6 +69,15 @@ public class PerfilFragment extends Fragment {
     }
 
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        TextView etNomePerfil = view.findViewById(R.id.etNomePerfil);
+        TextView etCpfPerfil = view.findViewById(R.id.etCpfPerfil);
+        TextView etEmailPerfil = view.findViewById(R.id.etEmailPerfil);
+        TextView etAptoPerfil = view.findViewById(R.id.etAptoPerfil);
+        TextView etDivisaoPerfil = view.findViewById(R.id.etDivisaoPerfil);
+
+
+
+
         Button btnEditarPerfil = view.findViewById(R.id.btnEditarPerfil);
         btnEditarPerfil.setOnClickListener(new View.OnClickListener() {
             @Override

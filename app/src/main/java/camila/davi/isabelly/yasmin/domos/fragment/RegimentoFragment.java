@@ -65,7 +65,7 @@ public class RegimentoFragment extends Fragment {
 
     }
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        Button btnBaixarPdfRegimento = view.findViewById(R.id.btnEncerrarSessao);
+        Button btnBaixarPdfRegimento = view.findViewById(R.id.btnBaixarPdfRegimento);
         btnBaixarPdfRegimento.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

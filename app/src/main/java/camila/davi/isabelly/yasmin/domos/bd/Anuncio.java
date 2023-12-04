@@ -1,13 +1,10 @@
 package camila.davi.isabelly.yasmin.domos.bd;
 
 public class Anuncio{
-    int tag, codigoPostagem;
-    String dataHoraPostagem, descricao, titulo;
-    Usuario usuario;
-    Imagem img;
+    String tag, codigoPostagem, dataHoraPostagem, descricao, titulo, usuario, img;
 
 
-    public Anuncio(int codigoPostagem, String dataHoraPostagem, String descricao, String titulo, Usuario usuario, Imagem img, int tag) {
+    public Anuncio(String codigoPostagem, String dataHoraPostagem, String descricao, String titulo, String usuario, String img, String tag) {
         this.codigoPostagem = codigoPostagem;
         this.dataHoraPostagem = dataHoraPostagem;
         this.descricao = descricao;

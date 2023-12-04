@@ -140,11 +140,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
-                android:layout_marginEnd="16dp"
                 android:backgroundTint="#0099ad"
                 android:drawableLeft="@drawable/icone_anunciar"
                 android:text="meus anúncios"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:textSize="10sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/btnEditarPerfil" />
 
@@ -152,15 +151,16 @@
                 android:id="@+id/btn_BaixarPdf"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                android:layout_marginEnd="16dp"
+                android:layout_marginEnd="4dp"
                 android:backgroundTint="#0099ad"
                 android:drawableLeft="@drawable/icone_baixar"
-                android:text="baixar pdf de regimento"
+                android:text="baixar regimento"
+                android:textSize="10sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/bnt_MeusAnuncios" />
+                app:layout_constraintStart_toEndOf="@+id/bnt_MeusAnuncios"
+                app:layout_constraintTop_toBottomOf="@+id/btnEditarPerfil" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

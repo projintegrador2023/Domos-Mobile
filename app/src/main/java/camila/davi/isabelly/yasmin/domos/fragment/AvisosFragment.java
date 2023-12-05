@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.paging.PagingData;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -33,8 +34,12 @@ import camila.davi.isabelly.yasmin.domos.activity.CriarAvisoActivity;
 import camila.davi.isabelly.yasmin.domos.activity.EditarPerfilActivity;
 import camila.davi.isabelly.yasmin.domos.activity.HomeActivity;
 import camila.davi.isabelly.yasmin.domos.activity.LoginActivity;
+import camila.davi.isabelly.yasmin.domos.adapter.AvisosAdapter;
+import camila.davi.isabelly.yasmin.domos.adapter.AvisosComparator;
+import camila.davi.isabelly.yasmin.domos.bd.Aviso;
 import camila.davi.isabelly.yasmin.domos.model.CriarAnuncioViewModel;
 import camila.davi.isabelly.yasmin.domos.model.CriarAvisoViewModel;
+import camila.davi.isabelly.yasmin.domos.model.HomeViewModel;
 import camila.davi.isabelly.yasmin.domos.util.Config;
 
 /**
@@ -91,6 +96,7 @@ public class AvisosFragment extends Fragment {
 
         CriarAvisoViewModel criarAvisoViewModel = new ViewModelProvider(this).get(CriarAvisoViewModel.class);
 
+
         LiveData<List<String>> resultLD = criarAvisoViewModel.pegarImportancia();
 
         resultLD.observe((HomeActivity) getActivity(), new Observer<List<String>>() {
@@ -110,6 +116,26 @@ public class AvisosFragment extends Fragment {
             public void onClick(View v) {
                 Intent i = new Intent((HomeActivity) getActivity(), CriarAvisoActivity.class);
                 startActivity(i);
+            }
+        });
+
+        RecyclerView rvAvisos = view.findViewById(R.id.rvAvisos);
+        rvAvisos.setHasFixedSize(true);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager((HomeActivity) getActivity());
+        rvAvisos.setLayoutManager(layoutManager);
+        AvisosAdapter avisosAdapter = new AvisosAdapter(new AvisosComparator());
+        rvAvisos.setAdapter(avisosAdapter);
+
+        HomeViewModel homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
+
+        // String importancia = spFiltroAvisos.getSelectedItem().toString();
+
+        LiveData<PagingData<Aviso>> avisosLD = homeViewModel.getAvisosLd("Crítico");
+
+        avisosLD.observe((HomeActivity) getActivity(), new Observer<PagingData<Aviso>>() {
+            @Override
+            public void onChanged(PagingData<Aviso> avisoPagingData) {
+                avisosAdapter.submitData(getLifecycle(),avisoPagingData);
             }
         });
     }

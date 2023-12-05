@@ -5,31 +5,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.recyclerview.widget.DividerItemDecoration;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationBarView;
 
-import java.io.FileNotFoundException;
-import java.util.List;
-
 import camila.davi.isabelly.yasmin.domos.R;
-import camila.davi.isabelly.yasmin.domos.bd.Aviso;
 import camila.davi.isabelly.yasmin.domos.fragment.AnunciosFragment;
 import camila.davi.isabelly.yasmin.domos.fragment.AvisosFragment;
 import camila.davi.isabelly.yasmin.domos.fragment.PerfilFragment;
-import camila.davi.isabelly.yasmin.domos.fragment.RegimentoFragment;
 import camila.davi.isabelly.yasmin.domos.model.HomeViewModel;
 
 

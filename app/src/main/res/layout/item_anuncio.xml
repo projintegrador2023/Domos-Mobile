@@ -67,9 +67,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
         android:text="Título"
         android:textSize="24sp"
-        app:layout_constraintEnd_toStartOf="@+id/imgFavoritoItemAnuncio"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -78,7 +79,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:text="Descrição do anúncio"
         app:layout_constraintEnd_toEndOf="parent"
@@ -126,17 +127,6 @@
         android:textSize="10sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dividerItemAnuncio" />
-
-    <ImageButton
-        android:id="@+id/imgFavoritoItemAnuncio"
-        android:layout_width="50dp"
-        android:layout_height="31dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:background="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/icone_favoritos" />
 
     <View
         android:id="@+id/dividerItemAnuncio2"

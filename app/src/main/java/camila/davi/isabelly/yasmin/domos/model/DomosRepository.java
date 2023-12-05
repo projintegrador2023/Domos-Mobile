@@ -556,7 +556,7 @@ public class DomosRepository {
         return null;
     }
 
-    public List<Aviso> loadAvisos(Integer limit, Integer offSet, String codigo_condominio, String importancia) {
+    public List<Aviso> loadAvisos(Integer limit, Integer offSet, String importancia) {
 
         // cria a lista de produtos incicialmente vazia, que será retornada como resultado
         List<Aviso> listaAvisos = new ArrayList<>();
@@ -570,7 +570,7 @@ public class DomosRepository {
         HttpRequest httpRequest = new HttpRequest(Config.DOMOS_APP_URL +"pegar_avisos.php", "GET", "UTF-8");
         httpRequest.addParam("limit", limit.toString());
         httpRequest.addParam("offset", offSet.toString());
-        httpRequest.addParam("codigo_condominio", codigo_condominio);
+        httpRequest.addParam("cpf", login);
         httpRequest.addParam("importancia", importancia);
 
 
@@ -635,10 +635,10 @@ public class DomosRepository {
                     String descricao = jAviso.getString("descricao");
                     String titulo = jAviso.getString("titulo");
                     String usuario = jAviso.getString("cpf");
-                    String importancia = jAviso.getString("importancia");
+                    String importancia1 = jAviso.getString("importancia");
 
                     // Criamo um objeto do tipo Product para guardar esses dados
-                    Aviso aviso = new Aviso(codigoPostagem, importancia, dataHoraPostagem, descricao, titulo, usuario);
+                    Aviso aviso = new Aviso(codigoPostagem, importancia1, dataHoraPostagem, descricao, titulo, usuario);
 
                     // Adicionamos o objeto product na lista de produtos
                     listaAvisos.add(aviso);

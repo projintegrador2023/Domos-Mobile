@@ -62,10 +62,6 @@ public class HomeActivity extends AppCompatActivity {
                         AnunciosFragment anunciosFragment = AnunciosFragment.newInstance();
                         setFragment(anunciosFragment);
                         break;
-                    case R.id.btnRegimento:
-                        RegimentoFragment regimentoFragment = RegimentoFragment.newInstance();
-                        setFragment(regimentoFragment);
-                        break;
                     case R.id.btnPerfil:
                         PerfilFragment perfilFragment = PerfilFragment.newInstance();
                         setFragment(perfilFragment);

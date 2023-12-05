@@ -4,14 +4,14 @@
 
     <item
         android:id="@+id/btnAvisos"
-        android:icon="@drawable/icone_avisos" />
-    <item
-        android:id="@+id/btnAnuncios"
-        android:icon="@drawable/icone_anunciar" />
-    <item
-        android:id="@+id/btnRegimento"
-        android:icon="@drawable/icone_regimento" />
+        android:icon="@drawable/icone_avisos"
+        app:showAsAction="always" />
     <item
         android:id="@+id/btnPerfil"
-        android:icon="@drawable/icone_perfil" />
+        android:icon="@drawable/icone_perfil"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/btnAnuncios"
+        android:icon="@drawable/icone_anunciar"
+        app:showAsAction="always" />
 </menu>

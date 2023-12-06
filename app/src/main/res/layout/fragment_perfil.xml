@@ -28,7 +28,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="300dp"
             android:layout_marginStart="24dp"
             android:layout_marginEnd="24dp"
             android:layout_marginBottom="32dp"
@@ -39,100 +39,6 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imgPerfil">
-
-            <EditText
-                android:id="@+id/etEmailPerfil"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:background="@drawable/edit_text_bg"
-                android:ems="10"
-                android:hint=" E-mail"
-                android:inputType="textPersonName"
-                android:textColorHint="#CCC7C1"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/etCpfPerfil" />
-
-            <EditText
-                android:id="@+id/etCpfPerfil"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:background="@drawable/edit_text_bg"
-                android:ems="10"
-                android:hint=" Cpf"
-                android:inputType="textPersonName"
-                android:textColorHint="#CCC7C1"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/etNomePerfil" />
-
-            <EditText
-                android:id="@+id/etDivisaoPerfil"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:background="@drawable/edit_text_bg"
-                android:ems="10"
-                android:hint="  Divisão"
-                android:inputType="textPersonName"
-                android:textColorHint="#CCC7C1"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/etAptoPerfil"
-                app:layout_constraintTop_toBottomOf="@+id/etEmailPerfil" />
-
-            <EditText
-                android:id="@+id/etAptoPerfil"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="8dp"
-                android:background="@drawable/edit_text_bg"
-                android:ems="10"
-                android:hint="  Nº Apto"
-                android:inputType="number"
-                android:textColorHint="#CCC7C1"
-                app:layout_constraintEnd_toStartOf="@+id/etDivisaoPerfil"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/etEmailPerfil" />
-
-            <EditText
-                android:id="@+id/etNomePerfil"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="16dp"
-                android:background="@drawable/edit_text_bg"
-                android:ems="10"
-                android:hint=" Nome"
-                android:inputType="textPersonName"
-                android:textColorHint="#CCC7C1"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <Button
-                android:id="@+id/btnEditarPerfil"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="16dp"
-                android:backgroundTint="#0099ad"
-                android:drawableLeft="@drawable/icone_editar"
-                android:text="Editar Perfil"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/etDivisaoPerfil" />
 
             <Button
                 android:id="@+id/bnt_MeusAnuncios"
@@ -160,11 +66,94 @@
                 android:backgroundTint="#0099ad"
                 android:drawableLeft="@drawable/icone_baixar"
                 android:text="baixar regimento"
-                android:textSize="10sp"
+                android:textSize="8dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/bnt_MeusAnuncios"
                 app:layout_constraintTop_toBottomOf="@+id/btnEditarPerfil" />
+
+            <TextView
+                android:id="@+id/etNomePerfil"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/edit_text_bg"
+                android:textColor="@color/cinza_claro"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.111"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/etCpfPerfil"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/edit_text_bg"
+                android:textColor="@color/cinza_claro"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etNomePerfil" />
+
+            <TextView
+                android:id="@+id/etEmailPerfil"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/edit_text_bg"
+                android:textColor="@color/cinza_claro"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etCpfPerfil" />
+
+            <TextView
+                android:id="@+id/etAptoPerfil"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/edit_text_bg"
+                android:textColor="@color/cinza_claro"
+                app:layout_constraintEnd_toStartOf="@+id/etDivisaoPerfil"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etEmailPerfil" />
+
+            <TextView
+                android:id="@+id/etDivisaoPerfil"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/edit_text_bg"
+                android:textColor="@color/cinza_claro"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.979"
+                app:layout_constraintStart_toEndOf="@+id/etAptoPerfil"
+                app:layout_constraintTop_toBottomOf="@+id/etEmailPerfil" />
+
+            <Button
+                android:id="@+id/btnEditarPerfil"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:backgroundTint="#0099ad"
+                android:drawableLeft="@drawable/icone_editar"
+                android:text="Editar Perfil"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etDivisaoPerfil" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

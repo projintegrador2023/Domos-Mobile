@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
@@ -97,19 +98,19 @@ public class AvisosFragment extends Fragment {
         CriarAvisoViewModel criarAvisoViewModel = new ViewModelProvider(this).get(CriarAvisoViewModel.class);
 
 
-        LiveData<List<String>> resultLD = criarAvisoViewModel.pegarImportancia();
+        //LiveData<List<String>> resultLD = criarAvisoViewModel.pegarImportancia();
 
-        resultLD.observe((HomeActivity) getActivity(), new Observer<List<String>>() {
-            @Override
-            public void onChanged(List<String> listaImportancia) {
+        //resultLD.observe((HomeActivity) getActivity(), new Observer<List<String>>() {
+            //@Override
+            //public void onChanged(List<String> listaImportancia) {
 
-                if(listaImportancia != null) {
-                    ArrayAdapter adapterTag = new ArrayAdapter<String>((HomeActivity) getActivity(), android.R.layout.simple_spinner_item, listaImportancia);
-                    spFiltroAvisos.setAdapter(adapterTag);
+                //if(listaImportancia != null) {
+                    //ArrayAdapter adapterTag = new ArrayAdapter<String>((HomeActivity) getActivity(), android.R.layout.simple_spinner_item, listaImportancia);
+                    //spFiltroAvisos.setAdapter(adapterTag);
 
-                }
-            }
-        });
+                //}
+           //}
+        //});
 
         fabPostarAviso.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -127,12 +128,8 @@ public class AvisosFragment extends Fragment {
         rvAvisos.setAdapter(avisosAdapter);
 
         HomeViewModel homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
-        String importancia;
-        if (spFiltroAvisos.getSelectedItem() == null) {
-            importancia = "Crítico";
-        } else {
-            importancia = spFiltroAvisos.getSelectedItem().toString();
-        }
+        String importancia = spFiltroAvisos.getSelectedItem().toString();
+
 
         LiveData<PagingData<Aviso>> avisosLD = homeViewModel.getAvisosLd(importancia);
 
@@ -140,6 +137,28 @@ public class AvisosFragment extends Fragment {
             @Override
             public void onChanged(PagingData<Aviso> avisoPagingData) {
                 avisosAdapter.submitData(getLifecycle(),avisoPagingData);
+            }
+        });
+
+        spFiltroAvisos.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                String importancia = spFiltroAvisos.getSelectedItem().toString();
+                LiveData<PagingData<Aviso>> avisosLD = homeViewModel.getAvisosLd(importancia);
+                AvisosAdapter avisosAdapter = new AvisosAdapter(new AvisosComparator());
+                rvAvisos.setAdapter(avisosAdapter);
+                avisosLD.observe((HomeActivity) getActivity(), new Observer<PagingData<Aviso>>() {
+                    @Override
+                    public void onChanged(PagingData<Aviso> avisoPagingData) {
+                        avisosAdapter.submitData(getLifecycle(),avisoPagingData);
+                    }
+                });
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
             }
         });
     }

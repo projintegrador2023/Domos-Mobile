@@ -14,4 +14,13 @@ public class Usuario {
         this.senha = senha;
 
     }
+
+    public Usuario(String cpf, String nome, String email, String num_moradia, String divisao) {
+        this.cpf = cpf;
+        this.nome = nome;
+        this.email = email;
+        this.num_moradia = num_moradia;
+        this.divisao = divisao;
+
+    }
 }

@@ -670,9 +670,11 @@ public class DomosRepository {
                     String titulo = jAnuncio.getString("titulo");
                     String usuario = jAnuncio.getString("cpf");
                     String tag1 = jAnuncio.getString("tag");
+                    String num = jAnuncio.getString("num_moradia");
+                    String divisao = jAnuncio.getString("divisao");
 
                     // Criamo um objeto do tipo Product para guardar esses dados
-                    Anuncio anuncio = new Anuncio(codigoPostagem, dataHoraPostagem, descricao, titulo, usuario, null, tag1);
+                    Anuncio anuncio = new Anuncio(codigoPostagem, dataHoraPostagem, descricao, titulo, usuario, null, tag1, num, divisao);
 
                     // Adicionamos o objeto product na lista de produtos
                     listaAnuncios.add(anuncio);

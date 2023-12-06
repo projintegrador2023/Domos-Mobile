@@ -46,7 +46,13 @@ public class AnunciosAdapter extends PagingDataAdapter<Anuncio, MyViewHolder> {
         TextView tvTagItemAnuncio = holder.itemView.findViewById(R.id.tvTagItemAnuncio);
         tvTagItemAnuncio.setText(anuncio.tag);
 
-        //TextView tvNomeAvisos = holder.itemView.findViewById(R.id.tvNomeAvisos);
-        //tvNomeAvisos.setText(anuncio.usuario);
+        TextView tvNomeAvisos = holder.itemView.findViewById(R.id.tvNomeAvisos);
+        tvNomeAvisos.setText(anuncio.usuario);
+
+        TextView tvMoradia = holder.itemView.findViewById(R.id.tvMoradia);
+        tvNomeAvisos.setText(anuncio.num);
+
+        TextView tvApto = holder.itemView.findViewById(R.id.tvApto);
+        tvNomeAvisos.setText(anuncio.divisao);
     }
 }

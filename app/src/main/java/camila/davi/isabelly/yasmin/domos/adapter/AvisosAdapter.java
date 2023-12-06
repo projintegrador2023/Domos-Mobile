@@ -32,20 +32,23 @@ public class AvisosAdapter extends PagingDataAdapter<Aviso, MyViewHolder>  {
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         Aviso aviso = this.getItem(position);
 
-        // preenche o campo de nome
         TextView tvTituloAviso = holder.itemView.findViewById(R.id.tvTituloAviso);
         tvTituloAviso.setText(aviso.titulo);
 
         TextView tvDataHoraAviso = holder.itemView.findViewById(R.id.tvDataHoraAviso);
         tvDataHoraAviso.setText(aviso.dataHoraPostagem);
 
-        // preenche o campo de preço
         TextView tvDescAviso = holder.itemView.findViewById(R.id.tvDescAviso);
         tvDescAviso.setText(aviso.descricao);
 
         TextView tvImportAviso = holder.itemView.findViewById(R.id.tvImportAviso);
-        tvImportAviso.setText(aviso.importancia);
-
+        if (aviso.importancia.equals('1')) {
+            tvImportAviso.setText("Crítico");
+        } else if (aviso.importancia.equals('2')) {
+            tvImportAviso.setText("Urgente");
+        } else if (aviso.importancia.equals('3')) {
+            tvImportAviso.setText("Importante");
+        }
 
     }
 }

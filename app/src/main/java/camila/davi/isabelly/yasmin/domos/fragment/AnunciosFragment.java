@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
@@ -86,21 +87,21 @@ public class AnunciosFragment extends Fragment {
         FloatingActionButton fabPostarAnuncio = view.findViewById(R.id.fabPostarAnuncio);
         Spinner spFiltroAnuncios = view.findViewById(R.id.spFiltroAnuncios);
 
-        CriarAnuncioViewModel criarAnuncioViewModel = new ViewModelProvider(this).get(CriarAnuncioViewModel.class);
+        //CriarAnuncioViewModel criarAnuncioViewModel = new ViewModelProvider(this).get(CriarAnuncioViewModel.class);
 
-        LiveData<List<String>> resultLD = criarAnuncioViewModel.pegarTags();
+        //LiveData<List<String>> resultLD = criarAnuncioViewModel.pegarTags();
 
-        resultLD.observe((HomeActivity) getActivity(), new Observer<List<String>>() {
-            @Override
-            public void onChanged(List<String> listaTag) {
+        //resultLD.observe((HomeActivity) getActivity(), new Observer<List<String>>() {
+            //@Override
+            //public void onChanged(List<String> listaTag) {
 
-                if(listaTag != null) {
-                    ArrayAdapter adapterTag = new ArrayAdapter<String>((HomeActivity) getActivity(), android.R.layout.simple_spinner_item, listaTag);
-                    spFiltroAnuncios.setAdapter(adapterTag);
+                //if(listaTag != null) {
+                    //ArrayAdapter adapterTag = new ArrayAdapter<String>((HomeActivity) getActivity(), android.R.layout.simple_spinner_item, listaTag);
+                    //spFiltroAnuncios.setAdapter(adapterTag);
 
-                }
-            }
-        });
+                //}
+            //}
+        //});
 
         fabPostarAnuncio.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -118,12 +119,7 @@ public class AnunciosFragment extends Fragment {
         rvAnuncios.setAdapter(anunciosAdapter);
 
         HomeViewModel homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
-        String tag;
-        if (spFiltroAnuncios.getSelectedItem() != null) {
-            tag = spFiltroAnuncios.getSelectedItem().toString();
-        } else {
-            tag = "Eletrônicos";
-        }
+        String tag = spFiltroAnuncios.getSelectedItem().toString();
 
         LiveData<PagingData<Anuncio>> anunciosLD = homeViewModel.getAnunciosLd(tag);
 
@@ -131,6 +127,28 @@ public class AnunciosFragment extends Fragment {
             @Override
             public void onChanged(PagingData<Anuncio> anuncioPagingData) {
                 anunciosAdapter.submitData(getLifecycle(), anuncioPagingData);
+            }
+        });
+
+        spFiltroAnuncios.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                String tag = spFiltroAnuncios.getSelectedItem().toString();
+                LiveData<PagingData<Anuncio>> anunciosLD = homeViewModel.getAnunciosLd(tag);
+                AnunciosAdapter anunciosAdapter = new AnunciosAdapter(new AnunciosComparator());
+                rvAnuncios.setAdapter(anunciosAdapter);
+                anunciosLD.observe((HomeActivity) getActivity(), new Observer<PagingData<Anuncio>>() {
+                    @Override
+                    public void onChanged(PagingData<Anuncio> anunciosPagingData) {
+                        anunciosAdapter.submitData(getLifecycle(), anunciosPagingData);
+                    }
+                });
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
             }
         });
     }

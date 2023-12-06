@@ -24,6 +24,7 @@ import camila.davi.isabelly.yasmin.domos.R;
 import camila.davi.isabelly.yasmin.domos.activity.EditarPerfilActivity;
 import camila.davi.isabelly.yasmin.domos.activity.HomeActivity;
 import camila.davi.isabelly.yasmin.domos.activity.LoginActivity;
+import camila.davi.isabelly.yasmin.domos.activity.MeusAnunciosActivity;
 import camila.davi.isabelly.yasmin.domos.bd.Usuario;
 import camila.davi.isabelly.yasmin.domos.model.CriarAnuncioViewModel;
 import camila.davi.isabelly.yasmin.domos.model.HomeViewModel;
@@ -114,23 +115,13 @@ public class PerfilFragment extends Fragment {
             }
         });
 
-        Button btnEditarPerfil = view.findViewById(R.id.btnEditarPerfil);
-        btnEditarPerfil.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent((HomeActivity) getActivity(), EditarPerfilActivity.class);
-                startActivity(i);
-
-            }
-        });
-
         Button bnt_MeusAnuncios = view.findViewById(R.id.bnt_MeusAnuncios);
         bnt_MeusAnuncios.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Config.setLogin(getActivity(), "");
                 Config.setPassword(getActivity(), "");
-                Intent i = new Intent((HomeActivity) getActivity(), LoginActivity.class);
+                Intent i = new Intent((HomeActivity) getActivity(), MeusAnunciosActivity.class);
                 startActivity(i);
             }
         });

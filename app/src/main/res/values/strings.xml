@@ -14,15 +14,17 @@
         <item name="reserva_default">Espaço a reservar</item>
     </string-array>
     <string-array name="filtro_anuncios">
+        <item> Todos </item>
         <item> Alimentação </item>
         <item> Vestuário </item>
         <item> Eletrônicos </item>
         <item> Beleza </item>
         <item> Decoração </item>
-        <item> Petshop </item>
+        <item> Pet-Shop </item>
         <item> Serviços </item>
     </string-array>
     <string-array name="filtro_avisos">
+        <item> Todos </item>
         <item> Crítico </item>
         <item> Urgente </item>
         <item> Importante </item>

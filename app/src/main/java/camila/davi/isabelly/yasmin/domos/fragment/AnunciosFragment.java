@@ -9,6 +9,9 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.paging.PagingData;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,7 +27,14 @@ import camila.davi.isabelly.yasmin.domos.R;
 import camila.davi.isabelly.yasmin.domos.activity.CriarAnuncioActivity;
 import camila.davi.isabelly.yasmin.domos.activity.CriarAvisoActivity;
 import camila.davi.isabelly.yasmin.domos.activity.HomeActivity;
+import camila.davi.isabelly.yasmin.domos.adapter.AnunciosAdapter;
+import camila.davi.isabelly.yasmin.domos.adapter.AnunciosComparator;
+import camila.davi.isabelly.yasmin.domos.adapter.AvisosAdapter;
+import camila.davi.isabelly.yasmin.domos.adapter.AvisosComparator;
+import camila.davi.isabelly.yasmin.domos.bd.Anuncio;
+import camila.davi.isabelly.yasmin.domos.bd.Aviso;
 import camila.davi.isabelly.yasmin.domos.model.CriarAnuncioViewModel;
+import camila.davi.isabelly.yasmin.domos.model.HomeViewModel;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -97,6 +107,30 @@ public class AnunciosFragment extends Fragment {
             public void onClick(View v) {
                 Intent i = new Intent((HomeActivity) getActivity(), CriarAnuncioActivity.class);
                 startActivity(i);
+            }
+        });
+
+        RecyclerView rvAnuncios = view.findViewById(R.id.rvAnuncios);
+        rvAnuncios.setHasFixedSize(true);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager((HomeActivity) getActivity());
+        rvAnuncios.setLayoutManager(layoutManager);
+        AnunciosAdapter anunciosAdapter = new AnunciosAdapter(new AnunciosComparator());
+        rvAnuncios.setAdapter(anunciosAdapter);
+
+        HomeViewModel homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
+        String tag;
+        if (spFiltroAnuncios.getSelectedItem() != null) {
+            tag = spFiltroAnuncios.getSelectedItem().toString();
+        } else {
+            tag = "Eletrônicos";
+        }
+
+        LiveData<PagingData<Anuncio>> anunciosLD = homeViewModel.getAnunciosLd(tag);
+
+        anunciosLD.observe((HomeActivity) getActivity(), new Observer<PagingData<Anuncio>>() {
+            @Override
+            public void onChanged(PagingData<Anuncio> anuncioPagingData) {
+                anunciosAdapter.submitData(getLifecycle(), anuncioPagingData);
             }
         });
     }

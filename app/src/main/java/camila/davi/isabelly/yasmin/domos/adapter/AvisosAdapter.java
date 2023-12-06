@@ -43,6 +43,9 @@ public class AvisosAdapter extends PagingDataAdapter<Aviso, MyViewHolder>  {
         TextView tvDescAviso = holder.itemView.findViewById(R.id.tvDescAviso);
         tvDescAviso.setText(aviso.descricao);
 
+        TextView tvImportAviso = holder.itemView.findViewById(R.id.tvImportAviso);
+        tvImportAviso.setText(aviso.importancia);
+
 
     }
 }

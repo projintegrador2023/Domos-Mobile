@@ -4,12 +4,12 @@ import android.app.Application;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
-import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+
+import camila.davi.isabelly.yasmin.domos.bd.Usuario;
 
 public class PerfilViewModel extends AndroidViewModel {
 
@@ -17,10 +17,10 @@ public class PerfilViewModel extends AndroidViewModel {
         super(application);
     }
 
-    public LiveData<List<String>> loadPerfil() {
+    public MutableLiveData<Usuario> loadPerfil() {
 
         // Cria um container do tipo MutableLiveData (um LiveData que pode ter seu conteúdo alterado).
-        MutableLiveData<List<String>> result = new MutableLiveData<>();
+        MutableLiveData<Usuario> result = new MutableLiveData<>();
 
         // Cria uma nova linha de execução (thread). O android obriga que chamadas de rede sejam feitas
         // em uma linha de execução separada da principal.
@@ -44,7 +44,7 @@ public class PerfilViewModel extends AndroidViewModel {
                 // O método login envia os dados de novo usuário ao servidor. Ele retorna
                 // um booleano indicando true caso o cadastro de novo usuário tenha sido feito com sucesso e false
                 // em caso contrário
-                List<String> b = domosRepository.loadPerfil();
+                Usuario b = domosRepository.loadPerfil();
 
                 // Aqui postamos o resultado da operação dentro do LiveData. Quando fazemos isso,
                 // quem estiver observando o LiveData será avisado de que o resultado está disponível.

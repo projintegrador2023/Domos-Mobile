@@ -127,10 +127,14 @@ public class AvisosFragment extends Fragment {
         rvAvisos.setAdapter(avisosAdapter);
 
         HomeViewModel homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
+        String importancia;
+        if (spFiltroAvisos.getSelectedItem() == null) {
+            importancia = "Crítico";
+        } else {
+            importancia = spFiltroAvisos.getSelectedItem().toString();
+        }
 
-        // String importancia = spFiltroAvisos.getSelectedItem().toString();
-
-        LiveData<PagingData<Aviso>> avisosLD = homeViewModel.getAvisosLd("Crítico");
+        LiveData<PagingData<Aviso>> avisosLD = homeViewModel.getAvisosLd(importancia);
 
         avisosLD.observe((HomeActivity) getActivity(), new Observer<PagingData<Aviso>>() {
             @Override

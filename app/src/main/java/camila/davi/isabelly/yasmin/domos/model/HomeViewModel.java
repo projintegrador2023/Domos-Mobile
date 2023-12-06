@@ -15,11 +15,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import camila.davi.isabelly.yasmin.domos.R;
+import camila.davi.isabelly.yasmin.domos.bd.Anuncio;
 import camila.davi.isabelly.yasmin.domos.bd.Aviso;
 import kotlinx.coroutines.CoroutineScope;
 
-public class HomeViewModel extends AndroidViewModel {
+public class  HomeViewModel extends AndroidViewModel {
     LiveData<PagingData<Aviso>> avisosLd;
+    LiveData<PagingData<Anuncio>> anunciosLd;
     int navigationOpSelected = R.id.btnAvisos;
     List<Aviso> avisos = new ArrayList<>();
 
@@ -48,4 +50,12 @@ public class HomeViewModel extends AndroidViewModel {
         avisosLd = PagingLiveData.cachedIn(PagingLiveData.getLiveData(pager), viewModelScope);
         return avisosLd;
     }
+    public LiveData<PagingData<Anuncio>> getAnunciosLd(String tag) {
+        DomosRepository domosRepository = new DomosRepository(getApplication());
+        CoroutineScope viewModelScope = ViewModelKt.getViewModelScope(this);
+        Pager<Integer, Anuncio> pager = new Pager(new PagingConfig(10), () -> new AnunciosPagingSource(domosRepository, tag));
+        anunciosLd = PagingLiveData.cachedIn(PagingLiveData.getLiveData(pager), viewModelScope);
+        return anunciosLd;
+    }
+
 }

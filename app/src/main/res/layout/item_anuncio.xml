@@ -5,7 +5,8 @@
     android:id="@+id/item_anuncio"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/white"
+    android:layout_marginBottom="8dp"
+    android:background="@color/ic_perfil_redondo_background"
     app:circularflow_radiusInDP="20dp">
 
     <ImageView
@@ -15,7 +16,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/dividerItemAnuncio2"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dividerItemAnuncio"
         app:srcCompat="@drawable/icone_imgperfil" />
@@ -45,7 +46,7 @@
         android:text="Bloco - Apto"
         android:textColor="@color/verde_agua_escuro_escuro"
         android:textSize="10sp"
-        app:layout_constraintBottom_toTopOf="@+id/dividerItemAnuncio2"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/imgPerfilItemAnuncio"
@@ -56,7 +57,7 @@
         android:layout_width="0dp"
         android:layout_height="4dp"
         android:layout_marginTop="8dp"
-        android:background="@color/verde_agua_escuro"
+        android:background="@color/verde_agua_escuro_escuro"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvTagItemAnuncio" />
@@ -104,15 +105,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/edit_text_bg"
-        android:backgroundTint="#FF6DA7"
+        android:backgroundTint="@color/verde_agua_escuro_escuro"
         android:text="Tag"
         android:textColor="#FFFFFF"
-        android:textSize="20sp"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imvImagemAnuncio" />
 
@@ -127,16 +128,5 @@
         android:textSize="10sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dividerItemAnuncio" />
-
-    <View
-        android:id="@+id/dividerItemAnuncio2"
-        android:layout_width="0dp"
-        android:layout_height="4dp"
-        android:layout_marginTop="8dp"
-        android:background="@color/verde_agua_escuro"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgPerfilItemAnuncio" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

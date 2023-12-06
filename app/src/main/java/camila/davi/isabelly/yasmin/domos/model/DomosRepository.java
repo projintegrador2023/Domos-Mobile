@@ -3,10 +3,12 @@ package camila.davi.isabelly.yasmin.domos.model;
 import android.content.Context;
 import android.util.Log;
 
+import androidx.lifecycle.LiveData;
+
 import camila.davi.isabelly.yasmin.domos.bd.Anuncio;
 import camila.davi.isabelly.yasmin.domos.bd.Aviso;
 import camila.davi.isabelly.yasmin.domos.bd.NumDivCondominio;
-import camila.davi.isabelly.yasmin.domos.bd.Regimento;
+import camila.davi.isabelly.yasmin.domos.bd.Usuario;
 import camila.davi.isabelly.yasmin.domos.util.Config;
 import camila.davi.isabelly.yasmin.domos.util.HttpRequest;
 import camila.davi.isabelly.yasmin.domos.util.Util;
@@ -15,11 +17,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -493,69 +493,6 @@ public class DomosRepository {
         return null;
     }
 
-    public List<String> loadPerfil() {
-
-        String login = Config.getLogin(context);
-
-        // Cria uma requisição HTTP a adiona o parâmetros que devem ser enviados ao servidor
-        HttpRequest httpRequest = new HttpRequest(Config.DOMOS_APP_URL +"pegar_perfil.php", "GET", "UTF-8");
-        httpRequest.addParam("cpf", login);
-
-        String result = "";
-        try {
-            // Executa a requisição HTTP. É neste momento que o servidor web é contactado. Ao executar
-            // a requisição é aberto um fluxo de dados entre o servidor e a app (InputStream is).
-            InputStream is = httpRequest.execute();
-
-            result = Util.inputStream2String(is, "UTF-8");
-
-            // Fecha a conexão com o servidor web.
-            httpRequest.finish();
-
-            Log.i("HTTP PRODUCTS RESULT", result);
-
-            // A classe JSONObject recebe como parâmetro do construtor uma String no formato JSON e
-            // monta internamente uma estrutura de dados similar ao dicionário em python.
-            JSONObject jsonObject = new JSONObject(result);
-
-            // obtem o valor da chave sucesso para verificar se a ação ocorreu da forma esperada ou não.
-            int success = jsonObject.getInt("sucesso");
-
-            // Se sucesso igual a 1, os produtos são obtidos da String JSON e adicionados à lista de
-            // produtos a ser retornada como resultado.
-            if(success == 1) {
-
-                List<String> perfil = new ArrayList<>();
-
-                // A chave produtos é um array de objetos do tipo json (JSONArray), onde cada um desses representa
-                // um produto
-                JSONArray jsonPerfil = jsonObject.getJSONArray("Perfil");
-
-                // Cada elemento do JSONArray é um JSONObject que guarda os dados de um produto
-                for(int i = 0; i < jsonPerfil.length(); i++) {
-
-                    // Obtemos o JSONObject referente a um produto
-                    JSONObject jItem = jsonPerfil.getJSONObject(i);
-
-                    // Obtemos os dados de um produtos via JSONObject
-                    String item = jItem.getString("Item");
-
-                    perfil.add(item);
-                }
-
-                return perfil;
-
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (JSONException e) {
-            e.printStackTrace();
-            Log.e("HTTP RESULT", result);
-        }
-
-        return null;
-    }
-
     public List<Aviso> loadAvisos(Integer limit, Integer offSet, String importancia) {
 
         // cria a lista de produtos incicialmente vazia, que será retornada como resultado
@@ -654,7 +591,7 @@ public class DomosRepository {
         return listaAvisos;
     }
 
-    public List<Anuncio> loadAnuncios(Integer limit, Integer offSet, String codigo_condominio) {
+    public List<Anuncio> loadAnuncios(Integer limit, Integer offSet, String tag) {
 
         // cria a lista de produtos incicialmente vazia, que será retornada como resultado
         List<Anuncio> listaAnuncios = new ArrayList<>();
@@ -668,8 +605,8 @@ public class DomosRepository {
         HttpRequest httpRequest = new HttpRequest(Config.DOMOS_APP_URL +"pegar_anuncios.php", "GET", "UTF-8");
         httpRequest.addParam("limit", limit.toString());
         httpRequest.addParam("offset", offSet.toString());
-        httpRequest.addParam("codigo_condominio", codigo_condominio);
-
+        httpRequest.addParam("cpf", login);
+        httpRequest.addParam("tag", tag);
 
         // Para esta ação, é preciso estar logado. Então na requisição HTTP setamos o login e senha do
         // usuário. Ao executar a requisição, o login e senha do usuário serão enviados ao servidor web,
@@ -732,10 +669,10 @@ public class DomosRepository {
                     String descricao = jAnuncio.getString("descricao");
                     String titulo = jAnuncio.getString("titulo");
                     String usuario = jAnuncio.getString("cpf");
-                    String tag = jAnuncio.getString("tag");
+                    String tag1 = jAnuncio.getString("tag");
 
                     // Criamo um objeto do tipo Product para guardar esses dados
-                    Anuncio anuncio = new Anuncio(codigoPostagem, dataHoraPostagem, descricao, titulo, usuario, null, tag);
+                    Anuncio anuncio = new Anuncio(codigoPostagem, dataHoraPostagem, descricao, titulo, usuario, null, tag1);
 
                     // Adicionamos o objeto product na lista de produtos
                     listaAnuncios.add(anuncio);
@@ -751,7 +688,7 @@ public class DomosRepository {
         return listaAnuncios;
     }
 
-    public Regimento loadRegimento(Integer limit, Integer offSet) {
+    public Usuario loadPerfil() {
 
         // cria a lista de produtos incicialmente vazia, que será retornada como resultado
 
@@ -762,9 +699,8 @@ public class DomosRepository {
         String password = Config.getPassword(context);
 
         // Cria uma requisição HTTP a adiona o parâmetros que devem ser enviados ao servidor
-        HttpRequest httpRequest = new HttpRequest(Config.DOMOS_APP_URL + "pegar_regimento.php", "GET", "UTF-8");
-        httpRequest.addParam("limit", limit.toString());
-        httpRequest.addParam("offset", offSet.toString());
+        HttpRequest httpRequest = new HttpRequest(Config.DOMOS_APP_URL + "pegar_perfil.php", "GET", "UTF-8");
+        httpRequest.addParam("cpf", login);
 
         // Para esta ação, é preciso estar logado. Então na requisição HTTP setamos o login e senha do
         // usuário. Ao executar a requisição, o login e senha do usuário serão enviados ao servidor web,
@@ -773,7 +709,7 @@ public class DomosRepository {
         httpRequest.setBasicAuth(login, password);
 
         String result = "";
-        Regimento regimento = null;
+        Usuario usuario = null;
         try {
             // Executa a requisição HTTP. É neste momento que o servidor web é contactado. Ao executar
             // a requisição é aberto um fluxo de dados entre o servidor e a app (InputStream is).
@@ -814,17 +750,23 @@ public class DomosRepository {
 
                 // A chave produtos é um array de objetos do tipo json (JSONArray), onde cada um desses representa
                 // um produto
-                JSONArray jsonArray = jsonObject.getJSONArray("regimento");
+                JSONArray jsonArray = jsonObject.getJSONArray("perfil");
 
                 // Cada elemento do JSONArray é um JSONObject que guarda os dados de um produto
 
 
                 // Obtemos o JSONObject referente a um produto
-                JSONObject jAviso = jsonArray.getJSONObject(0);
-                int codigo = jAviso.getInt("codigo");
-                String link = jAviso.getString("link");
+                JSONObject jPerfil = jsonArray.getJSONObject(0);
+                String nome = jPerfil.getString("nome");
+                String email = jPerfil.getString("email");
+                String cpf = jPerfil.getString("cpf");
+                String num_moradia = jPerfil.getString("num_moradia");
+                String divisao = jPerfil.getString("divisao");
+                String codigo_condominio = jPerfil.getString("codigo_condominio");
+                String senha = jPerfil.getString("senha");
+                // img
 
-                regimento = new Regimento(codigo, link);
+                usuario = new Usuario(cpf, nome, email, num_moradia, divisao, codigo_condominio, senha);
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -833,7 +775,7 @@ public class DomosRepository {
             Log.e("HTTP RESULT", result);
         }
 
-        return regimento;
+        return usuario;
     }
 
 }

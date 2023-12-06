@@ -1,7 +1,7 @@
 package camila.davi.isabelly.yasmin.domos.bd;
 
 public class Anuncio{
-    String tag, codigoPostagem, dataHoraPostagem, descricao, titulo, usuario, img;
+    public String tag, codigoPostagem, dataHoraPostagem, descricao, titulo, usuario, img;
 
 
     public Anuncio(String codigoPostagem, String dataHoraPostagem, String descricao, String titulo, String usuario, String img, String tag) {

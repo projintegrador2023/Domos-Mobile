@@ -94,7 +94,7 @@ public class CadastroUsuario1Fragment extends Fragment {
                     if (validaCPF(cpf)){
                         if (senha.equals(confirmarSenha)){
                             CadastroUsuarioActivity cadastroUsuarioActivity = (CadastroUsuarioActivity) getActivity();
-                            Usuario usuario = new Usuario(cpf, nome, email, senha, codigoCondominio);
+                            Usuario usuario = new Usuario(cpf, nome, email, null, null, codigoCondominio, senha);
                             cadastroUsuarioActivity.setCadastroUsuario2Fragment(usuario);
                         } else {
                             Toast.makeText(getActivity(), "As senhas devem ser iguais.", Toast.LENGTH_LONG).show();

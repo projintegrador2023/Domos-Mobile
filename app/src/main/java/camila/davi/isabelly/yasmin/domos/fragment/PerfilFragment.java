@@ -7,17 +7,27 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
+
+import java.util.List;
 
 import camila.davi.isabelly.yasmin.domos.R;
 import camila.davi.isabelly.yasmin.domos.activity.EditarPerfilActivity;
 import camila.davi.isabelly.yasmin.domos.activity.HomeActivity;
 import camila.davi.isabelly.yasmin.domos.activity.LoginActivity;
+import camila.davi.isabelly.yasmin.domos.bd.Usuario;
+import camila.davi.isabelly.yasmin.domos.model.CriarAnuncioViewModel;
+import camila.davi.isabelly.yasmin.domos.model.HomeViewModel;
+import camila.davi.isabelly.yasmin.domos.model.PerfilViewModel;
 import camila.davi.isabelly.yasmin.domos.util.Config;
 
 /**
@@ -75,8 +85,24 @@ public class PerfilFragment extends Fragment {
         TextView etAptoPerfil = view.findViewById(R.id.etAptoPerfil);
         TextView etDivisaoPerfil = view.findViewById(R.id.etDivisaoPerfil);
 
+        PerfilViewModel perfilViewModel = new ViewModelProvider(this).get(PerfilViewModel.class);
 
+        LiveData<Usuario> resultLD = perfilViewModel.loadPerfil();
 
+        resultLD.observe((HomeActivity) getActivity(), new Observer<Usuario>() {
+            @Override
+            public void onChanged(Usuario usuario) {
+
+                if(usuario != null) {
+                    etNomePerfil.setText(usuario.nome);
+                    etCpfPerfil.setText(usuario.cpf);
+                    etEmailPerfil.setText(usuario.email);
+                    etAptoPerfil.setText(usuario.num_moradia);
+                    etDivisaoPerfil.setText(usuario.divisao);
+
+                }
+            }
+        });
 
         Button btnEditarPerfil = view.findViewById(R.id.btnEditarPerfil);
         btnEditarPerfil.setOnClickListener(new View.OnClickListener() {
@@ -87,8 +113,19 @@ public class PerfilFragment extends Fragment {
 
             }
         });
-        Button btnEncerrarSessao = view.findViewById(R.id.btnEncerrarSessao);
-        btnEncerrarSessao.setOnClickListener(new View.OnClickListener() {
+
+        Button btnEditarPerfil = view.findViewById(R.id.btnEditarPerfil);
+        btnEditarPerfil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent((HomeActivity) getActivity(), EditarPerfilActivity.class);
+                startActivity(i);
+
+            }
+        });
+
+        Button bnt_MeusAnuncios = view.findViewById(R.id.bnt_MeusAnuncios);
+        bnt_MeusAnuncios.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Config.setLogin(getActivity(), "");

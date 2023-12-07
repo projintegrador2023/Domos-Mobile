@@ -119,10 +119,17 @@ public class PerfilFragment extends Fragment {
         bnt_MeusAnuncios.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Config.setLogin(getActivity(), "");
-                Config.setPassword(getActivity(), "");
                 Intent i = new Intent((HomeActivity) getActivity(), MeusAnunciosActivity.class);
                 startActivity(i);
+            }
+        });
+
+        Button btnEncerrarSessao = view.findViewById(R.id.btnEncerrarSessao);
+        btnEncerrarSessao.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Config.setLogin(getActivity(), "");
+                Config.setPassword(getActivity(), "");
             }
         });
     }

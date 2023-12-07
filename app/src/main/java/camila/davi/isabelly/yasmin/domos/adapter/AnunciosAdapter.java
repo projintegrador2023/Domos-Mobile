@@ -3,6 +3,7 @@ package camila.davi.isabelly.yasmin.domos.adapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.DiffUtil;
 
 import camila.davi.isabelly.yasmin.domos.R;
 import camila.davi.isabelly.yasmin.domos.bd.Anuncio;
+import camila.davi.isabelly.yasmin.domos.util.ImageCache;
 
 public class AnunciosAdapter extends PagingDataAdapter<Anuncio, MyViewHolder> {
 
@@ -53,5 +55,8 @@ public class AnunciosAdapter extends PagingDataAdapter<Anuncio, MyViewHolder> {
 
         TextView tvNum = holder.itemView.findViewById(R.id.tvNum);
         tvNum.setText(anuncio.num);
+
+        ImageView imvImagemAnuncio = holder.itemView.findViewById(R.id.imvImagemAnuncio);
+        ImageCache.loadImageUrlToImageView(holder.itemView.getContext(), anuncio.img, imvImagemAnuncio, 150, 150);
     }
 }

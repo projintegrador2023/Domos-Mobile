@@ -11,7 +11,7 @@
         android:id="@+id/btnPerfil"
         android:icon="@drawable/icone_perfil"
         android:title="Perfil"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="always" />
     <item
         android:id="@+id/btnAnuncios"
         android:icon="@drawable/icone_anunciar"

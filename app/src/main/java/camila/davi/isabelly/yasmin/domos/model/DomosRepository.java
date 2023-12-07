@@ -673,6 +673,7 @@ public class DomosRepository {
                     int tag1 = jAnuncio.getInt("tag");
                     String num = jAnuncio.getString("num_moradia");
                     String divisao = jAnuncio.getString("divisao");
+                    //String endereco = jAnuncio.getString("endereco_imagem");
 
                     // Criamo um objeto do tipo Product para guardar esses dados
                     Anuncio anuncio = new Anuncio(codigoPostagem, dataHoraPostagem, descricao, titulo, usuario, null, tag1, num, divisao);

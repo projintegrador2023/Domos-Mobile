@@ -70,7 +70,7 @@ public class AnunciosAdapter extends PagingDataAdapter<Anuncio, MyViewHolder> {
         TextView tvNum = holder.itemView.findViewById(R.id.tvNum);
         tvNum.setText(anuncio.num);
 
-        ImageView imvImagemAnuncio = holder.itemView.findViewById(R.id.imvImagemAnuncio);
-        ImageCache.loadImageUrlToImageView(holder.itemView.getContext(), anuncio.img, imvImagemAnuncio, 150, 150);
+        //ImageView imvImagemAnuncio = holder.itemView.findViewById(R.id.imvImagemAnuncio);
+        //ImageCache.loadImageUrlToImageView(holder.itemView.getContext(), anuncio.img, imvImagemAnuncio, 150, 150);
     }
 }

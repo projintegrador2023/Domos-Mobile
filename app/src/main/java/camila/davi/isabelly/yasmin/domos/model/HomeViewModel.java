@@ -61,7 +61,7 @@ public class  HomeViewModel extends AndroidViewModel {
     public LiveData<PagingData<Anuncio>> getMeusAnunciosLd() {
         DomosRepository domosRepository = new DomosRepository(getApplication());
         CoroutineScope viewModelScope = ViewModelKt.getViewModelScope(this);
-        Pager<Integer, Anuncio> pager = new Pager(new PagingConfig(10), () -> new AnunciosPagingSource(domosRepository));
+        Pager<Integer, Anuncio> pager = new Pager(new PagingConfig(10), () -> new MeusAnunciosPagingSource(domosRepository));
         anunciosLd = PagingLiveData.cachedIn(PagingLiveData.getLiveData(pager), viewModelScope);
         return anunciosLd;
     }

@@ -9,4 +9,15 @@
     <color name="cinza_claro">#f1f0ef</color>
     <color name="verde_agua_escuro_escuro">#1d5961</color>
     <color name="verde_agua"> #0dc0d8</color>
+    <color name="alimentacao"> #FF6DA7</color>
+    <color name="beleza"> #66B73E</color>
+    <color name="decoracao"> #E6A545</color>
+    <color name="eletronico"> #76E3CE</color>
+    <color name="petshop"> #9F35CC</color>
+    <color name="servico"> #86AFEA</color>
+    <color name="vestuario"> #FF6D6D</color>
+    <color name="critico"> #cc0000</color>
+    <color name="urgente"> #F7D74A</color>
+    <color name="importante"> #90ee90</color>
+
 </resources>

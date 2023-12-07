@@ -124,7 +124,7 @@ public class AvisosFragment extends Fragment {
         rvAvisos.setHasFixedSize(true);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager((HomeActivity) getActivity());
         rvAvisos.setLayoutManager(layoutManager);
-        AvisosAdapter avisosAdapter = new AvisosAdapter(new AvisosComparator());
+        AvisosAdapter avisosAdapter = new AvisosAdapter((HomeActivity) getActivity(), new AvisosComparator());
         rvAvisos.setAdapter(avisosAdapter);
 
         HomeViewModel homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
@@ -145,7 +145,7 @@ public class AvisosFragment extends Fragment {
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 String importancia = spFiltroAvisos.getSelectedItem().toString();
                 LiveData<PagingData<Aviso>> avisosLD = homeViewModel.getAvisosLd(importancia);
-                AvisosAdapter avisosAdapter = new AvisosAdapter(new AvisosComparator());
+                AvisosAdapter avisosAdapter = new AvisosAdapter((HomeActivity) getActivity(), new AvisosComparator());
                 rvAvisos.setAdapter(avisosAdapter);
                 avisosLD.observe((HomeActivity) getActivity(), new Observer<PagingData<Aviso>>() {
                     @Override

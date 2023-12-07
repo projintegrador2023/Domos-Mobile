@@ -42,6 +42,7 @@ public class EditarPerfilActivity extends AppCompatActivity {
 
         LiveData<Usuario> resultLD = perfilViewModel.loadPerfil();
 
+
         CadastroUsuarioViewModel cadastroUsuarioViewModel = new ViewModelProvider(this).get(CadastroUsuarioViewModel.class);
         resultLD.observe(this, new Observer<Usuario>() {
             @Override
@@ -51,25 +52,25 @@ public class EditarPerfilActivity extends AppCompatActivity {
                     etNomeEditar.setText(usuario.nome);
                     etCpfEditar.setText(usuario.cpf);
                     etEmailCadastro.setText(usuario.email);
-                    //spNum
 
-                    //LiveData<NumDivCondominio> resultLD1 = cadastroUsuarioViewModel.pegarNumDiv(usuario.codigoCondominio);
+                    LiveData<NumDivCondominio> resultLD1 = cadastroUsuarioViewModel.pegarNumDiv(usuario.codigoCondominio);
 
-                    //resultLD1.observe(EditarPerfilActivity.this, new Observer<NumDivCondominio>() {
-                        //@Override
-                        //public void onChanged(NumDivCondominio numDivCondominio) {
+                    resultLD1.observe(EditarPerfilActivity.this, new Observer<NumDivCondominio>() {
+                        @Override
+                        public void onChanged(NumDivCondominio numDivCondominio) {
 
-                            //if(numDivCondominio != null) {
-                                //ArrayAdapter adapterNums = new ArrayAdapter<String>(EditarPerfilActivity.this, android.R.layout.simple_spinner_item, numDivCondominio.getNumeros());
-                                //spNum.setAdapter(adapterNums);
+                            if(numDivCondominio != null) {
+                                ArrayAdapter adapterNums = new ArrayAdapter<String>(EditarPerfilActivity.this, android.R.layout.simple_spinner_item, numDivCondominio.getNumeros());
+                                spNum.setAdapter(adapterNums);
 
-                                //ArrayAdapter adapterDiv = new ArrayAdapter<String>(EditarPerfilActivity.this,android.R.layout.simple_spinner_item, numDivCondominio.getDivisoes());
-                                //spDivisao.setAdapter(adapterDiv);
+                                ArrayAdapter adapterDiv = new ArrayAdapter<String>(EditarPerfilActivity.this,android.R.layout.simple_spinner_item, numDivCondominio.getDivisoes());
+                                spDivisao.setAdapter(adapterDiv);
 
 
-                            //}
-                        //}
-                    //});
+                            }
+                        }
+                    });
+
 
                 }
             }

@@ -18,6 +18,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -159,7 +160,7 @@ public class DomosRepository {
      * @param imgLocation endereço do arquivo que contém a imagem do produto
      * @return true se o produto foi cadastrado junto ao servidor, false caso contrário
      */
-    public boolean criarAnuncio(String titulo, String tag, String descricao) {
+    public boolean criarAnuncio(String titulo, String tag, String descricao, String imgLocation) {
 
         // Para cadastrar um produto, é preciso estar logado. Então primeiro otemos o login e senha
         // salvos na app.
@@ -173,7 +174,10 @@ public class DomosRepository {
         httpRequest.addParam("descricao", descricao);
         httpRequest.addParam("cpf", login);
 
-        // httpRequest.addFile("img", new File(imgLocation));
+        if(!imgLocation.isEmpty()) {
+            httpRequest.addFile("file", new File(imgLocation));
+        }
+
 
         // Para esta ação, é preciso estar logado. Então na requisição HTTP setamos o login e senha do
         // usuário. Ao executar a requisição, o login e senha do usuário serão enviados ao servidor web,
@@ -873,57 +877,5 @@ public class DomosRepository {
 
         return usuario;
     }
-    public Regimento loadRegimento() {
-
-        // cria a lista de produtos incicialmente vazia, que será retornada como resultado
-
-
-        // Para obter a lista de produtos é preciso estar logado. Então primeiro otemos o login e senha
-        // salvos na app.
-        String login = Config.getLogin(context);
-        String password = Config.getPassword(context);
-
-        // Cria uma requisição HTTP a adiona o parâmetros que devem ser enviados ao servidor
-        HttpRequest httpRequest = new HttpRequest(Config.DOMOS_APP_URL + "pegar_regimento.php", "GET", "UTF-8");
-        httpRequest.addParam("cpf", login);
-
-        // Para esta ação, é preciso estar logado. Então na requisição HTTP setamos o login e senha do
-        // usuário. Ao executar a requisição, o login e senha do usuário serão enviados ao servidor web,
-        // o qual verificará se o login e senha batem com aquilo que está no BD. Somente depois dessa
-        // verificação de autenticação é que o servidor web irá realizar esta ação.
-        httpRequest.setBasicAuth(login, password);
-
-        String result = "";
-        Regimento regimento = null;
-        try {
-            // Executa a requisição HTTP. É neste momento que o servidor web é contactado. Ao executar
-            // a requisição é aberto um fluxo de dados entre o servidor e a app (InputStream is).
-            InputStream is = httpRequest.execute();
-            result = Util.inputStream2String(is, "UTF-8");
-
-            httpRequest.finish();
-
-            Log.i("HTTP PRODUCTS RESULT", result);
-
-            JSONObject jsonObject = new JSONObject(result);
-
-            int success = jsonObject.getInt("sucesso");
-
-            if (success == 1) {
-
-                String regimento1 = jsonObject.getString("regimento");
-
-                regimento = new Regimento(regimento1);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (JSONException e) {
-            e.printStackTrace();
-            Log.e("HTTP RESULT", result);
-        }
-
-        return regimento;
-    }
-
 
 }

@@ -11,13 +11,15 @@ import androidx.paging.PagingDataAdapter;
 import androidx.recyclerview.widget.DiffUtil;
 
 import camila.davi.isabelly.yasmin.domos.R;
+import camila.davi.isabelly.yasmin.domos.activity.HomeActivity;
 import camila.davi.isabelly.yasmin.domos.bd.Anuncio;
 import camila.davi.isabelly.yasmin.domos.util.ImageCache;
 
 public class AnunciosAdapter extends PagingDataAdapter<Anuncio, MyViewHolder> {
-
-    public AnunciosAdapter(@NonNull DiffUtil.ItemCallback<Anuncio> diffCallback) {
+    HomeActivity homeActivity;
+    public AnunciosAdapter(HomeActivity homeActivity, @NonNull DiffUtil.ItemCallback<Anuncio> diffCallback) {
         super(diffCallback);
+        this.homeActivity = homeActivity;
     }
 
     @NonNull
@@ -70,7 +72,8 @@ public class AnunciosAdapter extends PagingDataAdapter<Anuncio, MyViewHolder> {
         TextView tvNum = holder.itemView.findViewById(R.id.tvNum);
         tvNum.setText(anuncio.num);
 
-        //ImageView imvImagemAnuncio = holder.itemView.findViewById(R.id.imvImagemAnuncio);
-        //ImageCache.loadImageUrlToImageView(holder.itemView.getContext(), anuncio.img, imvImagemAnuncio, 150, 150);
+        int h = (int) homeActivity.getResources().getDimension(R.dimen.img_height_anuncio);
+        ImageView imvImagemAnuncio = holder.itemView.findViewById(R.id.imvImagemAnuncio);
+        ImageCache.loadImageUrlToImageView(homeActivity, anuncio.img, imvImagemAnuncio, -1, h);
     }
 }

@@ -15,8 +15,8 @@
 
         <ImageView
             android:id="@+id/imgPerfil"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="32dp"
             android:layout_marginEnd="16dp"
@@ -45,31 +45,16 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="16dp"
                 android:layout_marginBottom="8dp"
                 android:backgroundTint="#0099ad"
                 android:drawableLeft="@drawable/icone_anunciar"
                 android:text="meus anúncios"
-                android:textSize="10sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btnEditarPerfil" />
-
-            <Button
-                android:id="@+id/btn_BaixarPdf"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="8dp"
-                android:backgroundTint="#0099ad"
-                android:drawableLeft="@drawable/icone_baixar"
-                android:text="baixar regimento"
-                android:textSize="8dp"
+                android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/bnt_MeusAnuncios"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/btnEditarPerfil" />
 
             <TextView
@@ -115,25 +100,25 @@
                 android:id="@+id/etAptoPerfil"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
+                android:layout_marginEnd="16dp"
                 android:background="@drawable/edit_text_bg"
-                app:layout_constraintEnd_toStartOf="@+id/etDivisaoPerfil"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.984"
+                app:layout_constraintStart_toEndOf="@+id/etDivisaoPerfil"
                 app:layout_constraintTop_toBottomOf="@+id/etEmailPerfil" />
 
             <TextView
                 android:id="@+id/etDivisaoPerfil"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
-                android:layout_marginEnd="16dp"
+                android:layout_marginEnd="8dp"
                 android:background="@drawable/edit_text_bg"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.979"
-                app:layout_constraintStart_toEndOf="@+id/etAptoPerfil"
+                app:layout_constraintEnd_toStartOf="@+id/etAptoPerfil"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/etEmailPerfil" />
 
             <Button
@@ -148,7 +133,7 @@
                 android:text="Editar Perfil"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/etDivisaoPerfil" />
+                app:layout_constraintTop_toBottomOf="@+id/etAptoPerfil" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

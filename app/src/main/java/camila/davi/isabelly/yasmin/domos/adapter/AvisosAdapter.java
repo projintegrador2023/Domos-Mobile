@@ -1,5 +1,6 @@
 package camila.davi.isabelly.yasmin.domos.adapter;
 
+import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,12 +12,16 @@ import androidx.paging.PagingDataAdapter;
 import androidx.recyclerview.widget.DiffUtil;
 
 import camila.davi.isabelly.yasmin.domos.R;
+import camila.davi.isabelly.yasmin.domos.activity.HomeActivity;
 import camila.davi.isabelly.yasmin.domos.bd.Aviso;
 
 public class AvisosAdapter extends PagingDataAdapter<Aviso, MyViewHolder>  {
 
-    public AvisosAdapter(@NonNull DiffUtil.ItemCallback<Aviso> diffCallback) {
+    HomeActivity homeActivity;
+
+    public AvisosAdapter(HomeActivity homeActivity, @NonNull DiffUtil.ItemCallback<Aviso> diffCallback) {
         super(diffCallback);
+        this.homeActivity = homeActivity;
     }
 
     @NonNull
@@ -28,6 +33,7 @@ public class AvisosAdapter extends PagingDataAdapter<Aviso, MyViewHolder>  {
         return viewHolder;
     }
 
+    @SuppressLint("ResourceType")
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         Aviso aviso = this.getItem(position);

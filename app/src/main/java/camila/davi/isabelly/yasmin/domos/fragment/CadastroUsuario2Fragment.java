@@ -105,8 +105,6 @@ public class CadastroUsuario2Fragment extends Fragment {
                     ArrayAdapter adapterDiv = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_spinner_item, numDivCondominio.getDivisoes());
                     spDivisaoCadastro.setAdapter(adapterDiv);
                     btnCriarCadastro.setEnabled(true);
-
-
                 }
             }
         });

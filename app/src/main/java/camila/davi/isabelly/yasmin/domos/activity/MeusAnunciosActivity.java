@@ -24,9 +24,11 @@ import camila.davi.isabelly.yasmin.domos.model.HomeViewModel;
 public class MeusAnunciosActivity  extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_meus_anuncios);
 
         RecyclerView rv_MeusAnuncios = findViewById(R.id.rv_MeusAnuncios);
+
         rv_MeusAnuncios.setHasFixedSize(true);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         rv_MeusAnuncios.setLayoutManager(layoutManager);
@@ -40,11 +42,6 @@ public class MeusAnunciosActivity  extends AppCompatActivity {
         anunciosLD.observe(this, new Observer<PagingData<Anuncio>>() {
             @Override
             public void onChanged(PagingData<Anuncio> anuncioPagingData) {
-                anunciosAdapter.submitData(getLifecycle(), anuncioPagingData);
-
-                LiveData<PagingData<Anuncio>> anunciosLD = homeViewModel.getMeusAnunciosLd();
-                AnunciosAdapter anunciosAdapter = new AnunciosAdapter(new AnunciosComparator());
-                rv_MeusAnuncios.setAdapter(anunciosAdapter);
                 anunciosAdapter.submitData(getLifecycle(), anuncioPagingData);
 
             }

@@ -28,7 +28,7 @@ public class CriarAnuncioViewModel extends AndroidViewModel {
     public void setCurrentPhotoPath(String currentPhotoPath) {
         this.currentPhotoPath = currentPhotoPath;
     }
-    public LiveData<Boolean> criarAnuncio(String titulo, String tag, String descricao) {
+    public LiveData<Boolean> criarAnuncio(String titulo, String tag, String descricao, String imgLocation) {
 
         // Cria um container do tipo MutableLiveData (um LiveData que pode ter seu conteúdo alterado).
         MutableLiveData<Boolean> result = new MutableLiveData<>();
@@ -54,7 +54,7 @@ public class CriarAnuncioViewModel extends AndroidViewModel {
                 // O método addProduct envia os dados de um novo produto ao servidor. Ele retorna
                 // um booleano indicando true caso o produto tenha sido cadastrado e false
                 // em caso contrário
-                boolean b = domosRepository.criarAnuncio(titulo, tag, descricao);
+                boolean b = domosRepository.criarAnuncio(titulo, tag, descricao, imgLocation);
 
                 // Aqui postamos o resultado da operação dentro do LiveData. Quando fazemos isso,
                 // quem estiver observando o LiveData será avisado de que o resultado está disponível.

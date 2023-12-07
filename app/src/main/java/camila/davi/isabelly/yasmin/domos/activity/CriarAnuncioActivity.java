@@ -124,12 +124,7 @@ public class CriarAnuncioActivity extends AppCompatActivity {
                     return;
                 }
 
-                //String currentPhotoPath = criarAnuncioViewModel.getCurrentPhotoPath();
-                //if(currentPhotoPath.isEmpty()) {
-                    //Toast.makeText(CriarAnuncioActivity.this, "O campo Foto do Produto não foi preenchido", Toast.LENGTH_LONG).show();
-                    //v.setEnabled(true);
-                    //return;
-                //}
+                String currentPhotoPath = criarAnuncioViewModel.getCurrentPhotoPath();
 
                 // Neste ponto, já verificamos que todos os campos foram preenchidos corretamente.
                 // Antes enviar esses dados ao servidor, nós fazemos uma escala na imagem escolhida
@@ -143,13 +138,13 @@ public class CriarAnuncioActivity extends AppCompatActivity {
                 // que exibe os detalhes de um produto. A largura vai possuir
                 // um tamanho proporcional ao tamamnho original.
 
-                // try {
-                    // int h = (int) getResources().getDimension(R.dimen.img_height);
-                    //Util.scaleImage(currentPhotoPath, -1, 2*h);
-                // } catch (FileNotFoundException e) {
-                    // e.printStackTrace();
-                    // return;
-                //}
+                 try {
+                     int h = (int) getResources().getDimension(R.dimen.img_height_anuncio);
+                    Util.scaleImage(currentPhotoPath, -1, 2*h);
+                 } catch (FileNotFoundException e) {
+                     e.printStackTrace();
+                    return;
+                }
 
                 // O ViewModel possui o método addProduct, que envia os dados do novo produto para o
                 // servidor web.O servidor web recebe esses dados e cadastra um novo produto. Se o
@@ -158,7 +153,7 @@ public class CriarAnuncioActivity extends AppCompatActivity {
                 //
                 // O método de addProduct retorna um LiveData, que na prática é um container que avisa
                 // quando o resultado do servidor chegou.
-                LiveData<Boolean> resultLD = criarAnuncioViewModel.criarAnuncio(titulo, tag, descricao);
+                LiveData<Boolean> resultLD = criarAnuncioViewModel.criarAnuncio(titulo, tag, descricao, currentPhotoPath);
 
                 // Aqui nós observamos o LiveData. Quando o servidor responder, o resultado indicando
                 // se o cadastro do produto deu certo ou não será guardado dentro do LiveData. Neste momento o

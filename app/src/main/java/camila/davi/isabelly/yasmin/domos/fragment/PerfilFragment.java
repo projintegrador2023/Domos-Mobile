@@ -130,6 +130,8 @@ public class PerfilFragment extends Fragment {
             public void onClick(View view) {
                 Config.setLogin(getActivity(), "");
                 Config.setPassword(getActivity(), "");
+                Intent i = new Intent((HomeActivity) getActivity(), LoginActivity.class);
+                startActivity(i);
             }
         });
     }

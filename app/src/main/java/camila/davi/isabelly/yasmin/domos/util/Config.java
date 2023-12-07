@@ -46,4 +46,16 @@ public class Config {
         SharedPreferences mPrefs = context.getSharedPreferences("configs", 0);
         return mPrefs.getString("password", "");
     }
+
+    public static void setNivelPermissao(Context context,  int nivelPermissao) {
+        SharedPreferences mPrefs = context.getSharedPreferences("configs", 0);
+        SharedPreferences.Editor mEditor = mPrefs.edit();
+        mEditor.putInt("nivelPermissao", nivelPermissao).commit();
+    }
+    public static int getNivelPermissao(Context context) {
+        SharedPreferences mPrefs = context.getSharedPreferences("configs", 0);
+        return mPrefs.getInt("nivelPermissao", 0);
+    }
 }
+
+

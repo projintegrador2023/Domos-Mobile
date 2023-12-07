@@ -573,7 +573,7 @@ public class DomosRepository {
                     String descricao = jAviso.getString("descricao");
                     String titulo = jAviso.getString("titulo");
                     String usuario = jAviso.getString("cpf");
-                    String importancia1 = jAviso.getString("importancia");
+                    int importancia1 = jAviso.getInt("importancia");
 
                     // Criamo um objeto do tipo Product para guardar esses dados
                     Aviso aviso = new Aviso(codigoPostagem, importancia1, dataHoraPostagem, descricao, titulo, usuario);
@@ -670,7 +670,7 @@ public class DomosRepository {
                     String descricao = jAnuncio.getString("descricao");
                     String titulo = jAnuncio.getString("titulo");
                     String usuario = jAnuncio.getString("nome");
-                    String tag1 = jAnuncio.getString("tag");
+                    int tag1 = jAnuncio.getInt("tag");
                     String num = jAnuncio.getString("num_moradia");
                     String divisao = jAnuncio.getString("divisao");
 
@@ -768,7 +768,7 @@ public class DomosRepository {
                     String descricao = jAnuncio.getString("descricao");
                     String titulo = jAnuncio.getString("titulo");
                     String usuario = jAnuncio.getString("nome");
-                    String tag1 = jAnuncio.getString("tag");
+                    int tag1 = jAnuncio.getInt("tag");
                     String num = jAnuncio.getString("num_moradia");
                     String divisao = jAnuncio.getString("divisao");
 

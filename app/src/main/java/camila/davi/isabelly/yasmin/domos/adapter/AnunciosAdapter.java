@@ -45,7 +45,21 @@ public class AnunciosAdapter extends PagingDataAdapter<Anuncio, MyViewHolder> {
         tvDescricaoItemAnuncio.setText(anuncio.descricao);
 
         TextView tvTagItemAnuncio = holder.itemView.findViewById(R.id.tvTagItemAnuncio);
-        tvTagItemAnuncio.setText(anuncio.tag);
+        if (anuncio.tag == 1){
+            tvTagItemAnuncio.setText("Alimentação");
+        } else if (anuncio.tag == 2){
+            tvTagItemAnuncio.setText("Vestuário");
+        } else if (anuncio.tag == 3){
+            tvTagItemAnuncio.setText("Eletrônicos");
+        } else if (anuncio.tag == 4){
+            tvTagItemAnuncio.setText("Beleza");
+        } else if (anuncio.tag == 5){
+            tvTagItemAnuncio.setText("Decoração");
+        } else if (anuncio.tag == 6){
+            tvTagItemAnuncio.setText("Pet-Shop");
+        } else if (anuncio.tag == 7){
+            tvTagItemAnuncio.setText("Serviços");
+        }
 
         TextView tvNomeAvisos = holder.itemView.findViewById(R.id.tvNomeAvisos);
         tvNomeAvisos.setText(anuncio.usuario);

@@ -42,11 +42,11 @@ public class AvisosAdapter extends PagingDataAdapter<Aviso, MyViewHolder>  {
         tvDescAviso.setText(aviso.descricao);
 
         TextView tvImportAviso = holder.itemView.findViewById(R.id.tvImportAviso);
-        if (aviso.importancia.equals('1')) {
+        if (aviso.importancia == 1) {
             tvImportAviso.setText("Crítico");
-        } else if (aviso.importancia.equals('2')) {
+        } else if (aviso.importancia == 2) {
             tvImportAviso.setText("Urgente");
-        } else if (aviso.importancia.equals('3')) {
+        } else if (aviso.importancia == 3) {
             tvImportAviso.setText("Importante");
         }
 

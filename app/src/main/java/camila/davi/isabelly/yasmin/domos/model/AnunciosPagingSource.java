@@ -26,6 +26,10 @@ public class AnunciosPagingSource extends ListenableFuturePagingSource<Integer, 
         this.domosRepository = domosRepository;
         this.tag = tag;
     }
+    public AnunciosPagingSource(DomosRepository domosRepository) {
+        this.domosRepository = domosRepository;
+    }
+
 
     @Nullable
     @Override
@@ -79,4 +83,5 @@ public class AnunciosPagingSource extends ListenableFuturePagingSource<Integer, 
 
         return lf;
     }
+
 }

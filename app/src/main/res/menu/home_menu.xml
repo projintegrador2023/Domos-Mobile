@@ -5,13 +5,16 @@
     <item
         android:id="@+id/btnAvisos"
         android:icon="@drawable/icone_avisos"
+        android:title="Avisos"
         app:showAsAction="always" />
     <item
         android:id="@+id/btnPerfil"
         android:icon="@drawable/icone_perfil"
+        android:title="Perfil"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/btnAnuncios"
         android:icon="@drawable/icone_anunciar"
+        android:title="Anúncios"
         app:showAsAction="always" />
 </menu>

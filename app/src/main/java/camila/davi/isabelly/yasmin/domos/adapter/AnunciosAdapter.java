@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.DiffUtil;
 
 import camila.davi.isabelly.yasmin.domos.R;
 import camila.davi.isabelly.yasmin.domos.bd.Anuncio;
-import camila.davi.isabelly.yasmin.domos.bd.Aviso;
 
 public class AnunciosAdapter extends PagingDataAdapter<Anuncio, MyViewHolder> {
 
@@ -49,10 +48,10 @@ public class AnunciosAdapter extends PagingDataAdapter<Anuncio, MyViewHolder> {
         TextView tvNomeAvisos = holder.itemView.findViewById(R.id.tvNomeAvisos);
         tvNomeAvisos.setText(anuncio.usuario);
 
-        TextView tvMoradia = holder.itemView.findViewById(R.id.tvMoradia);
-        tvNomeAvisos.setText(anuncio.num);
+        TextView tvDivisao = holder.itemView.findViewById(R.id.tvDivisao);
+        tvDivisao.setText(anuncio.divisao);
 
-        TextView tvApto = holder.itemView.findViewById(R.id.tvApto);
-        tvNomeAvisos.setText(anuncio.divisao);
+        TextView tvNum = holder.itemView.findViewById(R.id.tvNum);
+        tvNum.setText(anuncio.num);
     }
 }

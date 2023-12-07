@@ -8,4 +8,8 @@ public class Regimento {
         this.codigo = codigo;
         this.link = link;
     }
+
+    public Regimento(String link) {
+        this.link = link;
+    }
 }

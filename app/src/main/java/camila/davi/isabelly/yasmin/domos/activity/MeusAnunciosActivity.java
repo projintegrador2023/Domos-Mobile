@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import camila.davi.isabelly.yasmin.domos.R;
 import camila.davi.isabelly.yasmin.domos.adapter.AnunciosAdapter;
 import camila.davi.isabelly.yasmin.domos.adapter.AnunciosComparator;
+import camila.davi.isabelly.yasmin.domos.adapter.MeusAnunciosAdapter;
 import camila.davi.isabelly.yasmin.domos.bd.Anuncio;
 import camila.davi.isabelly.yasmin.domos.model.HomeViewModel;
 
@@ -29,11 +30,11 @@ public class MeusAnunciosActivity  extends AppCompatActivity {
 
         RecyclerView rv_MeusAnuncios = findViewById(R.id.rv_MeusAnuncios);
 
-        rv_MeusAnuncios.setHasFixedSize(true);
+        rv_MeusAnuncios.setHasFixedSize(false);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         rv_MeusAnuncios.setLayoutManager(layoutManager);
-        AnunciosAdapter anunciosAdapter = new AnunciosAdapter(new AnunciosComparator());
-        rv_MeusAnuncios.setAdapter(anunciosAdapter);
+        MeusAnunciosAdapter meusAnunciosAdapter = new MeusAnunciosAdapter(this, new AnunciosComparator());
+        rv_MeusAnuncios.setAdapter(meusAnunciosAdapter);
 
         HomeViewModel homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
 
@@ -42,9 +43,10 @@ public class MeusAnunciosActivity  extends AppCompatActivity {
         anunciosLD.observe(this, new Observer<PagingData<Anuncio>>() {
             @Override
             public void onChanged(PagingData<Anuncio> anuncioPagingData) {
-                anunciosAdapter.submitData(getLifecycle(), anuncioPagingData);
+                meusAnunciosAdapter.submitData(getLifecycle(), anuncioPagingData);
 
             }
         });
+
     }
 }

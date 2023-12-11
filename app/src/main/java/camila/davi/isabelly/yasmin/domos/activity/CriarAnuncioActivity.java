@@ -125,6 +125,23 @@ public class CriarAnuncioActivity extends AppCompatActivity {
                 }
 
                 String currentPhotoPath = criarAnuncioViewModel.getCurrentPhotoPath();
+                if(!currentPhotoPath.isEmpty()) {
+                    ImageView imvPhoto = findViewById(R.id.btnUpImgCriarAnuncio);
+                    // aqui carregamos a foto que está guardada dentro do arquivo currentPhotoPath dentro
+                    // de um objeto do tipo Bitmap. A imagem é carregada e sofre uma escala pra ficar
+                    // exatamente do tamanho do ImageView
+                    Bitmap bitmap = Util.getBitmap(currentPhotoPath, imvPhoto.getWidth(), imvPhoto.getHeight());
+                    imvPhoto.setImageBitmap(bitmap);
+
+                    try {
+                        int h = (int) getResources().getDimension(R.dimen.img_height_anuncio);
+                        Util.scaleImage(currentPhotoPath, -1, 2*h);
+                    } catch (FileNotFoundException e) {
+                        e.printStackTrace();
+                        return;
+                    }
+                }
+
 
                 // Neste ponto, já verificamos que todos os campos foram preenchidos corretamente.
                 // Antes enviar esses dados ao servidor, nós fazemos uma escala na imagem escolhida
@@ -138,13 +155,7 @@ public class CriarAnuncioActivity extends AppCompatActivity {
                 // que exibe os detalhes de um produto. A largura vai possuir
                 // um tamanho proporcional ao tamamnho original.
 
-                 try {
-                     int h = (int) getResources().getDimension(R.dimen.img_height_anuncio);
-                    Util.scaleImage(currentPhotoPath, -1, 2*h);
-                 } catch (FileNotFoundException e) {
-                     e.printStackTrace();
-                    return;
-                }
+
 
                 // O ViewModel possui o método addProduct, que envia os dados do novo produto para o
                 // servidor web.O servidor web recebe esses dados e cadastra um novo produto. Se o

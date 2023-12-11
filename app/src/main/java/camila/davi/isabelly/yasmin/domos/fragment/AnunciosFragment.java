@@ -112,7 +112,7 @@ public class AnunciosFragment extends Fragment {
         });
 
         RecyclerView rvAnuncios = view.findViewById(R.id.rvAnuncios);
-        rvAnuncios.setHasFixedSize(true);
+        rvAnuncios.setHasFixedSize(false);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager((HomeActivity) getActivity());
         rvAnuncios.setLayoutManager(layoutManager);
         AnunciosAdapter anunciosAdapter = new AnunciosAdapter((HomeActivity) getActivity(), new AnunciosComparator());

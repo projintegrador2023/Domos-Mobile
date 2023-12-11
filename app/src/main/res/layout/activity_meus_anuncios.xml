@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:backgroundTint="#f1f0ef">
+    android:background="@color/ic_perfil_background"
+    android:backgroundTint="#F1F0EF">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_MeusAnuncios"

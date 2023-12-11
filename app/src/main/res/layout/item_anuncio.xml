@@ -6,26 +6,15 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="8dp"
-    android:background="@color/ic_perfil_redondo_background"
+    android:background="@drawable/edit_text_bg"
+    android:backgroundTint="#FFFFFF"
     app:circularflow_radiusInDP="20dp">
-
-    <ImageView
-        android:id="@+id/imgPerfilItemAnuncio"
-        android:layout_width="29dp"
-        android:layout_height="29dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dividerItemAnuncio"
-        app:srcCompat="@drawable/icone_imgperfil" />
 
     <TextView
         android:id="@+id/tvNomeAvisos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="6dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="24dp"
         android:text="Anunciado por: Nome"
@@ -33,21 +22,21 @@
         android:textSize="10sp"
         app:layout_constraintEnd_toStartOf="@+id/tvDataItemAnuncio"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/imgPerfilItemAnuncio"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dividerItemAnuncio" />
 
     <TextView
         android:id="@+id/tvDivisao"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="6dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="4dp"
         android:layout_marginBottom="8dp"
         android:text="divisao"
         android:textColor="@color/verde_agua_escuro_escuro"
         android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imgPerfilItemAnuncio"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvNomeAvisos" />
 
     <View
@@ -81,6 +70,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:text="Descrição do anúncio"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -103,7 +93,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/edit_text_bg"
         android:backgroundTint="@color/verde_agua_escuro_escuro"
@@ -120,7 +110,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="16dp"
         android:text="Em: Data e hora da postagem"
         android:textColor="@color/verde_agua_escuro_escuro"
         android:textSize="10sp"

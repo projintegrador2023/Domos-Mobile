@@ -28,20 +28,6 @@
             android:background="#FFFFFF"
             tools:context=".activity.EditarPerfilActivity">
 
-            <Button
-                android:id="@+id/btnAlterarImagem"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="16dp"
-                android:backgroundTint="@color/verde_agua_escuro_escuro"
-                android:drawableLeft="@drawable/icone_upload"
-                android:text="upload imagem"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView3" />
-
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/clFrageEditar"
                 android:layout_width="0dp"
@@ -53,7 +39,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btnAlterarImagem"
+                app:layout_constraintTop_toBottomOf="@+id/imbEditarPerfil"
                 tools:context=".fragment.CadastroUsuario1Fragment">
 
                 <EditText
@@ -88,7 +74,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.555"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/spDivisao"
+                    app:layout_constraintTop_toBottomOf="@+id/etEmailCadastro"
                     app:layout_constraintVertical_bias="0.0" />
 
                 <EditText
@@ -156,39 +142,13 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/etConfirmarSenhaEditar" />
 
-                <Spinner
-                    android:id="@+id/spDivisao"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:backgroundTint="@color/verde_agua_escuro"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/spNum"
-                    app:layout_constraintTop_toBottomOf="@+id/etEmailCadastro" />
-
-                <Spinner
-                    android:id="@+id/spNum"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:backgroundTint="@color/verde_agua_escuro"
-                    app:layout_constraintEnd_toStartOf="@+id/spDivisao"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/etEmailCadastro" />
-
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <ImageView
-                android:id="@+id/imageView3"
-                android:layout_width="0dp"
-                android:layout_height="100dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="32dp"
-                android:layout_marginEnd="16dp"
+            <ImageButton
+                android:id="@+id/imbEditarPerfil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"

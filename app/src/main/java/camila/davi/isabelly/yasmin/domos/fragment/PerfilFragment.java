@@ -16,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
@@ -30,6 +31,7 @@ import camila.davi.isabelly.yasmin.domos.model.CriarAnuncioViewModel;
 import camila.davi.isabelly.yasmin.domos.model.HomeViewModel;
 import camila.davi.isabelly.yasmin.domos.model.PerfilViewModel;
 import camila.davi.isabelly.yasmin.domos.util.Config;
+import camila.davi.isabelly.yasmin.domos.util.ImageCache;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -100,6 +102,13 @@ public class PerfilFragment extends Fragment {
                     etEmailPerfil.setText(usuario.email);
                     etAptoPerfil.setText(usuario.num_moradia);
                     etDivisaoPerfil.setText(usuario.divisao);
+
+                    if (usuario.imagem != null) {
+                        HomeActivity homeActivity = (HomeActivity) getActivity();
+                        int h = (int) homeActivity.getResources().getDimension(R.dimen.img_height_anuncio);
+                        ImageView imgPerfil = view.findViewById(R.id.imgPerfil);
+                        ImageCache.loadImageUrlToImageView(homeActivity, usuario.imagem, imgPerfil, -1, h);
+                    }
 
                 }
             }

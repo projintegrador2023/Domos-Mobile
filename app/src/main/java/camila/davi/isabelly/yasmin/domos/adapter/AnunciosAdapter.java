@@ -17,6 +17,11 @@ import camila.davi.isabelly.yasmin.domos.util.ImageCache;
 
 public class AnunciosAdapter extends PagingDataAdapter<Anuncio, MyViewHolder> {
     HomeActivity homeActivity;
+
+    public AnunciosAdapter(@NonNull DiffUtil.ItemCallback<Anuncio> diffCallback) {
+        super(diffCallback);
+    }
+
     public AnunciosAdapter(HomeActivity homeActivity, @NonNull DiffUtil.ItemCallback<Anuncio> diffCallback) {
         super(diffCallback);
         this.homeActivity = homeActivity;
@@ -72,8 +77,11 @@ public class AnunciosAdapter extends PagingDataAdapter<Anuncio, MyViewHolder> {
         TextView tvNum = holder.itemView.findViewById(R.id.tvNum);
         tvNum.setText(anuncio.num);
 
-        int h = (int) homeActivity.getResources().getDimension(R.dimen.img_height_anuncio);
-        ImageView imvImagemAnuncio = holder.itemView.findViewById(R.id.imvImagemAnuncio);
-        ImageCache.loadImageUrlToImageView(homeActivity, anuncio.img, imvImagemAnuncio, -1, h);
+        if (anuncio.img != null) {
+            int h = (int) homeActivity.getResources().getDimension(R.dimen.img_height_anuncio);
+            ImageView imvImagemAnuncio = holder.itemView.findViewById(R.id.imvImagemAnuncio);
+            ImageCache.loadImageUrlToImageView(homeActivity, anuncio.img, imvImagemAnuncio, -1, h);
+        }
+
     }
 }

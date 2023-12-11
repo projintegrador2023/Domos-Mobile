@@ -115,7 +115,7 @@ public class AnunciosFragment extends Fragment {
         rvAnuncios.setHasFixedSize(true);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager((HomeActivity) getActivity());
         rvAnuncios.setLayoutManager(layoutManager);
-        AnunciosAdapter anunciosAdapter = new AnunciosAdapter(new AnunciosComparator());
+        AnunciosAdapter anunciosAdapter = new AnunciosAdapter((HomeActivity) getActivity(), new AnunciosComparator());
         rvAnuncios.setAdapter(anunciosAdapter);
 
         HomeViewModel homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
@@ -135,7 +135,7 @@ public class AnunciosFragment extends Fragment {
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 String tag = spFiltroAnuncios.getSelectedItem().toString();
                 LiveData<PagingData<Anuncio>> anunciosLD = homeViewModel.getAnunciosLd(tag);
-                AnunciosAdapter anunciosAdapter = new AnunciosAdapter(new AnunciosComparator());
+                AnunciosAdapter anunciosAdapter = new AnunciosAdapter((HomeActivity) getActivity(), new AnunciosComparator());
                 rvAnuncios.setAdapter(anunciosAdapter);
                 anunciosLD.observe((HomeActivity) getActivity(), new Observer<PagingData<Anuncio>>() {
                     @Override

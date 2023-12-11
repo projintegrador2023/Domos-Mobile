@@ -152,14 +152,6 @@ public class DomosRepository {
         return false;
     }
 
-    /**
-     * Método que cria uma requisição HTTP para cadastrar um novo produto junto ao servidor web.
-     * @param name nome do produto
-     * @param price preço do produto
-     * @param description descrição do produto
-     * @param imgLocation endereço do arquivo que contém a imagem do produto
-     * @return true se o produto foi cadastrado junto ao servidor, false caso contrário
-     */
     public boolean criarAnuncio(String titulo, String tag, String descricao, String imgLocation) {
 
         // Para cadastrar um produto, é preciso estar logado. Então primeiro otemos o login e senha
@@ -293,12 +285,6 @@ public class DomosRepository {
         return false;
     }
 
-    /**
-     * Método que cria uma requisição HTTP para obter uma página/bloco de produtos junto ao servidor web.
-     * @param limit a quantidade de produtos a serem obtidos
-     * @param offSet a posição a partir da qual a página de produtos deve começar
-     * @return lista de produtos
-     */
     public NumDivCondominio loadNumDiv(String codigo_condominio) {
 
         // Cria uma requisição HTTP a adiona o parâmetros que devem ser enviados ao servidor
@@ -677,10 +663,13 @@ public class DomosRepository {
                     int tag1 = jAnuncio.getInt("tag");
                     String num = jAnuncio.getString("num_moradia");
                     String divisao = jAnuncio.getString("divisao");
-                    //String endereco = jAnuncio.getString("endereco_imagem");
+                    String endereco = null;
+                    if (jAnuncio.getString("imagem") != "") {
+                        endereco = jAnuncio.getString("imagem");
+                    }
 
                     // Criamo um objeto do tipo Product para guardar esses dados
-                    Anuncio anuncio = new Anuncio(codigoPostagem, dataHoraPostagem, descricao, titulo, usuario, null, tag1, num, divisao);
+                    Anuncio anuncio = new Anuncio(codigoPostagem, dataHoraPostagem, descricao, titulo, usuario, endereco, tag1, num, divisao);
 
                     // Adicionamos o objeto product na lista de produtos
                     listaAnuncios.add(anuncio);
@@ -776,9 +765,12 @@ public class DomosRepository {
                     int tag1 = jAnuncio.getInt("tag");
                     String num = jAnuncio.getString("num_moradia");
                     String divisao = jAnuncio.getString("divisao");
-
+                    String endereco = null;
+                    if (jAnuncio.getString("imagem") != "") {
+                        endereco = jAnuncio.getString("imagem");
+                    }
                     // Criamo um objeto do tipo Product para guardar esses dados
-                    Anuncio anuncio = new Anuncio(codigoPostagem, dataHoraPostagem, descricao, titulo, usuario, null, tag1, num, divisao);
+                    Anuncio anuncio = new Anuncio(codigoPostagem, dataHoraPostagem, descricao, titulo, usuario, endereco, tag1, num, divisao);
 
                     // Adicionamos o objeto product na lista de produtos
                     listaAnuncios.add(anuncio);
@@ -864,9 +856,12 @@ public class DomosRepository {
                 String cpf = jsonObject.getString("cpf");
                 String num_moradia = jsonObject.getString("num_moradia");
                 String divisao = jsonObject.getString("divisao");
-                // img
+                String imagem = null;
+                if (jsonObject.getString("imagem") != "") {
+                    imagem = jsonObject.getString("imagem");
+                }
 
-                usuario = new Usuario(cpf, nome, email, num_moradia, divisao);
+                usuario = new Usuario(cpf, nome, email, num_moradia, divisao, imagem);
             }
         } catch (IOException e) {
             e.printStackTrace();

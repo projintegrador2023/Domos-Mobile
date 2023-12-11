@@ -612,7 +612,7 @@ public class DomosRepository {
                 JSONArray jsonArray = jsonObject.getJSONArray("avisos");
 
                 // Cada elemento do JSONArray é um JSONObject que guarda os dados de um produto
-                for(int i = 0; i < jsonArray.length(); i++) {
+                for(int i = jsonArray.length()-1; i >= 0; i--) {
 
                     // Obtemos o JSONObject referente a um produto
                     JSONObject jAviso = jsonArray.getJSONObject(i);
@@ -709,7 +709,7 @@ public class DomosRepository {
                 JSONArray jsonArray = jsonObject.getJSONArray("anuncios");
 
                 // Cada elemento do JSONArray é um JSONObject que guarda os dados de um produto
-                for(int i = 0; i < jsonArray.length(); i++) {
+                for(int i = jsonArray.length()-1; i >= 0; i--) {
 
                     // Obtemos o JSONObject referente a um produto
                     JSONObject jAnuncio = jsonArray.getJSONObject(i);
@@ -811,7 +811,7 @@ public class DomosRepository {
                 JSONArray jsonArray = jsonObject.getJSONArray("anuncios");
 
                 // Cada elemento do JSONArray é um JSONObject que guarda os dados de um produto
-                for(int i = 0; i < jsonArray.length(); i++) {
+                for(int i = jsonArray.length()-1; i >= 0; i--) {
 
                     // Obtemos o JSONObject referente a um produto
                     JSONObject jAnuncio = jsonArray.getJSONObject(i);
